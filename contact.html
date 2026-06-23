@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-black">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Contact | mello agency</title>
+<meta name="description" content="Tell us what you're building. Websites, AI receptionists, WhatsApp automation, custom CRMs and mobile apps — we usually reply within a day." />
+<link rel="icon" type="image/png" href="favicon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      fontFamily: { sans: ['Inter','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
+      colors: { ink: '#0a0a0a', paper: '#ffffff' },
+    } },
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; font-feature-settings: "ss01","cv01"; }
+  ::selection { background: #0a0a0a; color: #fff; }
+  .text-fluid-hero    { font-size: clamp(2.25rem, 8vw, 5rem);    line-height: 1.02; }
+  .text-fluid-section { font-size: clamp(1.875rem, 6vw, 3.75rem); line-height: 1.05; }
+  .watermark { font-size: clamp(4rem, 22vw, 18rem); }
+  .logo-mark { display:inline-block; width:28px; height:28px; background-color: currentColor;
+    -webkit-mask: url("logo-mark.png") center / contain no-repeat;
+    mask: url("logo-mark.png") center / contain no-repeat; }
+  @media (prefers-reduced-motion: reduce) { canvas { opacity: 0.55; } }
+
+  #site-header .logo-link { color: #ffffff; }
+  #site-header .nav-link  { color: rgba(255,255,255,0.85); }
+  #site-header .nav-link:hover { color: #ffffff; }
+  #site-header .menu-btn  { color: #ffffff; border-color: rgba(255,255,255,0.35); }
+  #site-header.scrolled .logo-link { color: #ffffff; }
+  #site-header.scrolled .nav-link  { color: rgba(255,255,255,0.85); }
+  #site-header.scrolled .nav-link:hover { color: #ffffff; }
+  #site-header.scrolled .menu-btn  { color: #ffffff; border-color: rgba(255,255,255,0.35); }
+  #site-header .nav-link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+
+  .field { width:100%; border-radius:0.85rem; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.04);
+    padding:0.8rem 1rem; color:#fff; font-weight:300; font-size:0.95rem; transition:border-color .2s, background .2s; }
+  .field::placeholder { color:rgba(255,255,255,0.35); }
+  .field:focus { outline:none; border-color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.07); }
+</style>
+</head>
+
+<body id="top" class="bg-transparent font-sans text-white antialiased">
+
+<canvas id="page-shader" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none;"></canvas>
+<div aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
+
+<!-- HEADER -->
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 md:px-10 lg:px-16">
+    <a href="index.html" class="logo-link group inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight" aria-label="mello agency home">
+      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0 transition-transform duration-300 group-hover:-rotate-6" aria-hidden="true" />
+      <span>mello<span class="font-light italic">agency</span></span>
+    </a>
+    <nav class="hidden items-center gap-9 lg:flex">
+      <a href="projects.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Projects</a>
+      <a href="about.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">About</a>
+      <a href="services.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Services</a>
+      <a href="contact.html" aria-current="page" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="#form" class="hidden items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.03] sm:inline-flex">Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+      <button id="menu-toggle" type="button" class="menu-btn inline-flex h-11 w-11 items-center justify-center rounded-full border lg:hidden" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="menu-icon h-5 w-5"></i>
+        <i data-lucide="x" class="close-icon hidden h-5 w-5"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="pointer-events-none fixed inset-x-0 top-16 z-40 -translate-y-2 border-b border-white/10 bg-black/95 backdrop-blur-md px-5 opacity-0 transition-all duration-300 sm:top-20 lg:hidden">
+    <nav class="flex flex-col py-4">
+      <a href="projects.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Projects</a>
+      <a href="about.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">About</a>
+      <a href="services.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Services</a>
+      <a href="contact.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Contact</a>
+      <a href="#form" class="mobile-link mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-white">Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- PAGE HERO -->
+<section class="px-5 pb-10 pt-32 sm:pt-40 md:px-10 lg:px-16">
+  <div class="mx-auto max-w-7xl">
+    <p class="font-mono text-xs uppercase tracking-[0.2em] text-white/45">Contact</p>
+    <h1 class="mt-5 max-w-3xl text-fluid-hero font-light tracking-tight text-white">Tell us what you're <span class="italic">building.</span></h1>
+    <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/70 sm:text-lg">
+      A website, an AI receptionist, WhatsApp automation, a custom CRM, a mobile app &mdash; or you're not sure yet and just want to talk it through. Either way, drop us a line. We usually reply within a day.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT BODY -->
+<section class="py-12 sm:py-16">
+  <div class="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-[1fr_1.1fr] md:px-10 lg:gap-20 lg:px-16">
+
+    <!-- left: details -->
+    <div>
+      <h2 class="text-2xl font-light tracking-tight text-white sm:text-3xl">Reach us directly</h2>
+      <a href="mailto:melloagnc@gmail.com" class="group mt-6 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:bg-white/[0.07]">
+        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white"><i data-lucide="mail" class="h-5 w-5"></i></span>
+        <span class="min-w-0">
+          <span class="block font-mono text-[11px] uppercase tracking-wider text-white/45">Email</span>
+          <span class="flex items-center gap-1.5 text-lg font-light tracking-tight text-white">melloagnc@gmail.com <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-transform duration-300 group-hover:translate-x-0.5"></i></span>
+        </span>
+      </a>
+
+      <h3 class="mt-12 text-sm font-semibold tracking-tight text-white">What happens next</h3>
+      <ol class="mt-5 space-y-5">
+        <li class="flex gap-4"><span class="font-mono text-sm text-white/40">01</span><p class="text-[15px] font-light leading-relaxed text-white/65">You send us a few lines about what you need. Rough is fine &mdash; even a one-liner.</p></li>
+        <li class="flex gap-4"><span class="font-mono text-sm text-white/40">02</span><p class="text-[15px] font-light leading-relaxed text-white/65">We reply within a day, usually with a couple of questions and a sense of how we'd approach it.</p></li>
+        <li class="flex gap-4"><span class="font-mono text-sm text-white/40">03</span><p class="text-[15px] font-light leading-relaxed text-white/65">If it's a fit, we scope it properly and get started. No pressure, no hard sell.</p></li>
+      </ol>
+
+      <h3 class="mt-12 text-sm font-semibold tracking-tight text-white">We can help with</h3>
+      <ul class="mt-5 flex flex-wrap gap-2">
+        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">Websites</li>
+        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">AI receptionists</li>
+        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">WhatsApp automation</li>
+        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">Custom CRMs &amp; software</li>
+        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">iOS &amp; Android apps</li>
+      </ul>
+      <a href="services.html" class="mt-6 inline-flex items-center gap-2 text-sm font-light text-white/60 transition-colors hover:text-white">See everything we do <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+    </div>
+
+    <!-- right: form -->
+    <div id="form" class="rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm sm:p-8">
+      <h2 class="text-2xl font-light tracking-tight text-white sm:text-3xl">Send a message</h2>
+      <p class="mt-2 text-sm font-light leading-relaxed text-white/55">Fill this in and it'll open your email ready to send &mdash; or just write to us directly.</p>
+      <form id="contact-form" class="mt-7 space-y-4">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="cf-name" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">Name</label>
+            <input id="cf-name" name="name" type="text" required placeholder="Your name" class="field" />
+          </div>
+          <div>
+            <label for="cf-email" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">Email</label>
+            <input id="cf-email" name="email" type="email" required placeholder="you@email.com" class="field" />
+          </div>
+        </div>
+        <div>
+          <label for="cf-topic" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">What's it about?</label>
+          <select id="cf-topic" name="topic" class="field">
+            <option>A website</option>
+            <option>An AI receptionist</option>
+            <option>WhatsApp automation</option>
+            <option>A custom CRM / software</option>
+            <option>A mobile app (iOS / Android)</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div>
+          <label for="cf-message" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required placeholder="A few lines about what you're working on…" class="field resize-y"></textarea>
+        </div>
+        <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-300 hover:scale-[1.01]">
+          Send message <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+        </button>
+        <p id="cf-note" class="text-center text-xs font-light text-white/40">This opens your email app with everything filled in.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div class="h-10 sm:h-16"></div>
+</main>
+
+<!-- Blend: aurora -> footer (black) -->
+<div aria-hidden="true" class="relative h-40 w-full bg-gradient-to-b from-transparent via-black/70 to-black sm:h-56"></div>
+
+<!-- FOOTER (with shader) -->
+<footer id="site-footer" class="relative overflow-hidden bg-black pt-20 text-white sm:pt-28">
+  <canvas id="footer-flow" class="pointer-events-none absolute inset-0 h-full w-full"></canvas>
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <a href="index.html" class="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-white">
+      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0" aria-hidden="true" />
+      <span>mello<span class="font-light italic">agency</span></span>
+    </a>
+    <div class="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Use cases</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI receptionists</a></li>
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp automation</a></li>
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Custom CRMs</a></li>
+          <li><a href="projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Websites</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Services</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Development</a></li>
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">App Development</a></li>
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">UI/UX Design</a></li>
+          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Automation &amp; AI</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Company</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
+          <li><a href="projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Our work</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Contact</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="mailto:melloagnc@gmail.com" class="text-sm font-light text-white/55 transition-colors hover:text-white">melloagnc@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div aria-hidden="true" class="pointer-events-none relative z-10 mt-16 select-none overflow-hidden">
+    <div class="watermark whitespace-nowrap text-center font-semibold leading-none tracking-tighter text-white/[0.06]">melloagency</div>
+  </div>
+  <div class="relative z-10 border-t border-white/10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-10 lg:px-16">
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        <a href="#" class="transition-colors hover:text-white">Terms &amp; conditions</a>
+        <a href="#" class="transition-colors hover:text-white">Privacy</a>
+        <a href="#" class="transition-colors hover:text-white">Cookies</a>
+      </div>
+      <p>© 2026 mello agency. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="shaders.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = (document.getElementById('cf-name').value || '').trim();
+      var email = (document.getElementById('cf-email').value || '').trim();
+      var topic = document.getElementById('cf-topic').value || '';
+      var message = (document.getElementById('cf-message').value || '').trim();
+      var subject = 'New enquiry — ' + topic + (name ? ' — ' + name : '');
+      var body = 'Name: ' + name + '\n' + 'Email: ' + email + '\n' + 'About: ' + topic + '\n\n' + message;
+      window.location.href = 'mailto:melloagnc@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  })();
+</script>
+</body>
+</html>
