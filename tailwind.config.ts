@@ -16,6 +16,15 @@ const config: Config = {
       colors: {
         ink: "#0a0a0a",
         paper: "#ffffff",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        border: "var(--border)",
+        card: "var(--card)",
+        "muted-foreground": "var(--muted-foreground)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
       },
     },
   },

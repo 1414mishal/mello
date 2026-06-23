@@ -5,10 +5,16 @@
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
+  /* shadcn tokens (consumed by /components/ui) */
+  --border: rgb(0 0 0 / 0.08);
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --card: #ffffff;
+  --muted-foreground: rgb(0 0 0 / 0.55);
 }
 
 * {
-  border-color: rgb(0 0 0 / 0.08);
+  border-color: var(--border);
 }
 
 html {

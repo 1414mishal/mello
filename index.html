@@ -38,7 +38,7 @@
   .text-fluid-section { font-size: clamp(1.875rem, 6vw, 3.75rem); line-height: 1.05; }
 
   /* Footer watermark */
-  .watermark { font-size: clamp(4rem, 22vw, 18rem); }
+  .watermark { font-size: clamp(3rem, 19.5vw, 18rem); }
   .logo-mark { display:inline-block; width:28px; height:28px; background-color: currentColor;
     -webkit-mask: url("logo-mark.png") center / contain no-repeat;
     mask: url("logo-mark.png") center / contain no-repeat; }
@@ -57,6 +57,11 @@
   @media (prefers-reduced-motion: reduce) {
     canvas { opacity: 0.55; }
   }
+
+  /* Testimonials: infinite vertical scroll columns */
+  @keyframes testi-scroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  .testi-track { animation: testi-scroll linear infinite; will-change: transform; }
+  @media (prefers-reduced-motion: reduce) { .testi-track { animation: none; } }
 </style>
 </head>
 
@@ -263,13 +268,21 @@
   </div>
 </section>
 
-<!-- ===================== REVIEWS (stagger) ===================== -->
+<!-- ===================== TESTIMONIALS (scrolling columns) ===================== -->
 <section class="relative py-20 sm:py-28 md:py-32">
   <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <h2 class="text-fluid-section font-light tracking-tight text-white">Our client <span class="italic">reviews</span></h2>
-    <p class="mt-4 max-w-xl text-base font-light leading-relaxed text-white/60">Real words from the people we've built for. Tap a card or use the arrows to move through them.</p>
+    <div class="mx-auto flex max-w-[540px] flex-col items-center justify-center text-center">
+      <div class="rounded-lg border border-white/15 px-4 py-1 text-sm tracking-tight text-white/70">Testimonials</div>
+      <h2 class="mt-5 text-fluid-section font-light tracking-tight text-white">What our clients <span class="italic">say</span></h2>
+      <p class="mt-5 text-base font-light leading-relaxed text-white/60">Real words from the people we've built for.</p>
+    </div>
+
+    <div class="mt-10 flex justify-center gap-6 max-h-[600px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]" aria-label="Client testimonials">
+      <div id="testi-col-1"></div>
+      <div id="testi-col-2" class="hidden md:block"></div>
+      <div id="testi-col-3" class="hidden lg:block"></div>
+    </div>
   </div>
-  <div id="stagger-testimonials" class="relative z-10 mt-6 w-full overflow-hidden" style="height:600px;" aria-label="Client testimonials"></div>
 </section>
 
 <!-- ===================== CTA (AURORA) ===================== -->
@@ -326,10 +339,6 @@
         <h3 class="text-sm font-semibold tracking-tight text-white">Resources</h3>
         <ul class="mt-5 space-y-3">
           <li><a href="contact.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Contact us</a></li>
-          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Partners</a></li>
-          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">News</a></li>
-          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Documentation</a></li>
-          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Status</a></li>
         </ul>
       </div>
       <div>
@@ -343,7 +352,7 @@
   </div>
 
   <div aria-hidden="true" class="pointer-events-none relative z-10 mt-16 select-none overflow-hidden">
-    <div class="watermark whitespace-nowrap text-center font-semibold leading-none tracking-tighter text-white/[0.06]">melloagency</div>
+    <div class="watermark whitespace-nowrap text-center font-semibold leading-none tracking-tighter text-white/[0.06]">melloagnc</div>
   </div>
 
   <div class="relative z-10 border-t border-white/10">
@@ -597,12 +606,13 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
 })();
 </script>
 
-<!-- ---------- Stagger testimonials ---------- -->
+<!-- ---------- Testimonials (scrolling columns) ---------- -->
 <script>
 (function () {
-  var container = document.getElementById('stagger-testimonials');
-  if (!container) return;
-  var SQRT_5000 = Math.sqrt(5000);
+  var col1 = document.getElementById('testi-col-1');
+  var col2 = document.getElementById('testi-col-2');
+  var col3 = document.getElementById('testi-col-3');
+  if (!col1) return;
 
   var data = [
     { q: "Really appreciate the effort and patience your team showed, especially with all the revisions. Professional throughout.", name: "Dr. Shravan Shetty", role: "Orthodontist", img: "images/favicons/drshravanshetty.png" },
@@ -614,92 +624,53 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
     { q: "We needed a team that could keep up with our pace and actually deliver. They did, no drama.", name: "Prasanna Technologies", role: "Software Firm", img: "images/favicons/prasannatechnologies.png" }
   ];
 
-  var list = data.map(function (d, i) { return Object.assign({ tempId: i }, d); });
-  var cardSize = 365;
+  var columns = [
+    { el: col1, items: data.slice(0, 3), duration: 15 },
+    { el: col2, items: data.slice(3, 5), duration: 19 },
+    { el: col3, items: data.slice(5, 7), duration: 17 }
+  ];
 
-  function el(tag, css, text) {
-    var n = document.createElement(tag);
-    if (css) n.style.cssText = css;
-    if (text != null) n.textContent = text;
-    return n;
+  function buildCard(t) {
+    var card = document.createElement('div');
+    card.className = 'w-full max-w-xs rounded-3xl border border-white/10 bg-white/[0.04] p-10 shadow-lg shadow-black/30 backdrop-blur-sm';
+
+    var quote = document.createElement('div');
+    quote.className = 'text-[15px] font-light leading-relaxed text-white/85';
+    quote.textContent = t.q;
+    card.appendChild(quote);
+
+    var foot = document.createElement('div');
+    foot.className = 'mt-5 flex items-center gap-2';
+    var img = document.createElement('img');
+    img.src = t.img; img.alt = t.name; img.width = 40; img.height = 40; img.loading = 'lazy';
+    img.className = 'h-10 w-10 rounded-full object-cover';
+    foot.appendChild(img);
+
+    var who = document.createElement('div');
+    who.className = 'flex flex-col';
+    var name = document.createElement('div');
+    name.className = 'font-medium leading-5 tracking-tight text-white';
+    name.textContent = t.name;
+    var role = document.createElement('div');
+    role.className = 'leading-5 tracking-tight text-white/60';
+    role.textContent = t.role;
+    who.appendChild(name); who.appendChild(role);
+    foot.appendChild(who);
+    card.appendChild(foot);
+    return card;
   }
-  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
 
-  function handleMove(steps) {
-    if (steps > 0) {
-      for (var i = steps; i > 0; i--) { var it = list.shift(); if (!it) return; it.tempId = Math.random(); list.push(it); }
-    } else {
-      for (var j = steps; j < 0; j++) { var it2 = list.pop(); if (!it2) return; it2.tempId = Math.random(); list.unshift(it2); }
+  columns.forEach(function (col) {
+    if (!col.el || !col.items.length) return;
+    var track = document.createElement('div');
+    track.className = 'testi-track flex flex-col gap-6 pb-6';
+    track.style.animationDuration = col.duration + 's';
+    // Two copies so the -50% loop is seamless.
+    for (var pass = 0; pass < 2; pass++) {
+      col.items.forEach(function (t) { track.appendChild(buildCard(t)); });
     }
-    render();
-  }
-
-  function render() {
-    clear(container);
-    var len = list.length;
-    list.forEach(function (t, index) {
-      var position = (len % 2) ? index - (len + 1) / 2 : index - len / 2;
-      var isCenter = position === 0;
-      var card = el('div', [
-        'position:absolute', 'left:50%', 'top:50%', 'cursor:pointer',
-        'border:2px solid ' + (isCenter ? '#ffffff' : 'rgba(255,255,255,0.12)'),
-        'padding:32px', 'transition:all .5s ease-in-out',
-        'width:' + cardSize + 'px', 'height:' + cardSize + 'px',
-        'z-index:' + (isCenter ? 10 : 0),
-        'background:' + (isCenter ? '#ffffff' : 'rgba(255,255,255,0.04)'),
-        'color:' + (isCenter ? '#0a0a0a' : 'rgba(255,255,255,0.92)'),
-        (isCenter ? '' : 'backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)'),
-        'clip-path:polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)',
-        'transform:translate(-50%,-50%) translateX(' + ((cardSize / 1.5) * position) + 'px) translateY(' + (isCenter ? -65 : (position % 2 ? 15 : -15)) + 'px) rotate(' + (isCenter ? 0 : (position % 2 ? 2.5 : -2.5)) + 'deg)',
-        'box-shadow:' + (isCenter ? '0px 8px 0px 4px rgba(255,255,255,0.16)' : '0px 0px 0px 0px transparent')
-      ].join(';'));
-      card.addEventListener('click', function () { handleMove(position); });
-
-      var lineColor = isCenter ? 'rgba(10,10,10,0.12)' : 'rgba(255,255,255,0.12)';
-      var chipBg = isCenter ? 'rgba(10,10,10,0.05)' : 'rgba(255,255,255,0.07)';
-      var chipShadow = isCenter ? '#e6e6e6' : 'rgba(0,0,0,0.35)';
-
-      card.appendChild(el('span', 'position:absolute;display:block;transform-origin:top right;transform:rotate(45deg);right:-2px;top:48px;width:' + SQRT_5000 + 'px;height:2px;background:' + lineColor + ';'));
-
-      var chip = el('div', 'display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;margin-bottom:18px;background:' + chipBg + ';box-shadow:3px 3px 0px ' + chipShadow + ';');
-      var img = el('img', 'width:32px;height:32px;object-fit:contain;border-radius:6px;');
-      img.src = t.img; img.alt = ''; img.loading = 'lazy';
-      chip.appendChild(img);
-      card.appendChild(chip);
-
-      card.appendChild(el('h3', 'font-size:1.05rem;line-height:1.4;font-weight:500;margin:0;color:' + (isCenter ? '#0a0a0a' : 'rgba(255,255,255,0.9)') + ';', '“' + t.q + '”'));
-
-      var attrib = el('div', 'position:absolute;bottom:32px;left:32px;right:32px;');
-      attrib.appendChild(el('div', 'font-weight:600;font-size:0.95rem;letter-spacing:-0.01em;color:' + (isCenter ? '#0a0a0a' : '#ffffff') + ';', t.name));
-      attrib.appendChild(el('div', 'font-size:0.8rem;font-style:italic;margin-top:2px;color:' + (isCenter ? 'rgba(10,10,10,0.6)' : 'rgba(255,255,255,0.5)') + ';', t.role));
-      card.appendChild(attrib);
-
-      container.appendChild(card);
-    });
-
-    var nav = el('div', 'position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:20;');
-    [[-1, 'chevron-left', 'Previous testimonial'], [1, 'chevron-right', 'Next testimonial']].forEach(function (n) {
-      var b = el('button', 'display:flex;height:48px;width:48px;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.18);color:#fff;transition:background .2s,color .2s;cursor:pointer;');
-      b.setAttribute('aria-label', n[2]);
-      var ic = document.createElement('i');
-      ic.setAttribute('data-lucide', n[1]);
-      b.appendChild(ic);
-      b.addEventListener('mouseenter', function () { b.style.background = '#ffffff'; b.style.color = '#0a0a0a'; });
-      b.addEventListener('mouseleave', function () { b.style.background = 'rgba(255,255,255,0.05)'; b.style.color = '#fff'; });
-      b.addEventListener('click', function () { handleMove(n[0]); });
-      nav.appendChild(b);
-    });
-    container.appendChild(nav);
-
-    if (window.lucide) window.lucide.createIcons();
-  }
-
-  function updateSize() {
-    cardSize = window.matchMedia('(min-width: 640px)').matches ? 365 : 290;
-    render();
-  }
-  updateSize();
-  window.addEventListener('resize', updateSize);
+    col.el.appendChild(track);
+  });
 })();
 </script>
 </body>
