@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-black">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>mello agency | creative engineering studio</title>
+<meta name="description" content="mello agency helps founders and teams build digital products people actually want to use. We design and build web apps, mobile apps, and the systems behind them." />
+<link rel="icon" type="image/png" href="favicon.png" />
+
+<!-- Tailwind (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: { ink: '#0a0a0a', paper: '#ffffff' },
+      },
+    },
+  };
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; font-feature-settings: "ss01", "cv01"; }
+  ::selection { background: #0a0a0a; color: #fff; }
+
+  /* Fluid type */
+  .text-fluid-hero    { font-size: clamp(2.25rem, 8vw, 5rem);    line-height: 1.02; }
+  .text-fluid-section { font-size: clamp(1.875rem, 6vw, 3.75rem); line-height: 1.05; }
+
+  /* Footer watermark */
+  .watermark { font-size: clamp(4rem, 22vw, 18rem); }
+  .logo-mark { display:inline-block; width:28px; height:28px; background-color: currentColor;
+    -webkit-mask: url("logo-mark.png") center / contain no-repeat;
+    mask: url("logo-mark.png") center / contain no-repeat; }
+
+  /* Header adapts to what's behind it: light over the dark hero, dark once scrolled onto white */
+  #site-header .logo-link { color: #ffffff; }
+  #site-header .nav-link  { color: rgba(255, 255, 255, 0.85); }
+  #site-header .nav-link:hover { color: #ffffff; }
+  #site-header .menu-btn  { color: #ffffff; border-color: rgba(255, 255, 255, 0.35); }
+
+  #site-header.scrolled .logo-link { color: #ffffff; }
+  #site-header.scrolled .nav-link  { color: rgba(255, 255, 255, 0.85); }
+  #site-header.scrolled .nav-link:hover { color: #ffffff; }
+  #site-header.scrolled .menu-btn  { color: #ffffff; border-color: rgba(255, 255, 255, 0.35); }
+
+  @media (prefers-reduced-motion: reduce) {
+    canvas { opacity: 0.55; }
+  }
+</style>
+</head>
+
+<body id="top" class="bg-transparent font-sans text-white antialiased">
+
+<!-- ===================== PAGE-WIDE AURORA SHADER (one continuous motion) ===================== -->
+<canvas id="page-shader" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none;"></canvas>
+<div aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 md:px-10 lg:px-16">
+    <a href="#top" class="logo-link group inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight" aria-label="mello agency home">
+      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0 transition-transform duration-300 group-hover:-rotate-6" aria-hidden="true" />
+      <span>mello<span class="font-light italic">agency</span></span>
+    </a>
+
+    <nav class="hidden items-center gap-9 lg:flex">
+      <a href="projects.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Projects</a>
+      <a href="about.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">About</a>
+      <a href="services.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Services</a>
+      <a href="blog.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Blog</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#contact" class="hidden items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.03] sm:inline-flex">
+        Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+      </a>
+      <button id="menu-toggle" type="button" class="menu-btn inline-flex h-11 w-11 items-center justify-center rounded-full border lg:hidden" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="menu-icon h-5 w-5"></i>
+        <i data-lucide="x" class="close-icon hidden h-5 w-5"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="pointer-events-none fixed inset-x-0 top-16 z-40 -translate-y-2 border-b border-white/10 bg-black/95 px-5 opacity-0 backdrop-blur-md transition-all duration-300 sm:top-20 lg:hidden">
+    <nav class="flex flex-col py-4">
+      <a href="projects.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Projects</a>
+      <a href="about.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">About</a>
+      <a href="services.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Services</a>
+      <a href="blog.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Blog</a>
+      <a href="#contact" class="mobile-link mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-white">
+        Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="relative h-[100svh] min-h-[600px] w-full overflow-hidden bg-black">
+  <div id="hero-shader" class="absolute inset-0 h-full w-full"></div>
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/70"></div>
+
+  <div class="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-16 sm:pb-20 md:px-10 md:pb-24 lg:px-16">
+    <h1 class="max-w-4xl text-fluid-hero font-light tracking-tight text-white">
+      We build fast, sharp software that holds up when it actually <span class="italic">matters.</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
+      We work with founders and teams to design, build, and grow digital products, from that first rough prototype all the way to launch.
+    </p>
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-300 hover:scale-[1.03]">
+        Start a project <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+      </a>
+      <a href="#projects" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View our work</a>
+    </div>
+  </div>
+</section>
+
+<!-- Blend: hero (black) -> aurora -->
+<div aria-hidden="true" class="relative h-40 w-full bg-gradient-to-b from-black via-black/70 to-transparent sm:h-56"></div>
+
+<!-- ===================== STATS ===================== -->
+<section id="about" class="relative py-20 sm:py-28 md:py-32">
+  <div class="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:px-10 lg:gap-16 lg:px-16">
+    <div>
+      <h2 class="text-fluid-section font-light tracking-tight text-white">A team of builders &amp; <span class="italic">innovators</span></h2>
+      <p class="mt-6 max-w-md text-base font-light leading-relaxed text-white/70">
+        Whether you're a brand new startup or a company that's been around for years, we help turn messy, complicated problems into things that just work.
+      </p>
+    </div>
+    <dl class="grid grid-cols-2 gap-x-8 gap-y-12 self-center">
+      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">1:1</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Senior team, no juniors</dd></div>
+      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">&lt;24h</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Average reply time</dd></div>
+      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">100%</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Custom build, no templates</dd></div>
+      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">A&rarr;Z</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Idea to launch, in-house</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== WHY PARTNER ===================== -->
+<section class="relative py-20 sm:py-28 md:py-32">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <h2 class="text-fluid-section font-light tracking-tight text-white">Why partner <span class="italic">with us</span></h2>
+    <div class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="boxes" class="h-6 w-6"></i></div>
+        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">Built For You</h3>
+        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">We build software around your business, not the other way around. No templates, no shortcuts.</p>
+      </div>
+      <div>
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="headset" class="h-6 w-6"></i></div>
+        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">We Stick Around</h3>
+        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">We don't disappear after launch. We keep things running and help out when you need us.</p>
+      </div>
+      <div>
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="cpu" class="h-6 w-6"></i></div>
+        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">Right Tools</h3>
+        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">We pick tech that fits the job and keeps you fast, not whatever's trendy this week.</p>
+      </div>
+      <div>
+        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="users" class="h-6 w-6"></i></div>
+        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">Senior People</h3>
+        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">You work directly with experienced people who care about getting the details right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="relative py-20 sm:py-28 md:py-32">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <h2 class="text-fluid-section font-light tracking-tight text-white">Our <span class="italic">services</span></h2>
+    <div class="mt-12 divide-y divide-white/10 border-y border-white/10">
+      <a href="#contact" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
+        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#01</span>
+        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">Web App Development <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">Fast, dependable web apps built on a clean foundation that won't fall apart as you grow.</p>
+      </a>
+      <a href="#contact" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
+        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#02</span>
+        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">Mobile App Development <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">iOS and Android apps that feel quick and natural, the kind people actually keep using.</p>
+      </a>
+      <a href="#contact" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
+        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#03</span>
+        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">API &amp; Backend Solutions <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">Secure, steady backends and APIs that handle real traffic and grow with your product.</p>
+      </a>
+      <a href="#contact" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
+        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#04</span>
+        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">Maintenance &amp; Growth <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">Ongoing fixes, tuning, and small improvements that keep things sharp over time.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="relative py-20 sm:py-28 md:py-32">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+      <h2 class="text-fluid-section font-light tracking-tight text-white">mello <span class="italic">projects</span></h2>
+      <a href="#" class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Explore all projects <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+    </div>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      <a href="#" class="group block">
+        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop" alt="Finance Management System" loading="lazy" class="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 flex items-start justify-between p-5">
+            <span class="rounded-full bg-white/50 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/80 backdrop-blur-sm">Web App</span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-white/70">Nov 2025</span>
+          </div>
+        </div>
+        <h3 class="mt-4 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Finance Management System <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+      </a>
+      <a href="#" class="group block">
+        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop" alt="Atlas Commerce Platform" loading="lazy" class="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 flex items-start justify-between p-5">
+            <span class="rounded-full bg-white/50 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/80 backdrop-blur-sm">Web App</span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-white/70">Jun 2025</span>
+          </div>
+        </div>
+        <h3 class="mt-4 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Atlas Commerce Platform <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+      </a>
+      <a href="#" class="group block">
+        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80&auto=format&fit=crop" alt="Nimbus Mobile Banking" loading="lazy" class="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 flex items-start justify-between p-5">
+            <span class="rounded-full bg-white/50 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/80 backdrop-blur-sm">Mobile</span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-white/70">Mar 2025</span>
+          </div>
+        </div>
+        <h3 class="mt-4 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Nimbus Mobile Banking <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+      </a>
+      <a href="#" class="group block">
+        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&auto=format&fit=crop" alt="Pulse Analytics Dashboard" loading="lazy" class="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 flex items-start justify-between p-5">
+            <span class="rounded-full bg-white/50 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/80 backdrop-blur-sm">Product</span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-white/70">Jan 2025</span>
+          </div>
+        </div>
+        <h3 class="mt-4 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Pulse Analytics Dashboard <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section class="relative py-20 sm:py-28 md:py-32">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <h2 class="text-fluid-section font-light tracking-tight text-white">Our client <span class="italic">reviews</span></h2>
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;Really appreciate the effort and patience your team showed, especially with all the revisions. The support and professionalism were solid throughout.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Dr. Shravan Shetty</div><div class="mt-0.5 text-sm font-light text-white/55">Orthodontist</div></figcaption>
+      </figure>
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;Thank you for your meticulous work. Nice having you do the job.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Dr. Shannon Fernandes</div><div class="mt-0.5 text-sm font-light text-white/55">Gynaecologist</div></figcaption>
+      </figure>
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;They understood what we needed without a lot of back and forth. The site turned out clean, professional, and our patients actually find it easy to use now.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Dr. Dheeraj</div><div class="mt-0.5 text-sm font-light text-white/55">Founder, Rivelin Aligners</div></figcaption>
+      </figure>
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;Got exactly what I asked for, no unnecessary complications. They were easy to work with and delivered on time.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Dr. Joylene Almeida</div><div class="mt-0.5 text-sm font-light text-white/55">Gynaecologist</div></figcaption>
+      </figure>
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;Quick, reliable, and they didn&rsquo;t make me chase them for updates. The final result looked better than I expected.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Dr. Mariam Anjum Iftikhar</div><div class="mt-0.5 text-sm font-light text-white/55">Doctor</div></figcaption>
+      </figure>
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;Clean work, fast turnaround. They kept things simple and the end result speaks for itself.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Dr. Vivian</div><div class="mt-0.5 text-sm font-light text-white/55">Orthodontist</div></figcaption>
+      </figure>
+      <figure class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_40px_rgba(100,150,255,0.08)]">
+        <div class="flex gap-0.5 text-blue-400">
+          <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[15px] font-light leading-relaxed text-white/70">&ldquo;We needed a team that could keep up with our pace and actually deliver. They did, no drama.&rdquo;</blockquote>
+        <figcaption class="mt-6 border-t border-white/10 pt-5"><div class="font-medium tracking-tight text-white">Prasanna Technologies</div><div class="mt-0.5 text-sm font-light text-white/55">Software Firm</div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOG ===================== -->
+<section id="blog" class="relative py-20 sm:py-28 md:py-32">
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <h2 class="text-fluid-section font-light tracking-tight text-white">mello <span class="italic">blog</span></h2>
+    <div class="mt-14 grid gap-8 md:grid-cols-2">
+      <a href="#" class="group block">
+        <div class="relative aspect-[16/9] overflow-hidden rounded-2xl bg-neutral-900">
+          <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=1200&q=80&auto=format&fit=crop" alt="The Future of Web UX" loading="lazy" class="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105" />
+        </div>
+        <div class="mt-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-white/45"><span>App Design</span><span class="h-1 w-1 rounded-full bg-white/30"></span><span>Oct 2025</span></div>
+        <h3 class="mt-3 flex items-start gap-2 text-xl font-normal leading-snug tracking-tight text-white sm:text-2xl">The Future of Web UX: Trends That Will Shape 2027 <i data-lucide="arrow-up-right" class="mt-1 h-5 w-5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+      </a>
+      <a href="#" class="group block">
+        <div class="relative aspect-[16/9] overflow-hidden rounded-2xl bg-neutral-900">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80&auto=format&fit=crop" alt="Shipping Faster" loading="lazy" class="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105" />
+        </div>
+        <div class="mt-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-white/45"><span>Engineering</span><span class="h-1 w-1 rounded-full bg-white/30"></span><span>Nov 2025</span></div>
+        <h3 class="mt-3 flex items-start gap-2 text-xl font-normal leading-snug tracking-tight text-white sm:text-2xl">Shipping Faster Without Breaking Things <i data-lucide="arrow-up-right" class="mt-1 h-5 w-5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA (AURORA) ===================== -->
+<section id="contact" class="relative w-full overflow-hidden">
+  <div class="relative z-10 mx-auto flex min-h-[88svh] max-w-7xl flex-col items-start justify-center gap-6 px-5 py-32 sm:gap-8 md:px-10 lg:px-16">
+    <h2 class="max-w-2xl text-fluid-hero font-extralight tracking-tight text-white">Ready to build your next <span class="italic">big idea?</span></h2>
+    <p class="max-w-xl text-base font-light leading-relaxed tracking-tight text-white/70 sm:text-lg">
+      Tell us a bit about what you're working on. We'll help you figure it out, build it, and get it out into the world. We usually reply within a day.
+    </p>
+    <div class="flex flex-wrap items-center gap-3 pt-2">
+      <a href="mailto:melloagnc@gmail.com" class="rounded-2xl border border-white/10 bg-white/10 px-5 py-3 text-sm font-light tracking-tight text-white backdrop-blur-sm transition-colors duration-300 hover:bg-white/10">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- Blend: aurora -> footer (black) -->
+<div aria-hidden="true" class="relative h-40 w-full bg-gradient-to-b from-transparent via-black/70 to-black sm:h-56"></div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="site-footer" class="relative overflow-hidden bg-black pt-20 text-white sm:pt-28">
+  <canvas id="footer-flow" class="pointer-events-none absolute inset-0 h-full w-full"></canvas>
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
+    <a href="index.html" class="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-white">
+      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0" aria-hidden="true" />
+      <span>mello<span class="font-light italic">agency</span></span>
+    </a>
+
+    <div class="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Use cases</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Product Development</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Collaborate With Team</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">SaaS Dashboards</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Applications</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI-Powered Solutions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Services</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Software Development</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Development</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">App Development</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">UI/UX Design</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Product Strategy</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI / Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Resources</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="blog.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Read our blog</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Partners</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">News</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Documentation</a></li>
+          <li><a href="#" class="text-sm font-light text-white/55 transition-colors hover:text-white">Status</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold tracking-tight text-white">Contact</h3>
+        <ul class="mt-5 space-y-3">
+          <li><a href="about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
+          <li><a href="mailto:melloagnc@gmail.com" class="text-sm font-light text-white/55 transition-colors hover:text-white">melloagnc@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div aria-hidden="true" class="pointer-events-none relative z-10 mt-16 select-none overflow-hidden">
+    <div class="watermark whitespace-nowrap text-center font-semibold leading-none tracking-tighter text-white/[0.06]">melloagency</div>
+  </div>
+
+  <div class="relative z-10 border-t border-white/10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-10 lg:px-16">
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        <a href="#" class="transition-colors hover:text-white">Terms &amp; conditions</a>
+        <a href="#" class="transition-colors hover:text-white">Privacy</a>
+        <a href="#" class="transition-colors hover:text-white">Cookies</a>
+      </div>
+      <p>© 2026 mello agency. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+/* ---------- Icons ---------- */
+if (window.lucide) lucide.createIcons();
+
+/* ---------- Sticky header bg on scroll ---------- */
+(function () {
+  var header = document.getElementById('site-header');
+  function onScroll() {
+    if (window.scrollY > 16) {
+      header.classList.add('scrolled', 'border-b', 'border-white/10', 'bg-black/80', 'backdrop-blur-md');
+    } else {
+      header.classList.remove('scrolled', 'border-b', 'border-white/10', 'bg-black/80', 'backdrop-blur-md');
+    }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+/* ---------- Mobile menu ---------- */
+(function () {
+  var btn = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  var menuIcon = btn.querySelector('.menu-icon');
+  var closeIcon = btn.querySelector('.close-icon');
+  var open = false;
+  function setOpen(v) {
+    open = v;
+    btn.setAttribute('aria-expanded', String(v));
+    btn.setAttribute('aria-label', v ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (menuIcon) menuIcon.classList.toggle('hidden', v);
+    if (closeIcon) closeIcon.classList.toggle('hidden', !v);
+    if (v) {
+      menu.classList.remove('pointer-events-none', '-translate-y-2', 'opacity-0');
+      menu.classList.add('translate-y-0', 'opacity-100');
+    } else {
+      menu.classList.add('pointer-events-none', '-translate-y-2', 'opacity-0');
+      menu.classList.remove('translate-y-0', 'opacity-100');
+    }
+  }
+  btn.addEventListener('click', function () { setOpen(!open); });
+  document.querySelectorAll('.mobile-link').forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+})();
+
+/* ---------- Mobile detection (for shader perf caps) ---------- */
+var IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
+var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
+
+/* ---------- HERO: liquid-metal shader (three.js) ---------- */
+(function () {
+  if (!window.THREE) return;
+  var container = document.getElementById('hero-shader');
+  if (!container) return;
+
+  var vertexShader = 'void main(){ gl_Position = vec4( position, 1.0 ); }';
+  var fragmentShader = [
+    '#define TWO_PI 6.2831853072',
+    '#define PI 3.14159265359',
+    'precision highp float;',
+    'uniform vec2 resolution;',
+    'uniform float time;',
+    'void main(void){',
+    '  vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);',
+    '  float t = time*0.05;',
+    '  float lineWidth = 0.002;',
+    '  vec3 color = vec3(0.0);',
+    '  for(int j = 0; j < 3; j++){',
+    '    for(int i=0; i < 5; i++){',
+    '      color[j] += lineWidth*float(i*i) / abs(fract(t - 0.01*float(j)+float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));',
+    '    }',
+    '  }',
+    '  gl_FragColor = vec4(color[0],color[1],color[2],1.0);',
+    '}'
+  ].join('\n');
+
+  var camera = new THREE.Camera();
+  camera.position.z = 1;
+  var scene = new THREE.Scene();
+  var geometry = new THREE.PlaneGeometry(2, 2);
+  var uniforms = { time: { value: 1.0 }, resolution: { value: new THREE.Vector2() } };
+  var material = new THREE.ShaderMaterial({ uniforms: uniforms, vertexShader: vertexShader, fragmentShader: fragmentShader });
+  scene.add(new THREE.Mesh(geometry, material));
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(DPR_CAP);
+  container.appendChild(renderer.domElement);
+
+  function resize() {
+    var w = container.clientWidth, h = container.clientHeight;
+    renderer.setSize(w, h);
+    uniforms.resolution.value.x = renderer.domElement.width;
+    uniforms.resolution.value.y = renderer.domElement.height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  (function animate() {
+    requestAnimationFrame(animate);
+    uniforms.time.value += 0.05;
+    renderer.render(scene, camera);
+  })();
+})();
+
+/* ---------- FOOTER: flow-field particles (Canvas 2D) ---------- */
+(function () {
+  var canvas = document.getElementById('footer-flow');
+  var container = document.getElementById('site-footer');
+  if (!canvas || !container) return;
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  var color = '#818cf8', trailOpacity = 0.1, speed = 0.8;
+  var particleCount = IS_MOBILE ? 300 : 600;
+  var width = container.clientWidth, height = container.clientHeight;
+  var particles = [], mouse = { x: -1000, y: -1000 }, raf;
+
+  function Particle() { this.reset(); }
+  Particle.prototype.reset = function () {
+    this.x = Math.random() * width; this.y = Math.random() * height;
+    this.vx = 0; this.vy = 0; this.age = 0; this.life = Math.random() * 200 + 100;
+  };
+  Particle.prototype.update = function () {
+    var angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
+    this.vx += Math.cos(angle) * 0.2 * speed;
+    this.vy += Math.sin(angle) * 0.2 * speed;
+    var dx = mouse.x - this.x, dy = mouse.y - this.y;
+    var dist = Math.sqrt(dx * dx + dy * dy), r = 150;
+    if (dist < r) { var f = (r - dist) / r; this.vx -= dx * f * 0.05; this.vy -= dy * f * 0.05; }
+    this.x += this.vx; this.y += this.vy; this.vx *= 0.95; this.vy *= 0.95;
+    this.age++; if (this.age > this.life) this.reset();
+    if (this.x < 0) this.x = width; if (this.x > width) this.x = 0;
+    if (this.y < 0) this.y = height; if (this.y > height) this.y = 0;
+  };
+  Particle.prototype.draw = function () {
+    ctx.fillStyle = color;
+    ctx.globalAlpha = 1 - Math.abs((this.age / this.life) - 0.5) * 2;
+    ctx.fillRect(this.x, this.y, 1.5, 1.5);
+  };
+  function init() {
+    var dpr = DPR_CAP;
+    canvas.width = width * dpr; canvas.height = height * dpr;
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.scale(dpr, dpr);
+    canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
+    particles = []; for (var i = 0; i < particleCount; i++) particles.push(new Particle());
+  }
+  function animate() {
+    ctx.fillStyle = 'rgba(0,0,0,' + trailOpacity + ')';
+    ctx.fillRect(0, 0, width, height);
+    for (var i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); }
+    raf = requestAnimationFrame(animate);
+  }
+  window.addEventListener('resize', function () { width = container.clientWidth; height = container.clientHeight; init(); });
+  container.addEventListener('mousemove', function (e) { var rc = canvas.getBoundingClientRect(); mouse.x = e.clientX - rc.left; mouse.y = e.clientY - rc.top; });
+  container.addEventListener('mouseleave', function () { mouse.x = -1000; mouse.y = -1000; });
+  init(); animate();
+})();
+
+/* ---------- PAGE-WIDE AURORA: one continuous motion behind all middle sections ---------- */
+/* Same aurora shader used by the CTA, recolored blue/black/white to match the theme.    */
+/* Rendered to a single fixed full-viewport canvas so it reads as one clean motion.       */
+(function () {
+  var canvas = document.getElementById('page-shader');
+  if (!canvas) return;
+  var gl = canvas.getContext('webgl');
+  if (!gl) return;
+
+  var flowSpeed = 0.4, colorIntensity = 0.7, noiseLayers = 4.0, mouseInfluence = 0.3;
+  var mousePos = { x: 0.5, y: 0.5 };
+
+  var vsrc = 'attribute vec2 aPosition; void main(){ gl_Position = vec4(aPosition,0.0,1.0); }';
+  var fsrc = [
+    'precision highp float;',
+    'uniform vec2 iResolution; uniform float iTime; uniform vec2 iMouse;',
+    'uniform float uFlowSpeed; uniform float uColorIntensity; uniform float uNoiseLayers; uniform float uMouseInfluence;',
+    '#define MARCH_STEPS 32',
+    'float hash(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p,p+45.32); return fract(p.x*p.y); }',
+    'float fbm(vec3 p){ float f=0.0; float amp=0.5; for(int i=0;i<8;i++){ if(float(i)>=uNoiseLayers) break; f+=amp*hash(p.xy); p*=2.0; amp*=0.5; } return f; }',
+    'float map(vec3 p){ vec3 q=p; q.z+=iTime*uFlowSpeed; vec2 m=(iMouse.xy/iResolution.xy-0.5)*2.0; q.xy+=m*uMouseInfluence; float f=fbm(q*2.0); f*=sin(p.y*2.0+iTime)*0.5+0.5; return clamp(f,0.0,1.0); }',
+    'void main(){',
+    '  vec2 uv=(gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;',
+    '  vec3 ro=vec3(0,-1,0); vec3 rd=normalize(vec3(uv,1.0));',
+    '  vec3 col=vec3(0); float t=0.0;',
+    '  for(int i=0;i<MARCH_STEPS;i++){',
+    '    vec3 p=ro+rd*t; float d=map(p);',
+    '    if(d>0.0){',
+    '      float m=0.5+0.5*sin(iTime*0.4+p.y*2.0);',
+    '      vec3 c=mix(vec3(0.03,0.09,0.26), vec3(0.22,0.34,0.62), m);',
+    '      col+=c*d*0.08*uColorIntensity;',
+    '    }',
+    '    t+=0.1;',
+    '  }',
+    '  col=min(col,vec3(0.32,0.40,0.62));',
+    '  gl_FragColor=vec4(col,1.0);',
+    '}'
+  ].join('\n');
+
+  function compile(src, type) {
+    var sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh);
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) { console.error(gl.getShaderInfoLog(sh)); return null; }
+    return sh;
+  }
+  var vs = compile(vsrc, gl.VERTEX_SHADER), fs = compile(fsrc, gl.FRAGMENT_SHADER);
+  if (!vs || !fs) return;
+  var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.error(gl.getProgramInfoLog(prog)); return; }
+  gl.useProgram(prog);
+
+  var verts = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+  var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+  var aPos = gl.getAttribLocation(prog, 'aPosition'); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  var uRes = gl.getUniformLocation(prog, 'iResolution'), uTime = gl.getUniformLocation(prog, 'iTime'), uMouse = gl.getUniformLocation(prog, 'iMouse');
+  var uFlow = gl.getUniformLocation(prog, 'uFlowSpeed'), uCol = gl.getUniformLocation(prog, 'uColorIntensity'), uNoise = gl.getUniformLocation(prog, 'uNoiseLayers'), uMI = gl.getUniformLocation(prog, 'uMouseInfluence');
+
+  var start = performance.now();
+  window.addEventListener('mousemove', function (e) {
+    mousePos = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight };
+  });
+  function resize() {
+    canvas.width = Math.floor(window.innerWidth * DPR_CAP);
+    canvas.height = Math.floor(window.innerHeight * DPR_CAP);
+    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+    gl.uniform2f(uRes, gl.canvas.width, gl.canvas.height);
+  }
+  window.addEventListener('resize', resize); resize();
+  (function loop() {
+    if (!gl || gl.isContextLost()) return;
+    gl.uniform1f(uTime, (performance.now() - start) / 1000.0);
+    gl.uniform2f(uMouse, mousePos.x * canvas.width, (1.0 - mousePos.y) * canvas.height);
+    gl.uniform1f(uFlow, flowSpeed); gl.uniform1f(uCol, colorIntensity); gl.uniform1f(uNoise, noiseLayers); gl.uniform1f(uMI, mouseInfluence);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
