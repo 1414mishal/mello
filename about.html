@@ -103,6 +103,17 @@
     mask: url("logo-mark.png") center / contain no-repeat; }
   @media (prefers-reduced-motion: reduce) { canvas { opacity: 0.55; } }
 
+  /* Scroll-driven video reveal */
+  .video-section { position: relative; height: 250vh; }
+  .video-sticky  { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .video-frame   { position: relative; overflow: hidden; border-radius: 1.5rem; transition: border-radius 0.1s linear; width: 85%; max-width: 1100px; aspect-ratio: 16/9; }
+  .video-frame video { width: 100%; height: 100%; object-fit: cover; }
+  .video-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; z-index: 2; }
+  .video-overlay::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,var(--bg-opacity, 0.45)); z-index: -1; transition: background 0.1s; }
+  @media (max-width: 640px) {
+    .video-frame { width: 92%; aspect-ratio: 9/16; max-width: none; }
+  }
+
   #site-header .logo-link { color: #ffffff; }
   #site-header .nav-link  { color: rgba(255,255,255,0.85); }
   #site-header .nav-link:hover { color: #ffffff; }
@@ -161,6 +172,19 @@
     <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/70 sm:text-lg">
       We're a senior crew of designers and engineers. No layers, no middlemen. You talk to the people actually doing the work, start to finish.
     </p>
+  </div>
+</section>
+
+<!-- SCROLL VIDEO -->
+<section class="video-section" id="video-section">
+  <div class="video-sticky">
+    <div class="video-frame" id="video-frame">
+      <video src="showreel.mp4" muted loop playsinline preload="auto" id="scroll-video"></video>
+      <div class="video-overlay" id="video-overlay">
+        <p class="font-mono text-xs uppercase tracking-[0.25em] text-white/50">What we do</p>
+        <h2 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-5xl lg:text-6xl">We build things that <span class="italic">matter.</span></h2>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -328,5 +352,55 @@
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="shaders.js"></script>
+
+<!-- Scroll-driven video reveal -->
+<script>
+(function () {
+  var section = document.getElementById('video-section');
+  var frame = document.getElementById('video-frame');
+  var overlay = document.getElementById('video-overlay');
+  var video = document.getElementById('scroll-video');
+  if (!section || !frame || !overlay || !video) return;
+
+  var started = false;
+  function onScroll() {
+    var rect = section.getBoundingClientRect();
+    var sectionH = section.offsetHeight - window.innerHeight;
+    var scrolled = -rect.top;
+    var progress = Math.max(0, Math.min(1, scrolled / sectionH));
+
+    // Phase 1 (0-0.5): scale from card to full bleed
+    var scale = 0.85 + progress * 0.35; // 85% -> 120% (overshoot clipped)
+    var radius = Math.max(0, 24 * (1 - progress * 2.5)); // 24px -> 0
+    var width = Math.min(100, 85 + progress * 30); // 85% -> 100%+
+
+    frame.style.width = width + '%';
+    frame.style.maxWidth = progress > 0.4 ? 'none' : '1100px';
+    frame.style.borderRadius = radius + 'px';
+
+    // Phase 2 (0.3-0.8): fade out overlay text
+    var textOpacity = Math.max(0, 1 - (progress - 0.15) * 3);
+    overlay.style.opacity = textOpacity;
+
+    // Darken overlay less as we expand
+    var bgOpacity = 0.45 * textOpacity;
+    overlay.querySelector('::before') // can't target pseudo, use style var
+    overlay.style.setProperty('--bg-opacity', bgOpacity);
+
+    // Start video when in view
+    if (progress > 0.01 && !started) {
+      video.play().catch(function () {});
+      started = true;
+    }
+    if (progress <= 0 && started) {
+      video.pause();
+      started = false;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
