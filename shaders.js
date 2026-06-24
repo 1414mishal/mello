@@ -1,4 +1,4 @@
-/* Shared behavior + shaders for mello agency subpages.
+/* Shared behavior + shaders for summit studios subpages.
    Home (index.html) keeps its own inline scripts (plus the three.js hero). */
 
 /* ---------- Icons ---------- */
