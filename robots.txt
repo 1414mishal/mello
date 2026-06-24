@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://summitxstudios.com/sitemap.xml
+Sitemap: https://www.summitxstudios.com/sitemap.xml
