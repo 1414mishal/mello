@@ -103,11 +103,6 @@
     mask: url("logo-mark.png") center / contain no-repeat; }
   @media (prefers-reduced-motion: reduce) { canvas { opacity: 0.55; } }
 
-  /* About hero video */
-  .hero-video-wrap { position: relative; height: 90svh; min-height: 520px; overflow: hidden; }
-  .hero-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .hero-video-wrap .hero-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.85) 100%); }
-
   #site-header .logo-link { color: #ffffff; }
   #site-header .nav-link  { color: rgba(255,255,255,0.85); }
   #site-header .nav-link:hover { color: #ffffff; }
@@ -158,18 +153,14 @@
 </header>
 
 <main>
-<!-- PAGE HERO (video) -->
-<section class="hero-video-wrap">
-  <video src="showreel.mp4" muted loop autoplay playsinline preload="auto" id="hero-video"></video>
-  <div class="hero-grad"></div>
-  <div class="absolute inset-0 z-10 flex items-end">
-    <div class="mx-auto w-full max-w-7xl px-5 pb-16 sm:pb-20 md:px-10 lg:px-16">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-white/60">About us</p>
-      <h1 class="mt-5 max-w-3xl text-fluid-hero font-light tracking-tight text-white">A small team that <span class="italic">cares.</span></h1>
-      <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/80 sm:text-lg">
-        We're a senior crew of designers and engineers. No layers, no middlemen. You talk to the people actually doing the work, start to finish.
-      </p>
-    </div>
+<!-- PAGE HERO -->
+<section class="px-5 pb-16 pt-32 sm:pb-20 sm:pt-40 md:px-10 lg:px-16">
+  <div class="mx-auto max-w-7xl">
+    <p class="font-mono text-xs uppercase tracking-[0.2em] text-white/45">About us</p>
+    <h1 class="mt-5 max-w-3xl text-fluid-hero font-light tracking-tight text-white">A small team that <span class="italic">cares.</span></h1>
+    <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/70 sm:text-lg">
+      We're a senior crew of designers and engineers. No layers, no middlemen. You talk to the people actually doing the work, start to finish.
+    </p>
   </div>
 </section>
 
@@ -337,31 +328,5 @@
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="shaders.js"></script>
-
-<!-- Hero video scroll animation -->
-<script>
-(function () {
-  var hero = document.querySelector('.hero-video-wrap');
-  if (!hero) return;
-  var video = hero.querySelector('video');
-  var content = hero.querySelector('.absolute.inset-0.z-10');
-  video.play().catch(function () {});
-
-  function onScroll() {
-    var y = window.scrollY;
-    var h = hero.offsetHeight;
-    if (y > h) return; // only animate while hero is in view
-    var p = y / h; // 0 -> 1 as you scroll past the hero
-    // Slow parallax on the video, text drifts up and fades
-    video.style.transform = 'translateY(' + (y * 0.3) + 'px) scale(' + (1 + p * 0.1) + ')';
-    if (content) {
-      content.style.transform = 'translateY(' + (-y * 0.15) + 'px)';
-      content.style.opacity = String(Math.max(0, 1 - p * 1.3));
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
-</script>
 </body>
 </html>
