@@ -3,9 +3,81 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>About | summit studios</title>
-<meta name="description" content="Who we are and how we work. A small, senior team that builds digital products with founders and teams who care about getting things right." />
+<title>About Summit Studios | Senior Product & Software Team</title>
+<meta name="description" content="Meet Summit Studios: a small, senior team in Mangalore building web and mobile products with founders and teams who care about getting the details right." />
 <link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="logo-mark.png" />
+
+<!-- ===================== SEO META ===================== -->
+<link rel="canonical" href="https://summitxstudios.com/about" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="author" content="Summit Studios" />
+<meta name="publisher" content="Summit Studios" />
+<meta name="keywords" content="about Summit Studios, web development team Mangalore, software studio India, senior product team, digital studio" />
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="geo.region" content="IN-KA" />
+<meta name="geo.placename" content="Mangalore, Karnataka, India" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Summit Studios" />
+<meta property="og:title" content="About Summit Studios | Senior Product & Software Team" />
+<meta property="og:description" content="Meet Summit Studios: a small, senior team in Mangalore building web and mobile products with founders and teams who care about getting the details right." />
+<meta property="og:url" content="https://summitxstudios.com/about" />
+<meta property="og:image" content="https://summitxstudios.com/logo.png" />
+<meta property="og:image:width" content="1396" />
+<meta property="og:image:height" content="1127" />
+<meta property="og:image:alt" content="Summit Studios logo" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Summit Studios | Senior Product & Software Team" />
+<meta name="twitter:description" content="A small, senior team building web and mobile products with founders and teams who care about getting the details right." />
+<meta name="twitter:image" content="https://summitxstudios.com/logo.png" />
+<meta name="twitter:image:alt" content="Summit Studios logo" />
+
+<!-- ===================== STRUCTURED DATA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://summitxstudios.com/#organization",
+      "name": "Summit Studios",
+      "alternateName": "summitstudios",
+      "url": "https://summitxstudios.com/",
+      "logo": { "@type": "ImageObject", "url": "https://summitxstudios.com/logo.png", "width": 1396, "height": 1127 },
+      "image": "https://summitxstudios.com/logo.png",
+      "description": "Digital studio building websites, web and mobile apps, AI receptionists, WhatsApp automation and custom CRMs for founders and teams.",
+      "email": "summitstud@gmail.com",
+      "telephone": "+91-98441-70575",
+      "priceRange": "$$",
+      "address": { "@type": "PostalAddress", "addressLocality": "Mangalore", "addressRegion": "Karnataka", "addressCountry": "IN" },
+      "areaServed": [ { "@type": "Country", "name": "India" }, { "@type": "Place", "name": "Worldwide" } ],
+      "sameAs": ["https://wa.me/919844170575"]
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://summitxstudios.com/about#webpage",
+      "url": "https://summitxstudios.com/about",
+      "name": "About Summit Studios",
+      "isPartOf": { "@id": "https://summitxstudios.com/#website" },
+      "about": { "@id": "https://summitxstudios.com/#organization" },
+      "description": "Meet Summit Studios: a small, senior team in Mangalore building web and mobile products with founders and teams who care about getting the details right.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://summitxstudios.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://summitxstudios.com/about" }
+      ]
+    }
+  ]
+}
+</script>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -51,15 +123,15 @@
 <!-- HEADER -->
 <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
   <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 md:px-10 lg:px-16">
-    <a href="index.html" class="logo-link group inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight" aria-label="summit studios home">
+    <a href="/" class="logo-link group inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight" aria-label="summit studios home">
       <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0 transition-transform duration-300 group-hover:-rotate-6" aria-hidden="true" />
       <span>summit<span class="font-light italic">studios</span></span>
     </a>
     <nav class="hidden items-center gap-9 lg:flex">
-      <a href="projects.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Projects</a>
-      <a href="about.html" aria-current="page" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">About</a>
-      <a href="services.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Services</a>
-      <a href="contact.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Contact</a>
+      <a href="/projects" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Projects</a>
+      <a href="/about" aria-current="page" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">About</a>
+      <a href="/services" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Services</a>
+      <a href="/contact" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Contact</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="#contact" class="hidden items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.03] sm:inline-flex">Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
@@ -71,10 +143,10 @@
   </div>
   <div id="mobile-menu" class="pointer-events-none fixed inset-x-0 top-16 z-40 -translate-y-2 border-b border-white/10 bg-black/95 backdrop-blur-md px-5 opacity-0 transition-all duration-300 sm:top-20 lg:hidden">
     <nav class="flex flex-col py-4">
-      <a href="projects.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Projects</a>
-      <a href="about.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">About</a>
-      <a href="services.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Services</a>
-      <a href="contact.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Contact</a>
+      <a href="/projects" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Projects</a>
+      <a href="/about" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">About</a>
+      <a href="/services" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Services</a>
+      <a href="/contact" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Contact</a>
       <a href="#contact" class="mobile-link mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-white">Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
     </nav>
   </div>
@@ -132,7 +204,7 @@
   <div class="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:px-10 lg:gap-16 lg:px-16">
     <div>
       <h2 class="text-fluid-section font-light tracking-tight text-white">A few <span class="italic">numbers</span></h2>
-      <p class="mt-6 max-w-md text-base font-light leading-relaxed text-white/70">Not vanity metrics &mdash; just how we actually work.</p>
+      <p class="mt-6 max-w-md text-base font-light leading-relaxed text-white/70">Not vanity metrics. Just how we actually work.</p>
     </div>
     <dl class="grid grid-cols-2 gap-x-8 gap-y-12 self-center">
       <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">1:1</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Senior team, no juniors</dd></div>
@@ -149,7 +221,7 @@
     <div class="grid gap-12 md:grid-cols-[1fr_1.2fr] lg:gap-20">
       <div>
         <h2 class="text-fluid-section font-light tracking-tight text-white">The <span class="italic">team</span></h2>
-        <p class="mt-6 text-base font-light leading-relaxed text-white/70">We're a small, tight crew &mdash; designers, engineers and strategists who've been building together long enough that we don't need layers or meetings to move fast. No one here is a middleman; everyone ships.</p>
+        <p class="mt-6 text-base font-light leading-relaxed text-white/70">We're a small, tight crew of designers, engineers and strategists who've been building together long enough that we don't need layers or meetings to move fast. No one here is a middleman; everyone ships.</p>
       </div>
       <div class="grid gap-6 sm:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
@@ -160,17 +232,17 @@
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white"><i data-lucide="pen-tool" class="h-5 w-5"></i></div>
           <h3 class="mt-4 text-lg font-medium tracking-tight text-white">Design</h3>
-          <p class="mt-2 text-sm font-light leading-relaxed text-white/55">UI/UX and brand work &mdash; clean, opinionated design that's built to convert, not just look nice.</p>
+          <p class="mt-2 text-sm font-light leading-relaxed text-white/55">UI/UX and brand work. Clean, opinionated design that's built to convert, not just look nice.</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white"><i data-lucide="bot" class="h-5 w-5"></i></div>
           <h3 class="mt-4 text-lg font-medium tracking-tight text-white">AI &amp; Automation</h3>
-          <p class="mt-2 text-sm font-light leading-relaxed text-white/55">AI receptionists, WhatsApp bots, workflow automation &mdash; the stuff that saves you hours every week.</p>
+          <p class="mt-2 text-sm font-light leading-relaxed text-white/55">AI receptionists, WhatsApp bots, workflow automation. The stuff that saves you hours every week.</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
           <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white"><i data-lucide="rocket" class="h-5 w-5"></i></div>
           <h3 class="mt-4 text-lg font-medium tracking-tight text-white">Strategy</h3>
-          <p class="mt-2 text-sm font-light leading-relaxed text-white/55">Figuring out what to build, for whom, and in what order &mdash; so nothing gets wasted.</p>
+          <p class="mt-2 text-sm font-light leading-relaxed text-white/55">Figuring out what to build, for whom, and in what order, so nothing gets wasted.</p>
         </div>
       </div>
     </div>
@@ -186,7 +258,7 @@
     <div class="flex flex-wrap items-center gap-3 pt-2">
       <a href="mailto:summitstud@gmail.com" class="rounded-2xl border border-white/10 bg-white/10 px-5 py-3 text-sm font-light tracking-tight text-white backdrop-blur-sm transition-colors duration-300 hover:bg-white/10">Email us</a>
       <a href="https://wa.me/919844170575?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight text-white/80 transition-colors duration-300 hover:bg-white/5">WhatsApp us</a>
-      <a href="projects.html" class="rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight text-white/80 transition-colors duration-300 hover:bg-white/5">See our work</a>
+      <a href="/projects" class="rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight text-white/80 transition-colors duration-300 hover:bg-white/5">See our work</a>
     </div>
   </div>
 </section>
@@ -200,7 +272,7 @@
   <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85"></div>
 
   <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <a href="index.html" class="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-white">
+    <a href="/" class="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-white">
       <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0" aria-hidden="true" />
       <span>summit<span class="font-light italic">studios</span></span>
     </a>
@@ -208,33 +280,33 @@
       <div>
         <h3 class="text-sm font-semibold tracking-tight text-white">Use cases</h3>
         <ul class="mt-5 space-y-3">
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI Receptionists</a></li>
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp Automation</a></li>
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Custom CRMs</a></li>
-          <li><a href="projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Websites</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI Receptionists</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp Automation</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">Custom CRMs</a></li>
+          <li><a href="/projects" class="text-sm font-light text-white/55 transition-colors hover:text-white">Websites</a></li>
         </ul>
       </div>
       <div>
         <h3 class="text-sm font-semibold tracking-tight text-white">Services</h3>
         <ul class="mt-5 space-y-3">
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Development</a></li>
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">App Development</a></li>
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">UI/UX Design</a></li>
-          <li><a href="services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Automation &amp; AI</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Development</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">App Development</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">UI/UX Design</a></li>
+          <li><a href="/services" class="text-sm font-light text-white/55 transition-colors hover:text-white">Automation &amp; AI</a></li>
         </ul>
       </div>
       <div>
         <h3 class="text-sm font-semibold tracking-tight text-white">Company</h3>
         <ul class="mt-5 space-y-3">
-          <li><a href="about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
-          <li><a href="projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Our work</a></li>
-          <li><a href="contact.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Contact</a></li>
+          <li><a href="/about" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
+          <li><a href="/projects" class="text-sm font-light text-white/55 transition-colors hover:text-white">Our work</a></li>
+          <li><a href="/contact" class="text-sm font-light text-white/55 transition-colors hover:text-white">Contact</a></li>
         </ul>
       </div>
       <div>
         <h3 class="text-sm font-semibold tracking-tight text-white">Contact</h3>
         <ul class="mt-5 space-y-3">
-          <li><a href="about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
+          <li><a href="/about" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
           <li><a href="mailto:summitstud@gmail.com" class="text-sm font-light text-white/55 transition-colors hover:text-white">summitstud@gmail.com</a></li>
           <li><a href="https://wa.me/919844170575?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp</a></li>
         </ul>

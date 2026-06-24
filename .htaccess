@@ -1,0 +1,42 @@
+# ===================================================================
+# Summit Studios — clean URLs, HTTPS, canonical host
+# (Apache / LiteSpeed — works on Hostinger shared hosting)
+# ===================================================================
+
+Options -MultiViews
+RewriteEngine On
+
+# --- Force HTTPS ---------------------------------------------------
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Redirect /index.html and /index to the bare home URL ----------
+RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+RewriteRule ^ / [L,R=301]
+
+# --- Redirect /page.html  ->  /page (drop the .html in the address) -
+RewriteCond %{THE_REQUEST} \s/+([^.\s]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [L,R=301]
+
+# --- Internally serve /page from page.html (no extension shown) ----
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# --- Nice 404 -> home (optional; comment out if you add a 404 page) -
+ErrorDocument 404 /
+
+# --- Don't list directory contents --------------------------------
+Options -Indexes
+
+# --- Light caching for static assets ------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
