@@ -60,10 +60,17 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
   var ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  var color = '#818cf8', trailOpacity = 0.1, speed = 0.8;
-  var particleCount = IS_MOBILE ? 300 : 600;
+  var color = '#4a6fa5', trailOpacity = 0.08, speed = 0.6;
+  var particleCount = IS_MOBILE ? 400 : 800;
   var width = container.clientWidth, height = container.clientHeight;
   var particles = [], mouse = { x: -1000, y: -1000 };
+
+  container.addEventListener('mousemove', function (e) {
+    var rect = container.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  container.addEventListener('mouseleave', function () { mouse.x = -1000; mouse.y = -1000; });
 
   function Particle() { this.reset(); }
   Particle.prototype.reset = function () {
