@@ -493,7 +493,7 @@ if (window.lucide) lucide.createIcons();
 var IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
 var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
 
-/* ---------- HERO: liquid-metal shader (three.js) ---------- */
+/* ---------- HERO: iridescence flow shader (three.js) ---------- */
 (function () {
   if (!window.THREE) return;
   var container = document.getElementById('hero-shader');
@@ -501,22 +501,27 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
 
   var vertexShader = 'void main(){ gl_Position = vec4( position, 1.0 ); }';
   var fragmentShader = [
-    '#define TWO_PI 6.2831853072',
-    '#define PI 3.14159265359',
     'precision highp float;',
     'uniform vec2 resolution;',
     'uniform float time;',
+    'uniform vec2 mouse;',
+    'uniform vec3 uColor;',
+    'uniform float uAmplitude;',
+    'uniform float uSpeed;',
     'void main(void){',
-    '  vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);',
-    '  float t = time*0.05;',
-    '  float lineWidth = 0.002;',
-    '  vec3 color = vec3(0.0);',
-    '  for(int j = 0; j < 3; j++){',
-    '    for(int i=0; i < 5; i++){',
-    '      color[j] += lineWidth*float(i*i) / abs(fract(t - 0.01*float(j)+float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));',
-    '    }',
+    '  float mr = min(resolution.x, resolution.y);',
+    '  vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / mr;',
+    '  uv += (mouse - vec2(0.5)) * uAmplitude;',
+    '  float d = -time * 0.5 * uSpeed;',
+    '  float a = 0.0;',
+    '  for (float i = 0.0; i < 8.0; ++i) {',
+    '    a += cos(i - d - a * uv.x);',
+    '    d += sin(uv.y * i + a);',
     '  }',
-    '  gl_FragColor = vec4(color[0],color[1],color[2],1.0);',
+    '  d += time * 0.5 * uSpeed;',
+    '  vec3 col = vec3(cos(uv * vec2(d, a)) * 0.6 + 0.4, cos(a + d) * 0.5 + 0.5);',
+    '  col = cos(col * cos(vec3(d, a, 2.5)) * 0.5 + 0.5) * uColor;',
+    '  gl_FragColor = vec4(col, 1.0);',
     '}'
   ].join('\n');
 
@@ -524,7 +529,14 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
   camera.position.z = 1;
   var scene = new THREE.Scene();
   var geometry = new THREE.PlaneGeometry(2, 2);
-  var uniforms = { time: { value: 1.0 }, resolution: { value: new THREE.Vector2() } };
+  var uniforms = {
+    time: { value: 0 },
+    resolution: { value: new THREE.Vector2() },
+    mouse: { value: new THREE.Vector2(0.5, 0.5) },
+    uColor: { value: new THREE.Vector3(0.32, 0.5, 0.95) },
+    uAmplitude: { value: 0.15 },
+    uSpeed: { value: 0.6 }
+  };
   var material = new THREE.ShaderMaterial({ uniforms: uniforms, vertexShader: vertexShader, fragmentShader: fragmentShader });
   scene.add(new THREE.Mesh(geometry, material));
   var renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -539,9 +551,15 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
   }
   resize();
   window.addEventListener('resize', resize);
+  container.addEventListener('mousemove', function (e) {
+    var rect = container.getBoundingClientRect();
+    uniforms.mouse.value.x = (e.clientX - rect.left) / rect.width;
+    uniforms.mouse.value.y = 1.0 - (e.clientY - rect.top) / rect.height;
+  });
+  var start = performance.now();
   (function animate() {
     requestAnimationFrame(animate);
-    uniforms.time.value += 0.05;
+    uniforms.time.value = (performance.now() - start) / 1000.0;
     renderer.render(scene, camera);
   })();
 })();
