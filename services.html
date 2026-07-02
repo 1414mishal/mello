@@ -128,6 +128,41 @@
 
 <body id="top" class="bg-transparent font-sans text-white antialiased">
 
+<!-- ===================== PAGE LOADER (dove reveal) ===================== -->
+<style>
+  #loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none}
+  #loader .loader-panel{position:absolute;top:0;height:100%;width:50.5%;background:#08080e;transition:transform .8s cubic-bezier(.76,0,.24,1)}
+  #loader .loader-panel-l{left:0}
+  #loader .loader-panel-r{right:0}
+  #loader .loader-dove{position:relative;z-index:1;width:60px;height:60px;background-color:#fff;
+    -webkit-mask:url("logo-mark.png") center/contain no-repeat;mask:url("logo-mark.png") center/contain no-repeat;
+    opacity:0;transform-origin:50% 60%;animation:loaderDove .9s cubic-bezier(.34,1.56,.64,1) forwards}
+  @keyframes loaderDove{0%{opacity:0;transform:rotate(0deg) scale(.8)}55%{opacity:1;transform:rotate(-9deg) scale(1)}100%{opacity:1;transform:rotate(-9deg) scale(1)}}
+  #loader.is-open .loader-panel-l{transform:translateX(-100%)}
+  #loader.is-open .loader-panel-r{transform:translateX(100%)}
+  #loader.is-open .loader-dove{opacity:0;transform:rotate(-9deg) scale(1.12);transition:opacity .45s ease,transform .6s ease}
+  #loader.is-done{display:none}
+  @media (prefers-reduced-motion: reduce){#loader{display:none}}
+</style>
+<div id="loader" aria-hidden="true">
+  <div class="loader-panel loader-panel-l"></div>
+  <div class="loader-panel loader-panel-r"></div>
+  <span class="loader-dove"></span>
+</div>
+<script>
+  (function(){
+    var l=document.getElementById('loader'); if(!l) return;
+    var de=document.documentElement; de.style.overflow='hidden';
+    var opened=false;
+    function open(){ if(opened) return; opened=true;
+      l.classList.add('is-open'); de.style.overflow='';
+      setTimeout(function(){ l.classList.add('is-done'); }, 850);
+    }
+    window.addEventListener('load', function(){ setTimeout(open, 450); });
+    setTimeout(open, 2200);
+  })();
+</script>
+
 <canvas id="page-shader" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none;"></canvas>
 <div aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
 
