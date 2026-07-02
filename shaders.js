@@ -114,20 +114,21 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
 })();
 
 /* ---------- PAGE-WIDE IRIDESCENCE: one continuous motion behind all sections ---------- */
-/* Fixed full-viewport canvas, cosine-palette flow shader recolored blue/black/white.    */
+/* Fixed full-viewport canvas, cosine-palette flow shader, recolored to match the hero  */
+/* video's black -> indigo -> violet -> lavender-highlight palette.                     */
 (function () {
   var canvas = document.getElementById('page-shader');
   if (!canvas) return;
   var gl = canvas.getContext('webgl');
   if (!gl) return;
 
-  var uColor = [0.25, 0.42, 0.82], uAmplitude = 0.12, uSpeed = 0.55;
+  var uAmplitude = 0.12, uSpeed = 0.55;
   var mousePos = { x: 0.5, y: 0.5 };
 
   var vsrc = 'attribute vec2 aPosition; varying vec2 vUv; void main(){ vUv = aPosition * 0.5 + 0.5; gl_Position = vec4(aPosition,0.0,1.0); }';
   var fsrc = [
     'precision highp float;',
-    'uniform float uTime; uniform vec3 uColor; uniform vec3 uResolution; uniform vec2 uMouse;',
+    'uniform float uTime; uniform vec3 uResolution; uniform vec2 uMouse;',
     'uniform float uAmplitude; uniform float uSpeed;',
     'varying vec2 vUv;',
     'void main(){',
@@ -141,8 +142,16 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
     '    d += sin(uv.y * i + a);',
     '  }',
     '  d += uTime * 0.5 * uSpeed;',
-    '  vec3 col = vec3(cos(uv * vec2(d, a)) * 0.6 + 0.4, cos(a + d) * 0.5 + 0.5);',
-    '  col = cos(col * cos(vec3(d, a, 2.5)) * 0.5 + 0.5) * uColor;',
+    '  float t = cos(d * 0.7 + a * 0.3) * 0.5 + 0.5;',
+    '  vec3 c0 = vec3(0.004, 0.0, 0.02);',
+    '  vec3 c1 = vec3(0.11, 0.09, 0.30);',
+    '  vec3 c2 = vec3(0.48, 0.19, 0.66);',
+    '  vec3 c3 = vec3(0.59, 0.22, 0.78);',
+    '  vec3 c4 = vec3(0.94, 0.93, 0.99);',
+    '  vec3 col = mix(c0, c1, smoothstep(0.0, 0.35, t));',
+    '  col = mix(col, c2, smoothstep(0.3, 0.65, t));',
+    '  col = mix(col, c3, smoothstep(0.6, 0.85, t));',
+    '  col = mix(col, c4, smoothstep(0.88, 1.0, t));',
     '  gl_FragColor = vec4(col, 1.0);',
     '}'
   ].join('\n');
@@ -163,7 +172,7 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
   var aPos = gl.getAttribLocation(prog, 'aPosition'); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
 
   var uRes = gl.getUniformLocation(prog, 'uResolution'), uTime = gl.getUniformLocation(prog, 'uTime'), uMouse = gl.getUniformLocation(prog, 'uMouse');
-  var uCol = gl.getUniformLocation(prog, 'uColor'), uAmp = gl.getUniformLocation(prog, 'uAmplitude'), uSpd = gl.getUniformLocation(prog, 'uSpeed');
+  var uAmp = gl.getUniformLocation(prog, 'uAmplitude'), uSpd = gl.getUniformLocation(prog, 'uSpeed');
 
   var start = performance.now();
   window.addEventListener('mousemove', function (e) {
@@ -176,7 +185,6 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
     gl.uniform3f(uRes, gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height);
   }
   window.addEventListener('resize', resize); resize();
-  gl.uniform3f(uCol, uColor[0], uColor[1], uColor[2]);
   gl.uniform1f(uAmp, uAmplitude);
   gl.uniform1f(uSpd, uSpeed);
   (function loop() {
