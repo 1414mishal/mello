@@ -172,7 +172,27 @@
 
 <!-- ===================== PAGE-WIDE AURORA SHADER (one continuous motion) ===================== -->
 <canvas id="page-shader" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none;"></canvas>
-<div aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
+<div id="shader-dim" aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
+<script>
+/* Scroll dim: shader fades to black as you scroll, so lower sections read on dark */
+(function () {
+  var dim = document.getElementById('shader-dim');
+  if (!dim) return;
+  var base = 0.45, max = 0.97;
+  var ticking = false;
+  function apply() {
+    ticking = false;
+    var vh = Math.max(window.innerHeight, 1);
+    var t = Math.min(window.scrollY / (vh * 1.5), 1);
+    var a = base + (max - base) * t;
+    dim.style.background = 'rgba(2,4,12,' + a.toFixed(3) + ')';
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+  }, { passive: true });
+  apply();
+})();
+</script>
 
 <!-- ===================== HEADER ===================== -->
 <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">

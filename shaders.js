@@ -113,6 +113,27 @@ var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
   init(); animate();
 })();
 
+/* ---------- SCROLL DIM: shader fades to black as you scroll ---------- */
+/* Vivid at the top, then the fixed dim overlay ramps to near-black over  */
+/* ~1.5 screens so content further down reads on a dark background.       */
+(function () {
+  var dim = document.getElementById('shader-dim');
+  if (!dim) return;
+  var base = 0.45, max = 0.97;
+  var ticking = false;
+  function apply() {
+    ticking = false;
+    var vh = Math.max(window.innerHeight, 1);
+    var t = Math.min(window.scrollY / (vh * 1.5), 1);
+    var a = base + (max - base) * t;
+    dim.style.background = 'rgba(2,4,12,' + a.toFixed(3) + ')';
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+  }, { passive: true });
+  apply();
+})();
+
 /* ---------- PAGE-WIDE IRIDESCENCE: one continuous motion behind all sections ---------- */
 /* Fixed full-viewport canvas, cosine-palette flow shader, recolored to match the hero  */
 /* video's black -> indigo -> violet -> lavender-highlight palette.                     */
