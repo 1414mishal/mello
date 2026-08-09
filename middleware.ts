@@ -1,12 +1,13 @@
 /**
  * Per-client access gate for the whole site.
  *
- * Clients get a link like:
- *   https://www.summitxstudio.com/?k=THEIR-TOKEN
+ * Clients get a bespoke link that reads like it was made for them:
+ *   https://www.summitxstudio.com/for/acme-k7f2qp9x
  *
- * That first visit sets a cookie, so every page they browse afterwards works
- * normally without the token in the URL. Anyone without a valid token gets a
- * plain 404 — the site never reveals that there is anything here to unlock.
+ * That URL renders the homepage in place (no redirect, so link previews still
+ * work) and sets a cookie, so everything they click afterwards behaves like a
+ * normal site. Anyone without a valid token gets a plain 404 — the site never
+ * reveals there is anything here to unlock.
  *
  * Tokens live in the CLIENT_KEYS environment variable (comma separated) so they
  * are never committed to the repo. Issue one per client: if a link gets passed
@@ -42,6 +43,13 @@ function cookieToken(request: Request): string | null {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
+function unlockCookie(token: string): string {
+  return (
+    `${COOKIE}=${encodeURIComponent(token)}; Path=/; Max-Age=${MAX_AGE}; ` +
+    `HttpOnly; Secure; SameSite=Lax`
+  );
+}
+
 /** Let the request through to the static file, attaching extra response headers. */
 function allow(headers: Record<string, string> = {}) {
   return new Response(null, {
@@ -60,21 +68,36 @@ export default function middleware(request: Request) {
   if (ALWAYS_PUBLIC.has(url.pathname)) return;
 
   const tokens = validTokens();
-  const supplied = url.searchParams.get('k');
 
-  // A fresh link: serve the page and remember this visitor.
-  if (supplied && tokens.includes(supplied)) {
+  // The pretty invite link: /for/acme-k7f2qp9x
+  const invite = url.pathname.match(/^\/for\/([^/]+)\/?$/);
+  if (invite) {
+    const token = decodeURIComponent(invite[1]);
+    if (!tokens.includes(token)) return notFound();
+
+    // Render the homepage at this URL rather than redirecting, so the bespoke
+    // link stays in the address bar and link-preview crawlers get real HTML.
+    const target = new URL('/index.html', url.origin);
     return allow({
-      'set-cookie':
-        `${COOKIE}=${encodeURIComponent(supplied)}; Path=/; Max-Age=${MAX_AGE}; ` +
-        `HttpOnly; Secure; SameSite=Lax`,
+      'x-middleware-rewrite': target.toString(),
+      'set-cookie': unlockCookie(token),
     });
+  }
+
+  // Fallback that also works: ?k=acme-k7f2qp9x on any page.
+  const supplied = url.searchParams.get('k');
+  if (supplied && tokens.includes(supplied)) {
+    return allow({ 'set-cookie': unlockCookie(supplied) });
   }
 
   // Already unlocked on this device.
   const existing = cookieToken(request);
   if (existing && tokens.includes(existing)) return allow();
 
+  return notFound();
+}
+
+function notFound() {
   return new Response('Not Found', {
     status: 404,
     headers: {
