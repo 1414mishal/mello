@@ -83,12 +83,18 @@ export default function middleware(request: Request) {
     const code = decodeURIComponent(invite[1]);
     if (!isValid(code, tokens)) return notFound();
 
-    // Render the homepage at this URL rather than redirecting, so the link
-    // stays in the address bar and link-preview crawlers get real HTML.
-    const target = new URL('/index.html', url.origin);
-    return allow({
-      'x-middleware-rewrite': target.toString(),
-      'set-cookie': unlockCookie(code.trim().toLowerCase()),
+    // Unlock, then hand the visitor to the real homepage. This has to be a
+    // redirect rather than rendering in place: the pages use relative asset
+    // paths ("images/..."), which a browser sitting on /for/<code> would
+    // resolve to /for/images/... and fail to load.
+    return new Response(null, {
+      status: 302,
+      headers: {
+        location: '/',
+        'set-cookie': unlockCookie(code.trim().toLowerCase()),
+        'cache-control': 'no-store',
+        'x-robots-tag': 'noindex, nofollow',
+      },
     });
   }
 
