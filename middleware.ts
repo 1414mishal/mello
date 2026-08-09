@@ -30,11 +30,19 @@ const ALWAYS_PUBLIC = new Set([
   '/robots.txt',
 ]);
 
+/**
+ * Access codes, lower-cased so a code shared by email or read out loud still
+ * works whatever way the other person types it.
+ */
 function validTokens(): string[] {
   return (process.env.CLIENT_KEYS ?? '')
     .split(',')
-    .map((token) => token.trim())
+    .map((token) => token.trim().toLowerCase())
     .filter(Boolean);
+}
+
+function isValid(candidate: string | null, tokens: string[]): boolean {
+  return !!candidate && tokens.includes(candidate.trim().toLowerCase());
 }
 
 function cookieToken(request: Request): string | null {
@@ -69,30 +77,29 @@ export default function middleware(request: Request) {
 
   const tokens = validTokens();
 
-  // The pretty invite link: /for/acme-k7f2qp9x
+  // The shareable link: /for/<code>
   const invite = url.pathname.match(/^\/for\/([^/]+)\/?$/);
   if (invite) {
-    const token = decodeURIComponent(invite[1]);
-    if (!tokens.includes(token)) return notFound();
+    const code = decodeURIComponent(invite[1]);
+    if (!isValid(code, tokens)) return notFound();
 
-    // Render the homepage at this URL rather than redirecting, so the bespoke
-    // link stays in the address bar and link-preview crawlers get real HTML.
+    // Render the homepage at this URL rather than redirecting, so the link
+    // stays in the address bar and link-preview crawlers get real HTML.
     const target = new URL('/index.html', url.origin);
     return allow({
       'x-middleware-rewrite': target.toString(),
-      'set-cookie': unlockCookie(token),
+      'set-cookie': unlockCookie(code.trim().toLowerCase()),
     });
   }
 
-  // Fallback that also works: ?k=acme-k7f2qp9x on any page.
+  // Fallback that also works: ?k=<code> on any page.
   const supplied = url.searchParams.get('k');
-  if (supplied && tokens.includes(supplied)) {
-    return allow({ 'set-cookie': unlockCookie(supplied) });
+  if (isValid(supplied, tokens)) {
+    return allow({ 'set-cookie': unlockCookie(supplied!.trim().toLowerCase()) });
   }
 
   // Already unlocked on this device.
-  const existing = cookieToken(request);
-  if (existing && tokens.includes(existing)) return allow();
+  if (isValid(cookieToken(request), tokens)) return allow();
 
   return notFound();
 }
