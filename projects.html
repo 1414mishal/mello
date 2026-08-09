@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Projects & Portfolio of Websites & Apps | Summit Studios</title>
-<meta name="description" content="Explore work by Summit Studios: live websites, web and mobile apps and custom systems built for clinics, enterprises and brands across India. 40+ live sites." />
+<meta name="description" content="Explore work by Summit Studios: live websites, web and mobile apps and custom systems built for clinics, enterprises and brands across India. Dozens of live sites." />
 <link rel="icon" type="image/png" href="favicon.png" />
 <link rel="apple-touch-icon" href="logo-mark.png" />
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Summit Studios" />
 <meta property="og:title" content="Projects & Portfolio of Websites & Apps | Summit Studios" />
-<meta property="og:description" content="Explore work by Summit Studios: live websites, web and mobile apps and custom systems built for clinics, enterprises and brands across India. 40+ live sites." />
+<meta property="og:description" content="Explore work by Summit Studios: live websites, web and mobile apps and custom systems built for clinics, enterprises and brands across India. Dozens of live sites." />
 <meta property="og:url" content="https://www.summitxstudio.com/projects" />
 <meta property="og:image" content="https://www.summitxstudio.com/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -33,7 +33,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Projects & Portfolio of Websites & Apps | Summit Studios" />
-<meta name="twitter:description" content="Live websites, web & mobile apps and custom systems built for clinics, enterprises and brands. 40+ live sites." />
+<meta name="twitter:description" content="Live websites, web & mobile apps and custom systems built for clinics, enterprises and brands. Dozens of live sites." />
 <meta name="twitter:image" content="https://www.summitxstudio.com/og-image.png" />
 <meta name="twitter:image:alt" content="Summit Studios logo" />
 
@@ -132,6 +132,14 @@
   .marquee:hover .marquee-track { animation-play-state: paused; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+  /* Endless project-card carousel */
+  .card-marquee { width:100%; overflow:hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+  .card-track { display:flex; width:max-content; animation: marquee 120s linear infinite; }
+  .card-marquee:hover .card-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) { .card-track { animation: none; } }
 </style>
 </head>
 
@@ -206,7 +214,7 @@
     <p class="font-mono text-xs uppercase tracking-[0.2em] text-white/45">Our work</p>
     <h1 class="mt-5 max-w-3xl text-fluid-hero font-light tracking-tight text-white">Things we've <span class="italic">built.</span></h1>
     <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/70 sm:text-lg">
-      Real work for real clients. 40+ live sites you can open right now, with what each does and what we built, plus everything else we've shipped.
+      Real work for real clients. Dozens of live sites you can open right now, with what each does and what we built, plus everything else we've shipped.
     </p>
   </div>
 </section>
@@ -676,6 +684,46 @@
           <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View the college site <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
         </div>
       </div>
+
+      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+        <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+            <img src="images/portfolio/drkarthikaithal.jpg" alt="Dr. Karthik Aithal website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+          </div>
+        </a>
+        <div class="lg:order-1">
+          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Plastic &amp; Reconstructive Surgery</span></div>
+          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Karthik Aithal</h3>
+          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A microsurgery-trained plastic, reconstructive and aesthetic surgeon practising at Hampankatta, Mangaluru. Reconstructive work carries real emotional weight for patients, so the site leads on the outcome — reconstruct, refine, restore confidence — and keeps the surgical credentials close behind it.</p>
+          <ul class="mt-6 flex flex-wrap gap-2">
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Procedures directory</li>
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Training &amp; research</li>
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Credential badges</li>
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
+          </ul>
+          <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drkarthikaithal.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </div>
+      </div>
+
+      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+        <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="group block ">
+          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+            <img src="images/portfolio/drmariamanjumifthikar.jpg" alt="Dr. Mariam Anjum Ifthikar website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+          </div>
+        </a>
+        <div class="">
+          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Gynaecologic Oncology</span></div>
+          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Mariam Anjum Ifthikar</h3>
+          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Professor and Head of Gynaec-Oncology at the Zulekha Yenepoya Institute of Oncology, and a laparoscopic and robotic surgeon with over 15 years in gynaecologic cancer care. The site had to hold a serious clinical record and genuine warmth at once, with her press, talks and gallery sitting alongside the medical detail.</p>
+          <ul class="mt-6 flex flex-wrap gap-2">
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Areas of expertise</li>
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Press &amp; gallery</li>
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Education &amp; experience</li>
+            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
+          </ul>
+          <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmariamanjumifthikar.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -690,20 +738,9 @@
       </div>
       <p class="hidden font-mono text-[11px] uppercase tracking-wider text-white/30 sm:block">Scroll &rarr;</p>
     </div>
-    <div class="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:px-10 lg:px-16">
-        <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
-          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
-            <img src="images/portfolio/drmariamanjumifthikar.jpg" alt="Dr. Mariam Anjum Ifthikar website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
-          </div>
-          <div class="mt-3 flex items-center gap-2.5">
-            <img src="images/favicons/drmariamanjumifthikar.png" alt="" width="18" height="18" loading="lazy" class="h-[18px] w-[18px] shrink-0 rounded" />
-            <div class="min-w-0">
-              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Mariam Anjum Ifthikar <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
-              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Gynaecologic Oncology</p>
-            </div>
-          </div>
-        </a>
-        <a href="https://www.drrohanshetty.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+    <div class="card-marquee mt-8">
+      <div class="card-track">
+        <a href="https://www.drrohanshetty.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drrohanshetty.jpg" alt="Dr. Rohan Shetty website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -715,7 +752,7 @@
             </div>
           </div>
         </a>
-        <a href="https://www.drachuthnayak.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://www.drachuthnayak.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drachuthnayak.jpg" alt="Dr. Achuth S. Nayak website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -727,7 +764,7 @@
             </div>
           </div>
         </a>
-        <a href="https://aikyaaspeciality.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://aikyaaspeciality.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/aikyaaspeciality.jpg" alt="Aikyaa Speciality website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -739,7 +776,7 @@
             </div>
           </div>
         </a>
-        <a href="https://drkarthikks.com" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://drkarthikks.com" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drkarthikks.jpg" alt="Dr. Karthik K S website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -751,7 +788,7 @@
             </div>
           </div>
         </a>
-        <a href="https://drsharonrasquinha.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://drsharonrasquinha.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drsharonrasquinha.jpg" alt="Dr. Sharon Rasquinha website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -763,7 +800,7 @@
             </div>
           </div>
         </a>
-        <a href="https://draravindoncologist.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://draravindoncologist.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/draravindoncologist.jpg" alt="Dr. Aravind website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -775,7 +812,7 @@
             </div>
           </div>
         </a>
-        <a href="https://dentalboutiquemlr.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://dentalboutiquemlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/dentalboutiquemlr.jpg" alt="Dental Boutique website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -787,7 +824,7 @@
             </div>
           </div>
         </a>
-        <a href="https://www.thedentalofficemlr.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://www.thedentalofficemlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/thedentalofficemlr.jpg" alt="The Dental Office website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -799,7 +836,7 @@
             </div>
           </div>
         </a>
-        <a href="https://drkrithishree.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://drkrithishree.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drkrithishree.jpg" alt="Dr. Krithi Shree website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -811,7 +848,7 @@
             </div>
           </div>
         </a>
-        <a href="https://primedentalaesthetic.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://primedentalaesthetic.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/primedentalaesthetic.jpg" alt="Prime Dental Aesthetic website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -823,7 +860,7 @@
             </div>
           </div>
         </a>
-        <a href="https://drteethdentalcaremlr.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://drteethdentalcaremlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drteethdentalcaremlr.jpg" alt="Dr. Teeth Dental Care website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -835,7 +872,7 @@
             </div>
           </div>
         </a>
-        <a href="https://www.srisurakshamlr.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://www.srisurakshamlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/srisurakshamlr.jpg" alt="Sri Suraksha website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -847,7 +884,7 @@
             </div>
           </div>
         </a>
-        <a href="https://www.shravanentmlr.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://www.shravanentmlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/shravanentmlr.jpg" alt="Shravan ENT website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -859,7 +896,7 @@
             </div>
           </div>
         </a>
-        <a href="https://www.drmaneeshrai.com/" target="_blank" rel="noopener" class="snap-start group block w-[230px] shrink-0 sm:w-[260px]">
+        <a href="https://www.drmaneeshrai.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
           <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
             <img src="images/portfolio/drmaneeshrai.jpg" alt="Dr. Maneesh Rai website" loading="lazy" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
           </div>
@@ -871,7 +908,175 @@
             </div>
           </div>
         </a>
-      <div class="w-1 shrink-0" aria-hidden="true"></div>
+        <a aria-hidden="true" tabindex="-1" href="https://www.drrohanshetty.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drrohanshetty.jpg" alt="Dr. Rohan Shetty website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drrohanshetty.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Rohan Shetty <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Surgical Oncology</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://www.drachuthnayak.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drachuthnayak.jpg" alt="Dr. Achuth S. Nayak website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drachuthnayak.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Achuth S. Nayak <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Radiation Oncology</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://aikyaaspeciality.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/aikyaaspeciality.jpg" alt="Aikyaa Speciality website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/aikyaaspeciality.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Aikyaa Speciality <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Speciality Clinic</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://drkarthikks.com" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drkarthikks.jpg" alt="Dr. Karthik K S website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drkarthikks.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Karthik K S <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Healthcare</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://drsharonrasquinha.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drsharonrasquinha.jpg" alt="Dr. Sharon Rasquinha website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drsharonrasquinha.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Sharon Rasquinha <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Healthcare</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://draravindoncologist.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/draravindoncologist.jpg" alt="Dr. Aravind website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/draravindoncologist.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Aravind <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Oncology</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://dentalboutiquemlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/dentalboutiquemlr.jpg" alt="Dental Boutique website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/dentalboutiquemlr.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dental Boutique <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Dental</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://www.thedentalofficemlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/thedentalofficemlr.jpg" alt="The Dental Office website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/thedentalofficemlr.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">The Dental Office <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Dental</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://drkrithishree.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drkrithishree.jpg" alt="Dr. Krithi Shree website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drkrithishree.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Krithi Shree <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Psychiatry</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://primedentalaesthetic.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/primedentalaesthetic.jpg" alt="Prime Dental Aesthetic website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/primedentalaesthetic.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Prime Dental Aesthetic <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Dental</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://drteethdentalcaremlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drteethdentalcaremlr.jpg" alt="Dr. Teeth Dental Care website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drteethdentalcaremlr.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Teeth Dental Care <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Dental</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://www.srisurakshamlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/srisurakshamlr.jpg" alt="Sri Suraksha website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/srisurakshamlr.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Sri Suraksha <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Healthcare</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://www.shravanentmlr.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/shravanentmlr.jpg" alt="Shravan ENT website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/shravanentmlr.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Shravan ENT <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">ENT Clinic</p>
+            </div>
+          </div>
+        </a>
+        <a aria-hidden="true" tabindex="-1" href="https://www.drmaneeshrai.com/" target="_blank" rel="noopener" class="group block w-[230px] shrink-0 sm:w-[260px] mr-5">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-neutral-900">
+            <img src="images/portfolio/drmaneeshrai.jpg" alt="Dr. Maneesh Rai website" loading="lazy" aria-hidden="true" class="h-full w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.04]" />
+          </div>
+          <div class="mt-3 flex items-center gap-2.5">
+            <img src="images/favicons/drmaneeshrai.png" alt="" width="18" height="18" loading="lazy" aria-hidden="true" class="h-[18px] w-[18px] shrink-0 rounded" />
+            <div class="min-w-0">
+              <h3 class="flex items-center gap-1 truncate text-sm font-normal tracking-tight text-white/90">Dr. Maneesh Rai <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 shrink-0 text-white/30 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"></i></h3>
+              <p class="truncate font-mono text-[10px] uppercase tracking-wider text-white/40">Cardiology</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
