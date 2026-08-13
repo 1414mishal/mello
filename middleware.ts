@@ -83,14 +83,15 @@ export default function middleware(request: Request) {
     const code = decodeURIComponent(invite[1]);
     if (!isValid(code, tokens)) return notFound();
 
-    // Unlock, then hand the visitor to the real homepage. This has to be a
-    // redirect rather than rendering in place: the pages use relative asset
-    // paths ("images/..."), which a browser sitting on /for/<code> would
-    // resolve to /for/images/... and fail to load.
-    return new Response(null, {
-      status: 302,
+    // Answer with a real HTML page rather than a redirect, so that WhatsApp,
+    // iMessage and the like can read the og: tags and draw a preview card —
+    // they do not carry cookies, so a redirect would just land them on a 404.
+    // Browsers get the cookie and are moved straight on to the homepage; the
+    // pages use relative asset paths, so they have to end up at the root.
+    return new Response(invitePage(url.origin), {
+      status: 200,
       headers: {
-        location: '/',
+        'content-type': 'text/html; charset=utf-8',
         'set-cookie': unlockCookie(code.trim().toLowerCase()),
         'cache-control': 'no-store',
         'x-robots-tag': 'noindex, nofollow',
@@ -108,6 +109,64 @@ export default function middleware(request: Request) {
   if (isValid(cookieToken(request), tokens)) return allow();
 
   return notFound();
+}
+
+/**
+ * The page served at /for/<code>.
+ *
+ * Two audiences: link-preview crawlers, which read the og: tags and stop; and
+ * real browsers, which are moved on to the homepage immediately. All asset and
+ * meta URLs are absolute, since this page lives one level down at /for/.
+ */
+function invitePage(origin: string): string {
+  const title = 'Summit Studios | Web, App &amp; AI Development Studio';
+  const description =
+    'Summit Studios builds fast, reliable websites, web and mobile apps, ' +
+    'AI receptionists, WhatsApp automation and custom CRMs for founders and teams.';
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${title}</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="${description}" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Summit Studios" />
+<meta property="og:title" content="${title}" />
+<meta property="og:description" content="${description}" />
+<meta property="og:url" content="${origin}/" />
+<meta property="og:image" content="${origin}/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Summit Studios logo" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="${title}" />
+<meta name="twitter:description" content="${description}" />
+<meta name="twitter:image" content="${origin}/og-image.png" />
+
+<link rel="icon" type="image/png" href="${origin}/favicon.png" />
+<meta http-equiv="refresh" content="0; url=/" />
+<style>
+  html,body{height:100%;margin:0}
+  body{background:#060608;display:flex;align-items:center;justify-content:center}
+  .dove{width:72px;height:72px;background-color:#fff;
+    -webkit-mask:url("${origin}/logo-mark.png") center/contain no-repeat;
+            mask:url("${origin}/logo-mark.png") center/contain no-repeat;
+    filter:drop-shadow(0 0 18px rgba(140,120,255,.45));
+    animation:in .9s cubic-bezier(.22,1,.36,1) both}
+  @keyframes in{from{opacity:0;transform:translateY(10px) rotate(0deg) scale(.82)}
+                  to{opacity:1;transform:translateY(0) rotate(-8deg) scale(1)}}
+</style>
+</head>
+<body>
+  <span class="dove" role="img" aria-label="Summit Studios"></span>
+  <script>location.replace('/');</script>
+</body>
+</html>`;
 }
 
 function notFound() {
