@@ -150,8 +150,8 @@ function invitePage(origin: string, selfUrl: string): string {
 <meta name="twitter:image" content="${origin}/og-image.png" />
 
 <link rel="icon" type="image/png" href="${origin}/favicon.png" />
-<!-- Deliberately no <meta http-equiv="refresh">: preview crawlers follow it to
-     the root, arrive without a cookie, hit the 404 and then render no card.
+<!-- No refresh redirect here on purpose: preview crawlers follow those to the
+     root, arrive without a cookie, hit the 404 and then render no card.
      Browsers are moved on by the script below instead; crawlers ignore it. -->
 <style>
   html,body{height:100%;margin:0}
