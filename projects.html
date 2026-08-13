@@ -140,6 +140,33 @@
   .card-track { display:flex; width:max-content; animation: marquee 120s linear infinite; }
   .card-marquee:hover .card-track { animation-play-state: paused; }
   @media (prefers-reduced-motion: reduce) { .card-track { animation: none; } }
+
+  /* Expandable case-study panel */
+  .case { border-top:1px solid rgba(255,255,255,0.10); }
+  .case-toggle { display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:0.95rem 0; cursor:pointer; list-style:none;
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.18em; color:rgba(255,255,255,0.55); transition:color .3s; }
+  .case-toggle::-webkit-details-marker { display:none; }
+  .case-toggle:hover { color:#fff; }
+  .case-chev { flex:none; transition:transform .35s cubic-bezier(.22,1,.36,1); }
+  .case[open] .case-chev { transform:rotate(180deg); }
+  .case-body { display:grid; gap:1.6rem 2.5rem; padding:0.25rem 0 1.1rem;
+    animation:caseIn .4s cubic-bezier(.22,1,.36,1) both; }
+  @media (min-width:640px) { .case-body { grid-template-columns:1fr 1fr; } }
+  @keyframes caseIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+  .case-label { font-family:"JetBrains Mono",ui-monospace,monospace; font-size:10px; text-transform:uppercase;
+    letter-spacing:0.2em; color:rgba(255,255,255,0.35); margin-bottom:0.7rem; }
+  .case-list { display:flex; flex-direction:column; gap:0.45rem; }
+  .case-list li { position:relative; padding-left:0.95rem; font-size:13.5px; font-weight:300;
+    line-height:1.5; color:rgba(255,255,255,0.72); }
+  .case-list li::before { content:""; position:absolute; left:0; top:0.62em; width:5px; height:1px;
+    background:rgba(255,255,255,0.4); }
+  .case-chips { display:flex; flex-wrap:wrap; gap:0.4rem; align-content:flex-start; }
+  .case-chips li { font-family:"JetBrains Mono",ui-monospace,monospace; font-size:10px; text-transform:uppercase;
+    letter-spacing:0.06em; color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.04); border-radius:999px; padding:0.28rem 0.65rem; }
+  @media (prefers-reduced-motion: reduce) { .case-body { animation:none; } }
 </style>
 </head>
 
@@ -422,6 +449,40 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Products &amp; careers</li>
           </ul>
           <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit prasannatechnologies.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Core capabilities</li>
+                  <li>Product portfolio</li>
+                  <li>Why organisations choose us</li>
+                  <li>Partners &amp; clients</li>
+                  <li>Quality &amp; security certifications</li>
+                  <li>Our team</li>
+                  <li>Careers</li>
+                  <li>Where to find us</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Enquiry form</li>
+                  <li>Light / dark mode</li>
+                  <li>Embedded map</li>
+                  <li>Animated counters</li>
+                  <li>Canvas / shader motion</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -442,6 +503,34 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Enquiry &amp; contact</li>
           </ul>
           <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Creative Concepts <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Services</li>
+                  <li>Featured projects</li>
+                  <li>Curated gallery</li>
+                  <li>What sets us apart</li>
+                  <li>Client testimonials</li>
+                  <li>Project enquiry</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Click-to-call</li>
+                  <li>Animated counters</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -462,6 +551,37 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
           </ul>
           <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Studio Dental <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>The clinic</li>
+                  <li>The treatment index</li>
+                  <li>Clear aligners</li>
+                  <li>Braces &amp; orthodontics</li>
+                  <li>Root canal treatment</li>
+                  <li>Implants &amp; cosmetic dentistry</li>
+                  <li>The doctors</li>
+                  <li>Reviews &amp; directions</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Click-to-call</li>
+                  <li>Carousel</li>
+                  <li>Animated counters</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -482,6 +602,38 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Conditions &amp; reviews</li>
           </ul>
           <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drvivianortho.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Elite specialties</li>
+                  <li>The problems we help solve</li>
+                  <li>Patient journey</li>
+                  <li>Consulting hours</li>
+                  <li>Robotic hip replacement</li>
+                  <li>In patients’ words</li>
+                  <li>Articles, papers &amp; appearances</li>
+                  <li>Appointment booking</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Light / dark mode</li>
+                  <li>Embedded map</li>
+                  <li>Video</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -502,6 +654,39 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Expertise, clinics &amp; FAQ</li>
           </ul>
           <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drjoylenegynaec.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Expertise</li>
+                  <li>Specialisations</li>
+                  <li>Advanced surgical procedures</li>
+                  <li>Maternal &amp; neonatal milestones</li>
+                  <li>Clinic locations</li>
+                  <li>Talks, posters &amp; moments</li>
+                  <li>Resources &amp; FAQ</li>
+                  <li>Reviews</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Video</li>
+                  <li>Photo gallery</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -522,6 +707,35 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Media &amp; careers</li>
           </ul>
           <a href="https://semnoxrevamp.vercel.app/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Semnox <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Three suites, one platform</li>
+                  <li>Venue types served</li>
+                  <li>Case studies</li>
+                  <li>Clients, partners &amp; associations</li>
+                  <li>News and events</li>
+                  <li>Blog</li>
+                  <li>Testimonials</li>
+                  <li>Careers &amp; CSR</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Click-to-call</li>
+                  <li>Carousel</li>
+                  <li>Canvas / shader motion</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -542,6 +756,34 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Services, hours &amp; location</li>
           </ul>
           <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmayurraiortho.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Specialisations</li>
+                  <li>When we’re open</li>
+                  <li>Patient testimonials</li>
+                  <li>Frequently asked questions</li>
+                  <li>Clinic location</li>
+                  <li>Appointment booking</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Embedded map</li>
+                  <li>Social preview cards</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -562,6 +804,40 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Trust-first tone</li>
           </ul>
           <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit ahanaher.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Heal in 3 steps</li>
+                  <li>Specialised care pathways</li>
+                  <li>Cold plunge</li>
+                  <li>Child development</li>
+                  <li>Conditions treated</li>
+                  <li>Inside our clinic</li>
+                  <li>The clinicians</li>
+                  <li>Community reviews</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Video</li>
+                  <li>Photo gallery</li>
+                  <li>Carousel</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -582,6 +858,39 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, appetising brand</li>
           </ul>
           <a href="https://niksmasala.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit niksmasala.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Shop the range</li>
+                  <li>A blend for every dish</li>
+                  <li>Customer favourites</li>
+                  <li>Recipes, on video</li>
+                  <li>Rooted in Mangalore</li>
+                  <li>Instagram feed</li>
+                  <li>Wholesale, retail &amp; gifting</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Enquiry form</li>
+                  <li>Video</li>
+                  <li>Photo gallery</li>
+                  <li>Animated counters</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -602,6 +911,33 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
           </ul>
           <a href="https://rivelinaligners.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit rivelinaligners.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>The experience</li>
+                  <li>Advantages of clear aligners</li>
+                  <li>Conditions corrected</li>
+                  <li>The six-step process</li>
+                  <li>Smile assessment</li>
+                  <li>Appointment booking</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Enquiry form</li>
+                  <li>Carousel</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -622,6 +958,34 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Easy consults</li>
           </ul>
           <a href="https://drshravanshetty.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drshravanshetty.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Disciplines</li>
+                  <li>Academic role</li>
+                  <li>Research</li>
+                  <li>Selected publications</li>
+                  <li>Engagement</li>
+                  <li>Contact</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Click-to-call</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -642,6 +1006,36 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, patient-first tone</li>
           </ul>
           <a href="https://www.drshannonfernandes.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drshannonfernandes.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Specialities</li>
+                  <li>Surgical services</li>
+                  <li>Care suites</li>
+                  <li>Credentials &amp; training</li>
+                  <li>Contributing beyond the clinic</li>
+                  <li>Talks &amp; sharing knowledge</li>
+                  <li>Consultation booking</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Enquiry form</li>
+                  <li>Photo gallery</li>
+                  <li>Carousel</li>
+                  <li>Animated counters</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -662,6 +1056,39 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">WhatsApp booking</li>
           </ul>
           <a href="https://www.drswathirao.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drswathirao.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>What the clinic looks after</li>
+                  <li>Expertise</li>
+                  <li>When every minute matters</li>
+                  <li>Inside the ICU</li>
+                  <li>Teaching &amp; training</li>
+                  <li>Publications</li>
+                  <li>Moments from the ward</li>
+                  <li>Clinic &amp; appointments</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Embedded map</li>
+                  <li>Photo gallery</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -682,6 +1109,39 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Campus life</li>
           </ul>
           <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View the college site <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>About the college</li>
+                  <li>Vision and mission</li>
+                  <li>Science: PCMB &amp; PCMCS</li>
+                  <li>Commerce: EBACS &amp; EBAS</li>
+                  <li>Competitive exam coaching</li>
+                  <li>Faculty directory</li>
+                  <li>Facilities</li>
+                  <li>Administration &amp; staff</li>
+                  <li>Notices, gallery &amp; admissions</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Video</li>
+                  <li>Photo gallery</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -702,6 +1162,35 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
           </ul>
           <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drkarthikaithal.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>A surgeon trained twice over</li>
+                  <li>What he treats</li>
+                  <li>Where he has worked</li>
+                  <li>Published work</li>
+                  <li>The clinic</li>
+                  <li>Consultation booking</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>WhatsApp enquiry</li>
+                  <li>Click-to-call</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -722,6 +1211,43 @@
             <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
           </ul>
           <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmariamanjumifthikar.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          <details class="case mt-8">
+            <summary class="case-toggle">
+              <span>Inside the build</span>
+              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
+            </summary>
+            <div class="case-body">
+              <div>
+                <p class="case-label">What's on the site</p>
+                <ul class="case-list">
+                  <li>Areas of expertise</li>
+                  <li>Education &amp; training</li>
+                  <li>Two decades of service</li>
+                  <li>Publications</li>
+                  <li>Oncology society memberships</li>
+                  <li>Press &amp; videos</li>
+                  <li>Gallery</li>
+                  <li>Opportunities</li>
+                  <li>Appointment booking</li>
+                </ul>
+              </div>
+              <div>
+                <p class="case-label">Built in</p>
+                <ul class="case-chips">
+                  <li>Click-to-call</li>
+                  <li>Enquiry form</li>
+                  <li>Embedded map</li>
+                  <li>Video</li>
+                  <li>Photo gallery</li>
+                  <li>Animated counters</li>
+                  <li>Canvas / shader motion</li>
+                  <li>Structured data (SEO)</li>
+                  <li>Social preview cards</li>
+                  <li>Scroll animations</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>
