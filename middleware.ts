@@ -4,10 +4,11 @@
  * Clients get a bespoke link that reads like it was made for them:
  *   https://www.summitxstudio.com/for/acme-k7f2qp9x
  *
- * That URL renders the homepage in place (no redirect, so link previews still
- * work) and sets a cookie, so everything they click afterwards behaves like a
- * normal site. Anyone without a valid token gets a plain 404 — the site never
- * reveals there is anything here to unlock.
+ * That URL answers with a small page carrying the og: tags, so a shared link
+ * still draws a preview card, and sets a cookie before moving the browser on
+ * to the homepage — after which everything behaves like a normal site. Anyone
+ * without a valid token gets a plain 404, so the site never reveals there is
+ * anything here to unlock.
  *
  * Tokens live in the CLIENT_KEYS environment variable (comma separated) so they
  * are never committed to the repo. Issue one per client: if a link gets passed
@@ -88,7 +89,7 @@ export default function middleware(request: Request) {
     // they do not carry cookies, so a redirect would just land them on a 404.
     // Browsers get the cookie and are moved straight on to the homepage; the
     // pages use relative asset paths, so they have to end up at the root.
-    return new Response(invitePage(url.origin), {
+    return new Response(invitePage(url.origin, url.origin + url.pathname), {
       status: 200,
       headers: {
         'content-type': 'text/html; charset=utf-8',
@@ -118,7 +119,7 @@ export default function middleware(request: Request) {
  * real browsers, which are moved on to the homepage immediately. All asset and
  * meta URLs are absolute, since this page lives one level down at /for/.
  */
-function invitePage(origin: string): string {
+function invitePage(origin: string, selfUrl: string): string {
   const title = 'Summit Studios | Web, App &amp; AI Development Studio';
   const description =
     'Summit Studios builds fast, reliable websites, web and mobile apps, ' +
@@ -137,7 +138,7 @@ function invitePage(origin: string): string {
 <meta property="og:site_name" content="Summit Studios" />
 <meta property="og:title" content="${title}" />
 <meta property="og:description" content="${description}" />
-<meta property="og:url" content="${origin}/" />
+<meta property="og:url" content="${selfUrl}" />
 <meta property="og:image" content="${origin}/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -149,11 +150,13 @@ function invitePage(origin: string): string {
 <meta name="twitter:image" content="${origin}/og-image.png" />
 
 <link rel="icon" type="image/png" href="${origin}/favicon.png" />
-<meta http-equiv="refresh" content="0; url=/" />
+<!-- Deliberately no <meta http-equiv="refresh">: preview crawlers follow it to
+     the root, arrive without a cookie, hit the 404 and then render no card.
+     Browsers are moved on by the script below instead; crawlers ignore it. -->
 <style>
   html,body{height:100%;margin:0}
   body{background:#060608;display:flex;align-items:center;justify-content:center}
-  .dove{width:72px;height:72px;background-color:#fff;
+  .dove{display:block;width:72px;height:72px;background-color:#fff;
     -webkit-mask:url("${origin}/logo-mark.png") center/contain no-repeat;
             mask:url("${origin}/logo-mark.png") center/contain no-repeat;
     filter:drop-shadow(0 0 18px rgba(140,120,255,.45));
@@ -163,7 +166,7 @@ function invitePage(origin: string): string {
 </style>
 </head>
 <body>
-  <span class="dove" role="img" aria-label="Summit Studios"></span>
+  <a class="dove" href="/" aria-label="Enter Summit Studios"></a>
   <script>location.replace('/');</script>
 </body>
 </html>`;
