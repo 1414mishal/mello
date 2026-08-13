@@ -141,32 +141,24 @@
   .card-marquee:hover .card-track { animation-play-state: paused; }
   @media (prefers-reduced-motion: reduce) { .card-track { animation: none; } }
 
-  /* Expandable case-study panel */
-  .case { border-top:1px solid rgba(255,255,255,0.10); }
-  .case-toggle { display:flex; align-items:center; justify-content:space-between; gap:1rem;
-    padding:0.95rem 0; cursor:pointer; list-style:none;
-    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px; text-transform:uppercase;
-    letter-spacing:0.18em; color:rgba(255,255,255,0.55); transition:color .3s; }
-  .case-toggle::-webkit-details-marker { display:none; }
-  .case-toggle:hover { color:#fff; }
-  .case-chev { flex:none; transition:transform .35s cubic-bezier(.22,1,.36,1); }
-  .case[open] .case-chev { transform:rotate(180deg); }
-  .case-body { display:grid; gap:1.6rem 2.5rem; padding:0.25rem 0 1.1rem;
-    animation:caseIn .4s cubic-bezier(.22,1,.36,1) both; }
-  @media (min-width:640px) { .case-body { grid-template-columns:1fr 1fr; } }
-  @keyframes caseIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+  /* Case study band under each project */
+  .case { margin-top:2.75rem; padding-top:2.25rem; border-top:1px solid rgba(255,255,255,0.12); }
+  .case-grid { display:grid; gap:2.25rem; }
+  @media (min-width:768px) { .case-grid { grid-template-columns:1fr 1fr 0.9fr; gap:3rem; } }
   .case-label { font-family:"JetBrains Mono",ui-monospace,monospace; font-size:10px; text-transform:uppercase;
-    letter-spacing:0.2em; color:rgba(255,255,255,0.35); margin-bottom:0.7rem; }
-  .case-list { display:flex; flex-direction:column; gap:0.45rem; }
-  .case-list li { position:relative; padding-left:0.95rem; font-size:13.5px; font-weight:300;
-    line-height:1.5; color:rgba(255,255,255,0.72); }
-  .case-list li::before { content:""; position:absolute; left:0; top:0.62em; width:5px; height:1px;
+    letter-spacing:0.22em; color:rgba(255,255,255,0.38); margin-bottom:0.9rem; }
+  .case-text { font-size:14.5px; line-height:1.7; font-weight:300; color:rgba(255,255,255,0.68); }
+  .case-list { display:flex; flex-direction:column; gap:0.5rem; }
+  .case-list li { position:relative; padding-left:1rem; font-size:14px; font-weight:300; line-height:1.5;
+    color:rgba(255,255,255,0.7); }
+  .case-list li::before { content:""; position:absolute; left:0; top:0.65em; width:5px; height:1px;
     background:rgba(255,255,255,0.4); }
-  .case-chips { display:flex; flex-wrap:wrap; gap:0.4rem; align-content:flex-start; }
+  .case-foot { margin-top:2.25rem; padding-top:1.75rem; border-top:1px solid rgba(255,255,255,0.07); }
+  .case-chips { display:flex; flex-wrap:wrap; gap:0.5rem; }
   .case-chips li { font-family:"JetBrains Mono",ui-monospace,monospace; font-size:10px; text-transform:uppercase;
-    letter-spacing:0.06em; color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.12);
-    background:rgba(255,255,255,0.04); border-radius:999px; padding:0.28rem 0.65rem; }
-  @media (prefers-reduced-motion: reduce) { .case-body { animation:none; } }
+    letter-spacing:0.08em; color:rgba(255,255,255,0.62); border:1px solid rgba(255,255,255,0.13);
+    background:rgba(255,255,255,0.04); border-radius:999px; padding:0.35rem 0.75rem; }
+
 </style>
 </head>
 
@@ -432,824 +424,936 @@
       <p class="mt-5 text-base font-light leading-relaxed text-white/65">A selection from the sites we've designed and built. Every one is live, so open any of them and judge for yourself.</p>
     </div>
     <div class="mt-16 space-y-20 sm:mt-20 sm:space-y-28">
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/prasannatechnologies.jpg" alt="Prasanna Technologies website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Enterprise Software</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Prasanna Technologies</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">An enterprise software company building products for the utility sector and public governance, working across 4+ countries with 20+ years behind them. The site had to read as serious and established, the kind of partner a government or utility signs a multi-year contract with.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Multi-section corporate site</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Light &amp; dark modes</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Animated metrics</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Products &amp; careers</li>
-          </ul>
-          <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit prasannatechnologies.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Core capabilities</li>
-                  <li>Product portfolio</li>
-                  <li>Why organisations choose us</li>
-                  <li>Partners &amp; clients</li>
-                  <li>Quality &amp; security certifications</li>
-                  <li>Our team</li>
-                  <li>Careers</li>
-                  <li>Where to find us</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Enquiry form</li>
-                  <li>Light / dark mode</li>
-                  <li>Embedded map</li>
-                  <li>Animated counters</li>
-                  <li>Canvas / shader motion</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/prasannatechnologies.jpg" alt="Prasanna Technologies website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Enterprise Software</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Prasanna Technologies</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">An enterprise software company building products for the utility sector and public governance, working across 4+ countries with 20+ years behind them. The site had to read as serious and established, the kind of partner a government or utility signs a multi-year contract with.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Multi-section corporate site</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Light &amp; dark modes</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Animated metrics</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Products &amp; careers</li>
+            </ul>
+            <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit prasannatechnologies.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/creativeconcepts.jpg" alt="Creative Concepts website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Interior &amp; Exterior Design</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Creative Concepts</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">An interior &amp; exterior design studio in Mumbai with 15 years behind them. The site leads with full-bleed project imagery and a confident editorial type treatment, built to make premium residential and commercial design feel aspirational the moment the page loads.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Full-bleed visual hero</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Portfolio gallery</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Editorial type</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Enquiry &amp; contact</li>
-          </ul>
-          <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Creative Concepts <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Services</li>
-                  <li>Featured projects</li>
-                  <li>Curated gallery</li>
-                  <li>What sets us apart</li>
-                  <li>Client testimonials</li>
-                  <li>Project enquiry</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Click-to-call</li>
-                  <li>Animated counters</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">Enterprise software for the utility sector and public governance, sold into government and utility procurement across four countries with two decades behind it. The site had to survive the scrutiny of a multi-year contract decision.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A multi-section corporate site covering capabilities, the full product portfolio, team, clients and careers, in both light and dark modes. Certifications and partner logos sit high on the page where procurement teams look for them, and animated metrics carry the scale of the business without a wall of text.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Core capabilities</li>
+                <li>Product portfolio</li>
+                <li>Why organisations choose us</li>
+                <li>Partners &amp; clients</li>
+                <li>Quality &amp; security certifications</li>
+                <li>Our team</li>
+                <li>Careers</li>
+                <li>Where to find us</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Enquiry form</li>
+              <li>Light / dark mode</li>
+              <li>Embedded map</li>
+              <li>Animated counters</li>
+              <li>Canvas / shader motion</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drvivekamin.jpg" alt="Studio Dental website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthodontics &amp; Dental</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Studio Dental</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Dr Vivek Amin's orthodontic and dental speciality clinic at Mallikatta Junction, Mangalore, running since 2003. The site leads with full-bleed photography of the practice itself and oversized type, so the calm, considered interior does the selling before a word is read.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Full-bleed clinic photography</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Treatments &amp; doctors</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Patient reviews</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
-          </ul>
-          <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Studio Dental <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>The clinic</li>
-                  <li>The treatment index</li>
-                  <li>Clear aligners</li>
-                  <li>Braces &amp; orthodontics</li>
-                  <li>Root canal treatment</li>
-                  <li>Implants &amp; cosmetic dentistry</li>
-                  <li>The doctors</li>
-                  <li>Reviews &amp; directions</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Click-to-call</li>
-                  <li>Carousel</li>
-                  <li>Animated counters</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/creativeconcepts.jpg" alt="Creative Concepts website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Interior &amp; Exterior Design</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Creative Concepts</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">An interior &amp; exterior design studio in Mumbai with 15 years behind them. The site leads with full-bleed project imagery and a confident editorial type treatment, built to make premium residential and commercial design feel aspirational the moment the page loads.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Full-bleed visual hero</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Portfolio gallery</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Editorial type</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Enquiry &amp; contact</li>
+            </ul>
+            <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Creative Concepts <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drvivianortho.jpg" alt="Dr. Vivian R D'Almeida website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthopaedic Surgery</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Vivian R D'Almeida</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Ortho 1 Speciality Clinic in Mangaluru. Joint replacement, keyhole arthroscopic surgery, and hand &amp; micro-vascular work. The brand needed to feel precise and clinical without feeling cold: surgical precision, human connection.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Calm clinical identity</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Light / dark theme</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Online appointment booking</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Conditions &amp; reviews</li>
-          </ul>
-          <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drvivianortho.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Elite specialties</li>
-                  <li>The problems we help solve</li>
-                  <li>Patient journey</li>
-                  <li>Consulting hours</li>
-                  <li>Robotic hip replacement</li>
-                  <li>In patients’ words</li>
-                  <li>Articles, papers &amp; appearances</li>
-                  <li>Appointment booking</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Light / dark mode</li>
-                  <li>Embedded map</li>
-                  <li>Video</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">An interior and exterior design studio in Mumbai with fifteen years of work behind them. In design the portfolio is the pitch, so the work had to feel aspirational before a single word is read.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A visual-first build around full-bleed project photography and a confident editorial type treatment. A curated gallery and featured-projects section carry the range of work, with testimonials and a project enquiry route to turn interest into a conversation.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Services</li>
+                <li>Featured projects</li>
+                <li>Curated gallery</li>
+                <li>What sets us apart</li>
+                <li>Client testimonials</li>
+                <li>Project enquiry</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Click-to-call</li>
+              <li>Animated counters</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drjoylenegynaec.jpg" alt="Dr. Joylene Diana D'Almeida website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Obstetrics &amp; Gynaecology</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Joylene Diana D'Almeida</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A consultant obstetrician, gynaecologist and laparoscopic surgeon, and a professor at Father Muller Medical College. The site leads with empathy while still signalling deep clinical credentials.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, reassuring identity</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Credential badges</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Expertise, clinics &amp; FAQ</li>
-          </ul>
-          <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drjoylenegynaec.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Expertise</li>
-                  <li>Specialisations</li>
-                  <li>Advanced surgical procedures</li>
-                  <li>Maternal &amp; neonatal milestones</li>
-                  <li>Clinic locations</li>
-                  <li>Talks, posters &amp; moments</li>
-                  <li>Resources &amp; FAQ</li>
-                  <li>Reviews</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Video</li>
-                  <li>Photo gallery</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drvivekamin.jpg" alt="Studio Dental website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthodontics &amp; Dental</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Studio Dental</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Dr Vivek Amin's orthodontic and dental speciality clinic at Mallikatta Junction, Mangalore, running since 2003. The site leads with full-bleed photography of the practice itself and oversized type, so the calm, considered interior does the selling before a word is read.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Full-bleed clinic photography</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Treatments &amp; doctors</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Patient reviews</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
+            </ul>
+            <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Studio Dental <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://semnoxrevamp.vercel.app/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/semnox.jpg" alt="Semnox website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Entertainment Technology</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Semnox</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Entertainment technology used by family entertainment centres, water and theme parks and food and beverage operators worldwide, built up since 2008. A revamp of their platform site: one connected story across ticketing, cashless, POS and CRM, structured so each kind of operator can find its own solution fast.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Platform site revamp</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Solutions architecture</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Demo booking</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Media &amp; careers</li>
-          </ul>
-          <a href="https://semnoxrevamp.vercel.app/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Semnox <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Three suites, one platform</li>
-                  <li>Venue types served</li>
-                  <li>Case studies</li>
-                  <li>Clients, partners &amp; associations</li>
-                  <li>News and events</li>
-                  <li>Blog</li>
-                  <li>Testimonials</li>
-                  <li>Careers &amp; CSR</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Click-to-call</li>
-                  <li>Carousel</li>
-                  <li>Canvas / shader motion</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">Dr Vivek Amin's orthodontic and dental speciality clinic at Mallikatta Junction, running since 2003. Dentistry is an anxious purchase, so the site needed to feel calm and considered rather than clinical.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A photography-led site that opens on the practice itself, backed by a full treatment index spanning clear aligners, braces, root canal and implants. Doctor profiles and patient reviews build confidence, with click-to-call booking and directions for visiting.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>The clinic</li>
+                <li>The treatment index</li>
+                <li>Clear aligners</li>
+                <li>Braces &amp; orthodontics</li>
+                <li>Root canal treatment</li>
+                <li>Implants &amp; cosmetic dentistry</li>
+                <li>The doctors</li>
+                <li>Reviews &amp; directions</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Click-to-call</li>
+              <li>Carousel</li>
+              <li>Animated counters</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drmayurraiortho.jpg" alt="Dr. Mayur Rai K website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthopaedics</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Mayur Rai K</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Rai Ortho Clinic. Advanced orthopaedic surgery, joint replacement, fracture care, sports medicine and spine treatment in Mangaluru. Confident and modern, built to win trust fast.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Bold, confident brand</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Animated spine illustration</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Services, hours &amp; location</li>
-          </ul>
-          <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmayurraiortho.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Specialisations</li>
-                  <li>When we’re open</li>
-                  <li>Patient testimonials</li>
-                  <li>Frequently asked questions</li>
-                  <li>Clinic location</li>
-                  <li>Appointment booking</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Embedded map</li>
-                  <li>Social preview cards</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drvivianortho.jpg" alt="Dr. Vivian R D'Almeida website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthopaedic Surgery</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Vivian R D'Almeida</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Ortho 1 Speciality Clinic in Mangaluru. Joint replacement, keyhole arthroscopic surgery, and hand &amp; micro-vascular work. The brand needed to feel precise and clinical without feeling cold: surgical precision, human connection.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Calm clinical identity</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Light / dark theme</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Online appointment booking</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Conditions &amp; reviews</li>
+            </ul>
+            <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drvivianortho.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/ahanaher.jpg" alt="Ahana Her website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Home Healthcare</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Ahana Her</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">At-home care delivered by physiotherapists, psychologists and nutritionists. Care crafted with empathy, delivered home. The site had to make booking in-home care feel simple and human.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Soft, caring identity</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Clear service breakdown</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">At-home booking</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Trust-first tone</li>
-          </ul>
-          <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit ahanaher.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Heal in 3 steps</li>
-                  <li>Specialised care pathways</li>
-                  <li>Cold plunge</li>
-                  <li>Child development</li>
-                  <li>Conditions treated</li>
-                  <li>Inside our clinic</li>
-                  <li>The clinicians</li>
-                  <li>Community reviews</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Video</li>
-                  <li>Photo gallery</li>
-                  <li>Carousel</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">An orthopaedic and hand surgeon trained across the world and practising in Mangaluru, and the first to perform a robotic hip replacement in coastal Karnataka. Precise without feeling cold was the whole brief.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A calm clinical identity in light and dark modes, organised around specialties and the conditions patients actually search for. A patient-journey section sets expectations before the first visit, supported by video, talks, published papers and WhatsApp booking.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Elite specialties</li>
+                <li>The problems we help solve</li>
+                <li>Patient journey</li>
+                <li>Consulting hours</li>
+                <li>Robotic hip replacement</li>
+                <li>In patients’ words</li>
+                <li>Articles, papers &amp; appearances</li>
+                <li>Appointment booking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Light / dark mode</li>
+              <li>Embedded map</li>
+              <li>Video</li>
+              <li>Structured data (SEO)</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://niksmasala.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/niksmasala.jpg" alt="Nik's Masala website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>E-commerce</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Nik's Masala</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Authentic Mangalorean masalas and ground spices, slow-roasted and stone-ground at an FSSAI-certified facility. The taste of Mangalore, in every pack.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Full e-commerce store</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Shop, cart &amp; products</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Heritage &amp; recipes</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, appetising brand</li>
-          </ul>
-          <a href="https://niksmasala.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit niksmasala.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Shop the range</li>
-                  <li>A blend for every dish</li>
-                  <li>Customer favourites</li>
-                  <li>Recipes, on video</li>
-                  <li>Rooted in Mangalore</li>
-                  <li>Instagram feed</li>
-                  <li>Wholesale, retail &amp; gifting</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Enquiry form</li>
-                  <li>Video</li>
-                  <li>Photo gallery</li>
-                  <li>Animated counters</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drjoylenegynaec.jpg" alt="Dr. Joylene Diana D'Almeida website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Obstetrics &amp; Gynaecology</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Joylene Diana D'Almeida</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A consultant obstetrician, gynaecologist and laparoscopic surgeon, and a professor at Father Muller Medical College. The site leads with empathy while still signalling deep clinical credentials.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, reassuring identity</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Credential badges</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Expertise, clinics &amp; FAQ</li>
+            </ul>
+            <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drjoylenegynaec.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://rivelinaligners.com/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/rivelinaligners.jpg" alt="Rivelin Aligners website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Dental / Aligners</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Rivelin Aligners</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A clear-aligner brand built around one idea: reveal the smile you've always desired. This one is built to convert: turn a curious visitor into a booked assessment.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Conversion-focused build</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">6-step explainer</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Assessment flow</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
-          </ul>
-          <a href="https://rivelinaligners.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit rivelinaligners.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>The experience</li>
-                  <li>Advantages of clear aligners</li>
-                  <li>Conditions corrected</li>
-                  <li>The six-step process</li>
-                  <li>Smile assessment</li>
-                  <li>Appointment booking</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Enquiry form</li>
-                  <li>Carousel</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A consultant obstetrician, gynaecologist and laparoscopic surgeon, and a professor at Father Muller Medical College. Women’s healthcare has to lead with empathy and keep the credentials close behind it.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A warm, reassuring site that opens on care and backs it with specialisations, advanced surgical procedures and maternal and neonatal milestones. Several clinic locations, a talks and media gallery, resources, an FAQ and WhatsApp booking.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Expertise</li>
+                <li>Specialisations</li>
+                <li>Advanced surgical procedures</li>
+                <li>Maternal &amp; neonatal milestones</li>
+                <li>Clinic locations</li>
+                <li>Talks, posters &amp; moments</li>
+                <li>Resources &amp; FAQ</li>
+                <li>Reviews</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Video</li>
+              <li>Photo gallery</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://drshravanshetty.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drshravanshetty.jpg" alt="Dr. Shravan Shetty website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthodontics</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Shravan Shetty</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A consultant orthodontist, academician and researcher. Braces, invisible braces and clear aligners (Invisalign, Spark) across Mangalore, Surathkal, Udupi and Hubli.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Refined, editorial identity</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Disciplines &amp; publications</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Digital smile-correction focus</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Easy consults</li>
-          </ul>
-          <a href="https://drshravanshetty.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drshravanshetty.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Disciplines</li>
-                  <li>Academic role</li>
-                  <li>Research</li>
-                  <li>Selected publications</li>
-                  <li>Engagement</li>
-                  <li>Contact</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Click-to-call</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://semnoxrevamp.vercel.app/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/semnox.jpg" alt="Semnox website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Entertainment Technology</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Semnox</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Entertainment technology used by family entertainment centres, water and theme parks and food and beverage operators worldwide, built up since 2008. A revamp of their platform site: one connected story across ticketing, cashless, POS and CRM, structured so each kind of operator can find its own solution fast.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Platform site revamp</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Solutions architecture</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Demo booking</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Media &amp; careers</li>
+            </ul>
+            <a href="https://semnoxrevamp.vercel.app/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View Semnox <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.drshannonfernandes.com/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drshannonfernandes.jpg" alt="Dr. Shannon Fernandes website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Gynaecology</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Shannon Fernandes</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A gynaecologist with 16 years of experience in Mangalore. Expertise wrapped in empathy. A patient-first site that builds trust before the first visit.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Trustworthy clinical brand</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Specialities &amp; credentials</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, patient-first tone</li>
-          </ul>
-          <a href="https://www.drshannonfernandes.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drshannonfernandes.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Specialities</li>
-                  <li>Surgical services</li>
-                  <li>Care suites</li>
-                  <li>Credentials &amp; training</li>
-                  <li>Contributing beyond the clinic</li>
-                  <li>Talks &amp; sharing knowledge</li>
-                  <li>Consultation booking</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Enquiry form</li>
-                  <li>Photo gallery</li>
-                  <li>Carousel</li>
-                  <li>Animated counters</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">Entertainment technology running family entertainment centres, water and theme parks and food and beverage operations worldwide since 2008. A platform this broad risks reading as an undifferentiated feature list.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A revamp organised around three product suites and the venue types they serve, so each kind of operator finds their own path within a click or two. Case studies, client and partner rosters, news, blog and careers sit behind a motion-led hero.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Three suites, one platform</li>
+                <li>Venue types served</li>
+                <li>Case studies</li>
+                <li>Clients, partners &amp; associations</li>
+                <li>News and events</li>
+                <li>Blog</li>
+                <li>Testimonials</li>
+                <li>Careers &amp; CSR</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Click-to-call</li>
+              <li>Carousel</li>
+              <li>Canvas / shader motion</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.drswathirao.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drswathirao.jpg" alt="Dr. Swathi Rao website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Pediatric Critical Care</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Swathi Rao</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A consultant pediatric intensivist and Head of Pediatric Critical Care Services at KMC Hospital, Mangalore. The tone was the hard part: intensive care for critically ill children had to read as reassuring rather than frightening, so the site opens soft and warm and lets the credentials carry weight underneath.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm pediatric identity</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Research &amp; publications</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Inside the ICU</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">WhatsApp booking</li>
-          </ul>
-          <a href="https://www.drswathirao.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drswathirao.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>What the clinic looks after</li>
-                  <li>Expertise</li>
-                  <li>When every minute matters</li>
-                  <li>Inside the ICU</li>
-                  <li>Teaching &amp; training</li>
-                  <li>Publications</li>
-                  <li>Moments from the ward</li>
-                  <li>Clinic &amp; appointments</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Embedded map</li>
-                  <li>Photo gallery</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drmayurraiortho.jpg" alt="Dr. Mayur Rai K website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthopaedics</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Mayur Rai K</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Rai Ortho Clinic. Advanced orthopaedic surgery, joint replacement, fracture care, sports medicine and spine treatment in Mangaluru. Confident and modern, built to win trust fast.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Bold, confident brand</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Animated spine illustration</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Services, hours &amp; location</li>
+            </ul>
+            <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmayurraiortho.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/jnanachetana.jpg" alt="Hindu PU College, Shirva website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Education</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Hindu PU College, Shirva</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A pre-university college in Shirva, Udupi, in association with Jnana Chethana Education Trust, teaching Science and Commerce with dedicated coaching for NEET, JEE, KCET and CA or CS Foundation. Built for admissions season: courses, faculty, facilities and notices all reachable in a click, with the 27-acre campus front and centre.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Courses &amp; faculty</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Admissions flow</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Notices &amp; gallery</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Campus life</li>
-          </ul>
-          <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View the college site <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>About the college</li>
-                  <li>Vision and mission</li>
-                  <li>Science: PCMB &amp; PCMCS</li>
-                  <li>Commerce: EBACS &amp; EBAS</li>
-                  <li>Competitive exam coaching</li>
-                  <li>Faculty directory</li>
-                  <li>Facilities</li>
-                  <li>Administration &amp; staff</li>
-                  <li>Notices, gallery &amp; admissions</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Video</li>
-                  <li>Photo gallery</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">An orthopaedic practice where most enquiries arrive on a phone, often from someone in pain looking for the next available slot rather than reading a brochure.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A direct, mobile-first build: specialisations, opening hours and the clinic on an embedded map, with WhatsApp and click-to-call never more than a tap away. Testimonials and an FAQ absorb the questions that would otherwise become phone calls.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Specialisations</li>
+                <li>When we’re open</li>
+                <li>Patient testimonials</li>
+                <li>Frequently asked questions</li>
+                <li>Clinic location</li>
+                <li>Appointment booking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Embedded map</li>
+              <li>Social preview cards</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="group block lg:order-2">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drkarthikaithal.jpg" alt="Dr. Karthik Aithal website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="lg:order-1">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Plastic &amp; Reconstructive Surgery</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Karthik Aithal</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A microsurgery-trained plastic, reconstructive and aesthetic surgeon practising at Hampankatta, Mangaluru. Reconstructive work carries real emotional weight for patients, so the site leads on the outcome — reconstruct, refine, restore confidence — and keeps the surgical credentials close behind it.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Procedures directory</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Training &amp; research</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Credential badges</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
-          </ul>
-          <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drkarthikaithal.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>A surgeon trained twice over</li>
-                  <li>What he treats</li>
-                  <li>Where he has worked</li>
-                  <li>Published work</li>
-                  <li>The clinic</li>
-                  <li>Consultation booking</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>WhatsApp enquiry</li>
-                  <li>Click-to-call</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/ahanaher.jpg" alt="Ahana Her website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             </div>
-          </details>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Home Healthcare</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Ahana Her</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">At-home care delivered by physiotherapists, psychologists and nutritionists. Care crafted with empathy, delivered home. The site had to make booking in-home care feel simple and human.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Soft, caring identity</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Clear service breakdown</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">At-home booking</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Trust-first tone</li>
+            </ul>
+            <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit ahanaher.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
         </div>
-      </div>
 
-      <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-        <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="group block ">
-          <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
-            <img src="images/portfolio/drmariamanjumifthikar.jpg" alt="Dr. Mariam Anjum Ifthikar website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-          </div>
-        </a>
-        <div class="">
-          <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Gynaecologic Oncology</span></div>
-          <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Mariam Anjum Ifthikar</h3>
-          <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Professor and Head of Gynaec-Oncology at the Zulekha Yenepoya Institute of Oncology, and a laparoscopic and robotic surgeon with over 15 years in gynaecologic cancer care. The site had to hold a serious clinical record and genuine warmth at once, with her press, talks and gallery sitting alongside the medical detail.</p>
-          <ul class="mt-6 flex flex-wrap gap-2">
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Areas of expertise</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Press &amp; gallery</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Education &amp; experience</li>
-            <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
-          </ul>
-          <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmariamanjumifthikar.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          <details class="case mt-8">
-            <summary class="case-toggle">
-              <span>Inside the build</span>
-              <i data-lucide="chevron-down" class="case-chev h-4 w-4"></i>
-            </summary>
-            <div class="case-body">
-              <div>
-                <p class="case-label">What's on the site</p>
-                <ul class="case-list">
-                  <li>Areas of expertise</li>
-                  <li>Education &amp; training</li>
-                  <li>Two decades of service</li>
-                  <li>Publications</li>
-                  <li>Oncology society memberships</li>
-                  <li>Press &amp; videos</li>
-                  <li>Gallery</li>
-                  <li>Opportunities</li>
-                  <li>Appointment booking</li>
-                </ul>
-              </div>
-              <div>
-                <p class="case-label">Built in</p>
-                <ul class="case-chips">
-                  <li>Click-to-call</li>
-                  <li>Enquiry form</li>
-                  <li>Embedded map</li>
-                  <li>Video</li>
-                  <li>Photo gallery</li>
-                  <li>Animated counters</li>
-                  <li>Canvas / shader motion</li>
-                  <li>Structured data (SEO)</li>
-                  <li>Social preview cards</li>
-                  <li>Scroll animations</li>
-                </ul>
-              </div>
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">At-home physiotherapy, psychology, nutrition and child development. Arranging in-home care for a family member is a trust decision usually made under stress.</p>
             </div>
-          </details>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A soft, human brand built around a three-step path from enquiry to care, with specialised pathways including cold plunge and child development. Clinician profiles, clinic photography, video and community reviews carry the reassurance, with WhatsApp booking throughout.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Heal in 3 steps</li>
+                <li>Specialised care pathways</li>
+                <li>Cold plunge</li>
+                <li>Child development</li>
+                <li>Conditions treated</li>
+                <li>Inside our clinic</li>
+                <li>The clinicians</li>
+                <li>Community reviews</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Video</li>
+              <li>Photo gallery</li>
+              <li>Carousel</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://niksmasala.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/niksmasala.jpg" alt="Nik's Masala website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>E-commerce</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Nik's Masala</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Authentic Mangalorean masalas and ground spices, slow-roasted and stone-ground at an FSSAI-certified facility. The taste of Mangalore, in every pack.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Full e-commerce store</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Shop, cart &amp; products</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Heritage &amp; recipes</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, appetising brand</li>
+            </ul>
+            <a href="https://niksmasala.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit niksmasala.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A Mangalore spice brand moving from local reputation to a direct-to-consumer and wholesale audience. Food sells on appetite and provenance, not specification.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A product-led site with the range up front, bestsellers surfaced, recipe videos to show the blends in use, and the story of where they come from. An Instagram feed keeps it current, with a separate route for restaurants, retailers and gifting programmes.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Shop the range</li>
+                <li>A blend for every dish</li>
+                <li>Customer favourites</li>
+                <li>Recipes, on video</li>
+                <li>Rooted in Mangalore</li>
+                <li>Instagram feed</li>
+                <li>Wholesale, retail &amp; gifting</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Enquiry form</li>
+              <li>Video</li>
+              <li>Photo gallery</li>
+              <li>Animated counters</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://rivelinaligners.com/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/rivelinaligners.jpg" alt="Rivelin Aligners website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Dental / Aligners</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Rivelin Aligners</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A clear-aligner brand built around one idea: reveal the smile you've always desired. This one is built to convert: turn a curious visitor into a booked assessment.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Conversion-focused build</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">6-step explainer</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Assessment flow</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
+            </ul>
+            <a href="https://rivelinaligners.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit rivelinaligners.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">Clear aligners compete on confidence. Prospective patients want to know what the process involves, and whether their case even qualifies, before they will commit to a consultation.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A conversion-focused build structured around the six-step treatment process, the advantages over traditional braces and the conditions aligners correct. A smile assessment form and appointment booking capture interest at the point of decision.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>The experience</li>
+                <li>Advantages of clear aligners</li>
+                <li>Conditions corrected</li>
+                <li>The six-step process</li>
+                <li>Smile assessment</li>
+                <li>Appointment booking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Enquiry form</li>
+              <li>Carousel</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://drshravanshetty.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drshravanshetty.jpg" alt="Dr. Shravan Shetty website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Orthodontics</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Shravan Shetty</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A consultant orthodontist, academician and researcher. Braces, invisible braces and clear aligners (Invisalign, Spark) across Mangalore, Surathkal, Udupi and Hubli.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Refined, editorial identity</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Disciplines &amp; publications</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Digital smile-correction focus</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Easy consults</li>
+            </ul>
+            <a href="https://drshravanshetty.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drshravanshetty.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A clinician whose standing rests as much on research and teaching as on practice, with an audience of peers and institutions alongside patients.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">An academically weighted site: disciplines, academic role, research and a selected-publications list laid out for citation rather than marketing, with clear engagement and contact routes.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Disciplines</li>
+                <li>Academic role</li>
+                <li>Research</li>
+                <li>Selected publications</li>
+                <li>Engagement</li>
+                <li>Contact</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Click-to-call</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.drshannonfernandes.com/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drshannonfernandes.jpg" alt="Dr. Shannon Fernandes website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Gynaecology</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Shannon Fernandes</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A gynaecologist with 16 years of experience in Mangalore. Expertise wrapped in empathy. A patient-first site that builds trust before the first visit.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Trustworthy clinical brand</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Specialities &amp; credentials</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm, patient-first tone</li>
+            </ul>
+            <a href="https://www.drshannonfernandes.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drshannonfernandes.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A women’s health specialist whose brief was expertise wrapped in empathy — rigorous training that never reads as intimidating to the person booking.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A site organised by chapter of a woman’s life, covering specialities, surgical services and care suites, with credentials and training given a section of their own. Light and dark modes, gallery, animated stats and consultation booking.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Specialities</li>
+                <li>Surgical services</li>
+                <li>Care suites</li>
+                <li>Credentials &amp; training</li>
+                <li>Contributing beyond the clinic</li>
+                <li>Talks &amp; sharing knowledge</li>
+                <li>Consultation booking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Enquiry form</li>
+              <li>Photo gallery</li>
+              <li>Carousel</li>
+              <li>Animated counters</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.drswathirao.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drswathirao.jpg" alt="Dr. Swathi Rao website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Pediatric Critical Care</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Swathi Rao</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A consultant pediatric intensivist and Head of Pediatric Critical Care Services at KMC Hospital, Mangalore. The tone was the hard part: intensive care for critically ill children had to read as reassuring rather than frightening, so the site opens soft and warm and lets the credentials carry weight underneath.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Warm pediatric identity</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Research &amp; publications</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Inside the ICU</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">WhatsApp booking</li>
+            </ul>
+            <a href="https://www.drswathirao.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drswathirao.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A consultant pediatric intensivist and Head of Pediatric Critical Care Services at KMC Hospital. Parents arrive frightened, so intensive care for children had to read as reassuring rather than clinical.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A gentle identity that opens soft and lets the credentials carry weight underneath. An inside-the-ICU section demystifies critical care for parents, alongside expertise, publications, teaching, ward photography and WhatsApp booking.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>What the clinic looks after</li>
+                <li>Expertise</li>
+                <li>When every minute matters</li>
+                <li>Inside the ICU</li>
+                <li>Teaching &amp; training</li>
+                <li>Publications</li>
+                <li>Moments from the ward</li>
+                <li>Clinic &amp; appointments</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Embedded map</li>
+              <li>Photo gallery</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/jnanachetana.jpg" alt="Hindu PU College, Shirva website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Education</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Hindu PU College, Shirva</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A pre-university college in Shirva, Udupi, in association with Jnana Chethana Education Trust, teaching Science and Commerce with dedicated coaching for NEET, JEE, KCET and CA or CS Foundation. Built for admissions season: courses, faculty, facilities and notices all reachable in a click, with the 27-acre campus front and centre.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Courses &amp; faculty</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Admissions flow</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Notices &amp; gallery</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Campus life</li>
+            </ul>
+            <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View the college site <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A pre-university college on a 27-acre campus in Udupi district, in association with Jnana Chethana Education Trust. It is judged in admissions season by parents comparing several colleges at once.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">An information-dense institutional site: Science and Commerce combinations, competitive exam coaching for NEET, JEE, KCET and CA or CS Foundation, a full faculty directory, facilities, administration and the college vision. Notices, gallery and admissions stay one click away.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>About the college</li>
+                <li>Vision and mission</li>
+                <li>Science: PCMB &amp; PCMCS</li>
+                <li>Commerce: EBACS &amp; EBAS</li>
+                <li>Competitive exam coaching</li>
+                <li>Faculty directory</li>
+                <li>Facilities</li>
+                <li>Administration &amp; staff</li>
+                <li>Notices, gallery &amp; admissions</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Video</li>
+              <li>Photo gallery</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="group block lg:order-2">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drkarthikaithal.jpg" alt="Dr. Karthik Aithal website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="lg:order-1">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Plastic &amp; Reconstructive Surgery</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Karthik Aithal</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">A microsurgery-trained plastic, reconstructive and aesthetic surgeon practising at Hampankatta, Mangaluru. Reconstructive work carries real emotional weight for patients, so the site leads on the outcome — reconstruct, refine, restore confidence — and keeps the surgical credentials close behind it.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Procedures directory</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Training &amp; research</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Credential badges</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Consultation booking</li>
+            </ul>
+            <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drkarthikaithal.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">A microsurgery-trained plastic, reconstructive and aesthetic surgeon in Mangaluru. Reconstructive work carries real emotional weight, so the site had to lead with the outcome rather than the procedure.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A build that opens on reconstruct, refine, restore confidence and keeps the surgical record close behind it — what he treats, where he trained and has worked, and published work. Clinic details on a map, with WhatsApp and click-to-call consultation booking.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>A surgeon trained twice over</li>
+                <li>What he treats</li>
+                <li>Where he has worked</li>
+                <li>Published work</li>
+                <li>The clinic</li>
+                <li>Consultation booking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>WhatsApp enquiry</li>
+              <li>Click-to-call</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="group block ">
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img src="images/portfolio/drmariamanjumifthikar.jpg" alt="Dr. Mariam Anjum Ifthikar website" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            </div>
+          </a>
+          <div class="">
+            <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/40"><span>Gynaecologic Oncology</span></div>
+            <h3 class="mt-4 text-3xl font-light tracking-tight text-white sm:text-4xl">Dr. Mariam Anjum Ifthikar</h3>
+            <p class="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-base">Professor and Head of Gynaec-Oncology at the Zulekha Yenepoya Institute of Oncology, and a laparoscopic and robotic surgeon with over 15 years in gynaecologic cancer care. The site had to hold a serious clinical record and genuine warmth at once, with her press, talks and gallery sitting alongside the medical detail.</p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Areas of expertise</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Press &amp; gallery</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Education &amp; experience</li>
+              <li class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-white/60">Appointment booking</li>
+            </ul>
+            <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Visit drmariamanjumifthikar.com <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="case-grid">
+            <div class="case-col">
+              <p class="case-label">The brief</p>
+              <p class="case-text">Professor and Head of Gynaec-Oncology at the Zulekha Yenepoya Institute of Oncology, with over fifteen years in gynaecologic cancer care. A cancer diagnosis is among the hardest moments to design for.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">What we built</p>
+              <p class="case-text">A site that holds a serious academic record and genuine warmth at the same time: areas of expertise, education, two decades of service, publications and oncology society memberships, alongside press, videos and gallery. Enquiry form, WhatsApp and appointment booking run throughout.</p>
+            </div>
+            <div class="case-col">
+              <p class="case-label">On the site</p>
+              <ul class="case-list">
+                <li>Areas of expertise</li>
+                <li>Education &amp; training</li>
+                <li>Two decades of service</li>
+                <li>Publications</li>
+                <li>Oncology society memberships</li>
+                <li>Press &amp; videos</li>
+                <li>Gallery</li>
+                <li>Opportunities</li>
+                <li>Appointment booking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-foot">
+            <p class="case-label">Built in</p>
+            <ul class="case-chips">
+              <li>Click-to-call</li>
+              <li>Enquiry form</li>
+              <li>Embedded map</li>
+              <li>Video</li>
+              <li>Photo gallery</li>
+              <li>Animated counters</li>
+              <li>Canvas / shader motion</li>
+              <li>Structured data (SEO)</li>
+              <li>Social preview cards</li>
+              <li>Scroll animations</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
