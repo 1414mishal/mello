@@ -36,22 +36,22 @@ const out = {};
   out['Summit-Studios-Company-Brochure'] = doc('Summit Studios — Company Brochure', [
     cover('Websites · Software · Apps',
       'We build fast, sharp software that holds up when it actually <i>matters.</i>',
-      'Summit Studios is a small, senior studio in Mangaluru. We design and build websites and custom software for clinics, founders and growing businesses — end to end, so you can get on with running the place.',
+      'Summit Studios is a web and software studio in Mangaluru, working with clients across India and internationally. We design and build websites and custom software end to end, so you can get on with running the business.',
       ['Websites', 'Web apps', 'Custom CRMs', 'Mobile apps', 'Backend & support']),
 
     page('02', '', `
       <p class="mono">Who we are</p>
-      <h2 style="margin-top:5mm">Small on purpose.</h2>
-      <p class="lede" style="margin-top:8mm;max-width:152mm">Summit Studios is a senior team working out of
-        Mangaluru with clients across India and beyond. We have shipped sites and systems for surgeons,
-        clinics, an enterprise software firm, a spice brand, a design studio and a pre-university college —
-        which sounds scattered until you notice the common thread: each one needed something built properly
-        and looked after afterwards.</p>
-      <p class="lede" style="margin-top:6mm;max-width:152mm">We stay small deliberately. It means the person
-        who takes your call is the person who builds the thing, and it means we can say no to work we are
-        not right for instead of filling a bench.</p>
+      <h2 style="margin-top:5mm">Built across <i>industries.</i></h2>
+      <p class="lede" style="margin-top:8mm;max-width:152mm">Summit Studios is a web and software studio
+        based in Mangaluru, working with clients across India and internationally. The portfolio runs from
+        surgeons, speciality clinics and multi-branch practices to enterprise software, retail brands,
+        professional services and education, built up over many projects and still growing.</p>
+      <p class="lede" style="margin-top:6mm;max-width:152mm">Every project is delivered by senior people
+        from the first call through to launch and beyond. No junior bench, no handover once the contract is
+        signed, and no templates — which is why none of the work on the following pages looks like any of
+        the rest of it.</p>
       <div class="stats">
-        <div><dt>1:1</dt><dd>Senior team, no juniors</dd></div>
+        <div><dt>Senior</dt><dd>Led end to end, no juniors</dd></div>
         <div><dt>&lt;24h</dt><dd>Average reply time</dd></div>
         <div><dt>100%</dt><dd>Custom build, no templates</dd></div>
         <div><dt>A → Z</dt><dd>Idea to launch, in-house</dd></div>
@@ -139,10 +139,11 @@ const out = {};
   }
   pages.push(page(String(pages.length + 1).padStart(2, '0'), '', `
     <p class="mono">And the rest</p>
-    <h2 style="margin-top:5mm">Dozens more, all <i>live.</i></h2>
-    <p class="lede" style="margin-top:8mm;max-width:152mm">Beyond the ten on these pages we have shipped
-      dozens of sites across clinics, dental practices, speciality hospitals, retail brands and
-      professional services — most of them in and around Mangaluru.</p>
+    <h2 style="margin-top:5mm">Many more, all <i>live.</i></h2>
+    <p class="lede" style="margin-top:8mm;max-width:152mm">The projects on these pages are a sample. The
+      wider portfolio spans multiple speciality clinics and hospitals, many dental practices, orthopaedic
+      and oncology surgeons, paediatrics, retail and FMCG brands, interior design, enterprise software and
+      education — across India and internationally.</p>
     <p class="lede" style="margin-top:6mm;max-width:152mm">The full portfolio, with a breakdown of what
       each site does and how it was built, lives at ${'summitxstudio.com'}. Ask us for the link.</p>
     ${contactBlock()}`));
@@ -342,7 +343,7 @@ const out = {};
   out['Summit-Studios-Client-Testimonials'] = doc('Summit Studios — Client Testimonials', [
     cover('In their words',
       'What clients say<br/>when we are not <i>listening.</i>',
-      'Surgeons, clinics and companies we have built for, in their own words. Every one of these people will take a call if you want to check with them directly.',
+      'A selection from the surgeons, clinics and companies across our portfolio, in their own words. Every one of these people will take a call if you want to check with them directly.',
       ['Healthcare', 'Enterprise', 'Dental', 'Speciality clinics']),
     page('02', '', `
       <p class="mono">Client feedback</p>
