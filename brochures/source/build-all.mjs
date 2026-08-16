@@ -45,7 +45,8 @@ const out = {};
       <p class="lede" style="margin-top:8mm;max-width:152mm">Summit Studios is a web and software studio
         based in Mangaluru, working with clients across India and internationally. The portfolio runs from
         surgeons, speciality clinics and multi-branch practices to enterprise software, retail brands,
-        professional services and education, built up over many projects and still growing.</p>
+        logistics, hospitality, professional services and education, built up over many projects and still
+        growing.</p>
       <p class="lede" style="margin-top:6mm;max-width:152mm">Every project is delivered by senior people
         from the first call through to launch and beyond. No junior bench, no handover once the contract is
         signed, and no templates — which is why none of the work on the following pages looks like any of
@@ -142,8 +143,8 @@ const out = {};
     <h2 style="margin-top:5mm">Many more, all <i>live.</i></h2>
     <p class="lede" style="margin-top:8mm;max-width:152mm">The projects on these pages are a sample. The
       wider portfolio spans multiple speciality clinics and hospitals, many dental practices, orthopaedic
-      and oncology surgeons, paediatrics, retail and FMCG brands, interior design, enterprise software and
-      education — across India and internationally.</p>
+      and oncology surgeons, paediatrics, retail and FMCG brands, interior design, logistics, hospitality,
+      enterprise software and education — across India and internationally.</p>
     <p class="lede" style="margin-top:6mm;max-width:152mm">The full portfolio, with a breakdown of what
       each site does and how it was built, lives at ${'summitxstudio.com'}. Ask us for the link.</p>
     ${contactBlock()}`));
@@ -354,6 +355,159 @@ const out = {};
       <div class="quotes" style="margin-top:6mm">${quotes.slice(4).map(q).join('')}</div>
       <p class="lede" style="margin-top:11mm;max-width:152mm">Happy to put you in touch with any of them.
         We would rather you heard it from a client than from us.</p>
+      ${contactBlock()}`),
+  ]);
+}
+
+/* ─────────────────────────  08 · Websites (plain language)  ───────────────────────── */
+{
+  const why = [
+    ['People check you out first', 'Before anyone rings you, they search your name. What they find in those few seconds decides whether they pick up the phone or quietly move on to the next result.'],
+    ['They are looking on a phone', 'Almost everyone looks you up on their phone. If your site is hard to read or slow to open on one, they leave — and you never find out they were there.'],
+    ['An old site makes you look old', 'If the website looks like it was made ten years ago, people wonder whether everything else is out of date too. Fair or not, that is the judgement they make.'],
+    ['Being easy to reach wins the job', 'One tap to call. One tap to message. Every extra step between wanting to contact you and doing it loses somebody who was ready.'],
+  ];
+  const gets = [
+    ['It works properly on a phone', 'Most of your customers will see it on a phone, so we build it for a phone first. Big enough to read, easy to tap, nothing running off the side of the screen.'],
+    ['People can find you on Google', 'We set it up so Google understands what you do and where you are, and shows you to people searching for it nearby.'],
+    ['Getting in touch is one tap', 'A button to call you. A button to message you on WhatsApp. A form for anyone who would rather write. Right where somebody is ready to use it.'],
+    ['It opens quickly', 'Even on a weak signal. People do not wait around for a slow page — they go back and tap whoever is below you.'],
+    ['It belongs to you', 'Your own web address, your own site. No monthly rent to a website company, and nothing you would have to rebuild if you ever stop working with us.'],
+    ['You can change it yourself', 'If you want it, we set it up so you can update your own text, photos, prices and timings without having to ring anybody.'],
+  ];
+  const steps = [
+    ['01', 'We talk', 'You tell us what you do and who your customers are. Half an hour on the phone is usually all it takes.'],
+    ['02', 'We show you a design', 'Before we build anything, you see exactly what it will look like. You tell us what to change, and we change it.'],
+    ['03', 'We build it', 'You watch it come together in pieces rather than waiting weeks to see it all at the end.'],
+    ['04', 'You check it', 'You open it on your own phone and go through it properly. Anything you do not like, we fix.'],
+    ['05', 'It goes live', 'We handle the web address, the hosting and the Google setup. Nothing technical for you to arrange.'],
+    ['06', 'We look after it', 'Changes, fixes and new pages whenever you need them. You ring us, we sort it.'],
+  ];
+  out['Summit-Studios-Websites'] = doc('Summit Studios — Websites', [
+    cover('Websites',
+      'A website for<br/>your <i>business.</i>',
+      'Whatever you do — a clinic, a shop, a restaurant, a factory, a hotel, a school — people look you up before they get in touch. We build the website they find.',
+      ['Clinics', 'Shops', 'Restaurants', 'Hotels', 'Schools', 'Trades', 'Logistics']),
+
+    page('02', '', `
+      <p class="mono">Why it matters</p>
+      <h2 style="margin-top:5mm">Why you need <i>one.</i></h2>
+      <div class="deep">
+        ${why.map(([t, d]) => `<div class="item"><h3>${t}</h3><p>${d}</p></div>`).join('')}
+      </div>`),
+
+    page('03', '', `
+      <p class="mono">Who it is for</p>
+      <h2 style="margin-top:5mm">Any business.<br/>Any <i>trade.</i></h2>
+      <p class="lede" style="margin-top:8mm;max-width:152mm">There is no such thing as a business too small
+        or too ordinary for a website. If people search for what you do, you need to be what they find.</p>
+      <ul class="chips" style="margin-top:9mm;max-width:156mm">
+        ${['Doctors & clinics', 'Dentists', 'Hospitals', 'Shops & showrooms', 'Restaurants & cafes',
+           'Hotels & homestays', 'Builders & contractors', 'Schools & colleges', 'Lawyers & accountants',
+           'Factories & logistics', 'Salons & gyms', 'Real estate', 'Travel & tours', 'Consultants']
+          .map((x) => `<li>${x}</li>`).join('')}
+      </ul>
+      <p class="lede" style="margin-top:10mm;max-width:152mm">We have already built for most of these. The
+        job is the same either way: work out what your customers need to see, then make it easy for them to
+        get in touch with you.</p>`),
+
+    page('04', '', `
+      <p class="mono">What you get</p>
+      <h2 style="margin-top:5mm">What is <i>included.</i></h2>
+      <div class="deep">
+        ${gets.slice(0, 4).map(([t, d]) => `<div class="item"><h3>${t}</h3><p>${d}</p></div>`).join('')}
+      </div>`),
+
+    page('05', '', `
+      <p class="mono">What you get — continued</p>
+      <div class="deep" style="margin-top:6mm">
+        ${gets.slice(4).map(([t, d]) => `<div class="item"><h3>${t}</h3><p>${d}</p></div>`).join('')}
+      </div>
+      <h2 style="margin-top:13mm">How it <i>works.</i></h2>
+      <div class="steps">
+        ${steps.slice(0, 3).map(([n, t, d]) => `<div class="st"><div class="n">${n}</div>
+          <div><h3>${t}</h3><p>${d}</p></div></div>`).join('')}
+      </div>`),
+
+    page('06', '', `
+      <p class="mono">How it works — continued</p>
+      <div class="steps" style="margin-top:6mm">
+        ${steps.slice(3).map(([n, t, d]) => `<div class="st"><div class="n">${n}</div>
+          <div><h3>${t}</h3><p>${d}</p></div></div>`).join('')}
+      </div>
+      <p class="lede" style="margin-top:11mm;max-width:152mm">Give us a ring or send a message on WhatsApp
+        and tell us what you do. We will tell you plainly what it would involve and what it would cost,
+        before you commit to anything.</p>
+      ${contactBlock()}`),
+  ]);
+}
+
+/* ─────────────────────────  09 · Custom software  ───────────────────────── */
+{
+  const problems = [
+    ['Everything is in a different place', 'Customer details in one file, bookings in another, payments in a third and the rest in a WhatsApp group. Nobody has the full picture, and something always slips through.'],
+    ['The same work, over and over', 'Copying figures between spreadsheets, sending the same reminders by hand, chasing the same updates every week. Hours nobody enjoys and nobody is paid to enjoy.'],
+    ['No clear view of the business', 'How many enquiries came in this month? Which service actually earns? Who is overloaded? Without a system you are estimating, and estimates get expensive.'],
+    ['It stops working as you grow', 'What held together at ten customers falls apart at a hundred, and it tends to fall apart during your busiest week rather than a quiet one.'],
+  ];
+  const builds = [
+    ['01', 'Custom CRM', 'One place for customers, patients or leads — history, follow-ups, notes and status, so anyone on the team can pick up where someone else left off.',
+      ['Lead & patient records', 'Follow-up reminders', 'Notes & history', 'Role-based access']],
+    ['02', 'Dashboards & reporting', 'The business at a glance. Enquiries, revenue, staff load and whatever else you actually decide with, updated without anyone compiling it.',
+      ['Live dashboards', 'Scheduled reports', 'Exports', 'Team performance']],
+    ['03', 'Booking & scheduling', 'Appointments, staff rotas, rooms, equipment or vehicles — booked without the double entry and the double booking.',
+      ['Online booking', 'Staff calendars', 'Reminders', 'Capacity rules']],
+    ['04', 'Internal tools', 'The small systems a team needs daily: stock, jobs, approvals, invoicing, checklists. Unglamorous, and usually the biggest time saving of the lot.',
+      ['Stock & inventory', 'Job tracking', 'Approvals', 'Invoicing']],
+    ['05', 'Mobile apps', 'For staff in the field or customers on the move. iOS and Android, taken through to the App Store and Play Store.',
+      ['iOS & Android', 'Offline-first', 'Field data capture', 'Push notifications']],
+    ['06', 'The connective work', 'Secure APIs and databases underneath, joined up to the tools you already pay for rather than replacing every one of them.',
+      ['APIs & databases', 'Payment gateways', 'Accounting & sheets', 'Cloud hosting']],
+  ];
+  out['Summit-Studios-Custom-Software'] = doc('Summit Studios — Custom Software', [
+    cover('Custom software',
+      'Software built<br/>around your <i>work.</i>',
+      'When spreadsheets, paper registers and WhatsApp groups stop keeping up, we build the system that replaces them — shaped around how your business actually runs, not how a product decided it ought to.',
+      ['CRMs', 'Dashboards', 'Booking systems', 'Internal tools', 'Mobile apps']),
+
+    page('02', '', `
+      <p class="mono">The problem</p>
+      <h2 style="margin-top:5mm">When the spreadsheet<br/>stops <i>coping.</i></h2>
+      <div class="deep">
+        ${problems.map(([t, d]) => `<div class="item"><h3>${t}</h3><p>${d}</p></div>`).join('')}
+      </div>`),
+
+    page('03', '', `
+      <p class="mono">What we build</p>
+      <h2 style="margin-top:5mm">The <i>systems.</i></h2>
+      <div class="svc">
+        ${builds.slice(0, 3).map(([n, t, d, tags]) => `<div class="row"><div class="num">${n}</div>
+          <div><h3>${t}</h3><p>${d}</p><ul>${tags.map((x) => `<li>${x}</li>`).join('')}</ul></div></div>`).join('')}
+      </div>`),
+
+    page('04', '', `
+      <p class="mono">What we build — continued</p>
+      <div class="svc" style="margin-top:6mm">
+        ${builds.slice(3).map(([n, t, d, tags]) => `<div class="row"><div class="num">${n}</div>
+          <div><h3>${t}</h3><p>${d}</p><ul>${tags.map((x) => `<li>${x}</li>`).join('')}</ul></div></div>`).join('')}
+      </div>`),
+
+    page('05', '', `
+      <p class="mono">Why custom</p>
+      <h2 style="margin-top:5mm">Why not just buy<br/>something <i>ready-made.</i></h2>
+      <div class="deep">
+        <div class="item"><h3>Sometimes you should</h3><p>If a product already does the job, we will say so. Custom is worth it when your process is the thing that makes you competitive, or when nothing off the shelf fits without bending the business out of shape.</p></div>
+        <div class="item"><h3>It fits how you already work</h3><p>Your team does not have to relearn their job around somebody else's assumptions — which is usually why the last system quietly stopped being used.</p></div>
+        <div class="item"><h3>You own it outright</h3><p>No per-user fee that grows every time you hire, and no vendor deciding to discontinue the one feature your operation depends on.</p></div>
+        <div class="item"><h3>It keeps being looked after</h3><p>The people who built it are the people who maintain it, extend it, and answer the phone when something breaks.</p></div>
+      </div>`),
+
+    page('06', '', `
+      <p class="mono">Start a conversation</p>
+      <h2 style="margin-top:5mm">Tell us where it<br/>currently <i>hurts.</i></h2>
+      <p class="lede" style="margin-top:9mm;max-width:152mm">The quickest way in is usually to describe the
+        part of the week that wastes the most time. We will tell you whether software fixes it, roughly what
+        that takes, and whether it is worth doing at all.</p>
       ${contactBlock()}`),
   ]);
 }
