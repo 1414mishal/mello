@@ -120,10 +120,12 @@ export default function middleware(request: Request) {
  * meta URLs are absolute, since this page lives one level down at /for/.
  */
 function invitePage(origin: string, selfUrl: string): string {
-  const title = 'Summit Studios | Web, App &amp; AI Development Studio';
+  const title = 'Summit Studios | Websites That Bring In Customers';
+  // Front-loaded: WhatsApp shows roughly the first two lines and truncates the rest.
   const description =
-    'Summit Studios builds fast, reliable websites, web and mobile apps, ' +
-    'AI receptionists, WhatsApp automation and custom CRMs for founders and teams.';
+    'Custom websites for clinics, doctors, brands and businesses — designed and ' +
+    'built end to end, fast on mobile, and made to turn a visitor into a booking. ' +
+    'Dozens live across India, plus apps, AI receptionists and CRMs.';
 
   return `<!doctype html>
 <html lang="en">
