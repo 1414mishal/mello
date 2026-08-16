@@ -1,17 +1,23 @@
 # Brochure source
 
-`build-brochure.mjs` writes the brochure HTML; `html-to-pdf.mjs` prints any
-local HTML file to PDF through headless Chrome.
+`kit.mjs`        shared dark theme, page furniture, contact block
+`build-all.mjs`  content for every brochure; writes one HTML file each
+`html-to-pdf.mjs` prints a local HTML file to PDF via headless Chrome
+`shots/`         compressed screenshots used by the portfolio
+`logo.b64`       base64 copy of logo-mark.png
 
-To change wording, edit the arrays at the top of `build-brochure.mjs`
-(`services`, `steps`, `website`) and the page templates below them, then:
+Rebuild everything:
 
-    node build-brochure.mjs
-    node html-to-pdf.mjs brochure.html ../Summit-Studios-Brochure.pdf
+    node build-all.mjs
+    for f in *.html; do node html-to-pdf.mjs "$f" "../${f%.html}.pdf"; done
 
-Both scripts expect `logo.b64` alongside them — a base64 copy of logo-mark.png:
+To change wording, edit the arrays inside `build-all.mjs` — each brochure is
+one block. To change the look, edit `CSS` in `kit.mjs` and every document
+updates together.
+
+If `logo.b64` is missing:
 
     node -e "console.log(require('fs').readFileSync('../../logo-mark.png').toString('base64'))" > logo.b64
 
-Kept out of the deployed site: the site is access-gated, and the brochure is
-meant to be forwarded directly on WhatsApp rather than downloaded from it.
+Not deployed with the site: the site is access-gated, and these are meant to be
+forwarded directly on WhatsApp.
