@@ -138,6 +138,28 @@
   @keyframes testi-scroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
   .testi-track { animation: testi-scroll linear infinite; will-change: transform; }
   @media (prefers-reduced-motion: reduce) { .testi-track { animation: none; } }
+
+  /* Draggable, self-scrolling rail (client logos, project cards) */
+  .rail { overflow-x: auto; overflow-y: hidden; cursor: grab; touch-action: pan-x;
+    scrollbar-width: none; -ms-overflow-style: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail.is-dragging { cursor: grabbing; }
+  .rail.is-dragging a { pointer-events: none; }
+  .rail-track { display: flex; width: max-content; align-items: center; }
+  .rail-item { display: inline-flex; align-items: center; gap: 12px; padding: 0 28px;
+    white-space: nowrap; text-decoration: none; color: rgba(255,255,255,0.45);
+    transition: color .3s; }
+  .rail-item:hover { color: #fff; }
+  .rail-item img { width: 26px; height: 26px; border-radius: 6px; flex: none; }
+  .rail-item span { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.12em; }
+  @media (max-width: 640px) {
+    .rail-item { padding: 0 18px; gap: 9px; }
+    .rail-item span { font-size: 11px; }
+    .rail-item img { width: 22px; height: 22px; }
+  }
 </style>
 </head>
 
@@ -336,6 +358,35 @@
   </div>
 </section>
 
+<!-- ===================== CLIENT RAIL ===================== -->
+<section class="relative border-y border-white/10 py-10 sm:py-12">
+  <p class="relative z-10 px-5 text-center font-mono text-xs uppercase tracking-[0.25em] text-white/40">Trusted by clinics, founders &amp; teams</p>
+  <div class="rail relative z-10 mt-8" data-rail data-speed="0.35">
+    <div class="rail-track">
+      <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drvivekamin.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Vivek Amin</span></a>
+      <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drmariamanjumifthikar.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Mariam Anjum Ifthikar</span></a>
+      <a href="https://www.drmaneeshrai.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drmaneeshrai.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Maneesh Rai</span></a>
+      <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drmayurraiortho.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Mayur Rai</span></a>
+      <a href="https://www.drrohanshetty.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drrohanshetty.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Rohan Shetty</span></a>
+      <a href="https://www.drachuthnayak.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drachuthnayak.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Achuth Nayak</span></a>
+      <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drjoylenegynaec.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Joylene D'Almeida</span></a>
+      <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drvivianortho.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Vivian R D'Almeida</span></a>
+      <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/prasannatechnologies.png" alt="" width="26" height="26" loading="lazy" /><span>Prasanna Technologies</span></a>
+      <a href="https://drkarthikks.com" target="_blank" rel="noopener" class="rail-item">
+        <img src="images/favicons/drkarthikks.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Karthik K S</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== PROJECTS ===================== -->
 <section id="projects" class="relative py-20 sm:py-28 md:py-32">
   <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
@@ -355,16 +406,16 @@
         <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Prasanna Technologies <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
         <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">Corporate site for an enterprise software firm building for the utility sector worldwide. Built to read serious and established at scale.</p>
       </a>
-      <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="group block">
+      <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="group block">
         <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/drvivianortho.jpg" alt="Dr. Vivian R D'Almeida website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+          <img src="images/portfolio/drvivekamin.jpg" alt="Studio Dental website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
         </div>
         <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/drvivianortho.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">drvivianortho.com &middot; Orthopaedic Surgery</span>
+          <img src="images/favicons/drvivekamin.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
+          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">drvivekamin.com &middot; Orthodontics &amp; Dental</span>
         </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Dr. Vivian R D'Almeida <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">A calm, precise site for an orthopaedic &amp; hand surgeon. Clinical without feeling cold, with online appointment booking built in.</p>
+        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Studio Dental <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
+        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">Dr Vivek Amin's orthodontic and dental speciality clinic, led by full-bleed photography of the practice itself. Calm and considered rather than clinical.</p>
       </a>
       <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="group block">
         <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
@@ -491,6 +542,76 @@
 <!-- ===================== SCRIPTS ===================== -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>
+/* ---------- Draggable, self-scrolling rails ---------- */
+/* Any [data-rail] gets a track that scrolls on its own, pauses under the       */
+/* pointer, and can be dragged. Content is cloned once so the loop never ends.  */
+function initRail(rail) {
+  var track = rail.firstElementChild;
+  if (!track || track.dataset.railReady) return;
+  track.dataset.railReady = '1';
+
+  // Clone the set so scrolling can wrap without a visible jump.
+  var originals = Array.prototype.slice.call(track.children);
+  originals.forEach(function (node) {
+    var copy = node.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.setAttribute('tabindex', '-1');
+    track.appendChild(copy);
+  });
+
+  var speed = parseFloat(rail.getAttribute('data-speed') || '0.4');
+  var paused = false, dragging = false, startX = 0, startLeft = 0, moved = 0;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function half() { return track.scrollWidth / 2; }
+  function wrap() {
+    var h = half();
+    if (!h) return;
+    if (rail.scrollLeft >= h) rail.scrollLeft -= h;
+    else if (rail.scrollLeft <= 0) rail.scrollLeft += h;
+  }
+
+  (function tick() {
+    if (!paused && !dragging && !reduce) { rail.scrollLeft += speed; wrap(); }
+    requestAnimationFrame(tick);
+  })();
+
+  rail.addEventListener('pointerenter', function () { paused = true; });
+  rail.addEventListener('pointerleave', function () { paused = false; });
+  rail.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+  rail.addEventListener('touchend', function () { paused = false; }, { passive: true });
+
+  // Mouse drag. Touch keeps the browser's own momentum scrolling.
+  rail.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    dragging = true; moved = 0;
+    startX = e.clientX; startLeft = rail.scrollLeft;
+    rail.classList.add('is-dragging');
+    try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  rail.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > moved) moved = Math.abs(dx);
+    rail.scrollLeft = startLeft - dx;
+    wrap();
+  });
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    rail.classList.remove('is-dragging');
+    try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+  }
+  rail.addEventListener('pointerup', endDrag);
+  rail.addEventListener('pointercancel', endDrag);
+
+  // A drag that ends on a link should not open it.
+  rail.addEventListener('click', function (e) {
+    if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+}
+document.querySelectorAll('[data-rail]').forEach(initRail);
+
 /* ---------- Icons ---------- */
 if (window.lucide) lucide.createIcons();
 

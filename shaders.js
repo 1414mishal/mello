@@ -48,6 +48,76 @@ if (window.lucide) lucide.createIcons();
   });
 })();
 
+/* ---------- Draggable, self-scrolling rails ---------- */
+/* Any [data-rail] gets a track that scrolls on its own, pauses under the       */
+/* pointer, and can be dragged. Content is cloned once so the loop never ends.  */
+function initRail(rail) {
+  var track = rail.firstElementChild;
+  if (!track || track.dataset.railReady) return;
+  track.dataset.railReady = '1';
+
+  // Clone the set so scrolling can wrap without a visible jump.
+  var originals = Array.prototype.slice.call(track.children);
+  originals.forEach(function (node) {
+    var copy = node.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.setAttribute('tabindex', '-1');
+    track.appendChild(copy);
+  });
+
+  var speed = parseFloat(rail.getAttribute('data-speed') || '0.4');
+  var paused = false, dragging = false, startX = 0, startLeft = 0, moved = 0;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function half() { return track.scrollWidth / 2; }
+  function wrap() {
+    var h = half();
+    if (!h) return;
+    if (rail.scrollLeft >= h) rail.scrollLeft -= h;
+    else if (rail.scrollLeft <= 0) rail.scrollLeft += h;
+  }
+
+  (function tick() {
+    if (!paused && !dragging && !reduce) { rail.scrollLeft += speed; wrap(); }
+    requestAnimationFrame(tick);
+  })();
+
+  rail.addEventListener('pointerenter', function () { paused = true; });
+  rail.addEventListener('pointerleave', function () { paused = false; });
+  rail.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+  rail.addEventListener('touchend', function () { paused = false; }, { passive: true });
+
+  // Mouse drag. Touch keeps the browser's own momentum scrolling.
+  rail.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    dragging = true; moved = 0;
+    startX = e.clientX; startLeft = rail.scrollLeft;
+    rail.classList.add('is-dragging');
+    try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  rail.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > moved) moved = Math.abs(dx);
+    rail.scrollLeft = startLeft - dx;
+    wrap();
+  });
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    rail.classList.remove('is-dragging');
+    try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+  }
+  rail.addEventListener('pointerup', endDrag);
+  rail.addEventListener('pointercancel', endDrag);
+
+  // A drag that ends on a link should not open it.
+  rail.addEventListener('click', function (e) {
+    if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+}
+document.querySelectorAll('[data-rail]').forEach(initRail);
+
 /* ---------- Perf caps ---------- */
 var IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
 var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
