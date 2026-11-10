@@ -1,360 +1,96 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-black">
+<!doctype html>
+<html lang="en" data-ui="dark">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Contact Summit Studios | Start Your Project</title>
-<meta name="description" content="Contact Summit Studios. Tell us what you're building: websites, apps, AI receptionists, WhatsApp automation or a custom CRM. We usually reply within a day." />
-<link rel="icon" type="image/png" href="favicon.png" />
-<link rel="apple-touch-icon" href="logo-mark.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Summit Studios</title>
+<meta name="description" content="Start a conversation with Summit Studios. Send a message or reach us by email, and we reply within one working day.">
+<link rel="canonical" href="https://www.summitxstudio.com/contact">
+<meta property="og:title" content="Contact | Summit Studios">
+<meta property="og:description" content="Start a conversation with Summit Studios. Send a message or reach us by email, and we reply within one working day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.summitxstudio.com/contact">
+<meta property="og:image" content="https://www.summitxstudio.com/assets/img/paint/hero.jpg?v=cb08df92">
+<link rel="icon" href="assets/img/favicon.svg?v=85599a95" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=a4fcf3a6">
+<link rel="stylesheet" href="assets/css/motion.css?v=246abe92">
+<script>try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}</script>
 
-<!-- ===================== SEO META ===================== -->
-<link rel="canonical" href="https://www.summitxstudio.com/contact" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="author" content="Summit Studios" />
-<meta name="publisher" content="Summit Studios" />
-<meta name="keywords" content="contact Summit Studios, get a website built, app development enquiry, web design quote India" />
-<meta name="theme-color" content="#0a0a0a" />
-
-
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Summit Studios" />
-<meta property="og:title" content="Contact Summit Studios | Start Your Project" />
-<meta property="og:description" content="Contact Summit Studios. Tell us what you're building: websites, apps, AI receptionists, WhatsApp automation or a custom CRM. We usually reply within a day." />
-<meta property="og:url" content="https://www.summitxstudio.com/contact" />
-<meta property="og:image" content="https://www.summitxstudio.com/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Summit Studios logo" />
-<meta property="og:locale" content="en_IN" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Contact Summit Studios | Start Your Project" />
-<meta name="twitter:description" content="Tell us what you're building: websites, apps, AI receptionists, WhatsApp automation or a custom CRM. We usually reply within a day." />
-<meta name="twitter:image" content="https://www.summitxstudio.com/og-image.png" />
-<meta name="twitter:image:alt" content="Summit Studios logo" />
-
-<!-- ===================== STRUCTURED DATA ===================== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["Organization", "ProfessionalService"],
-      "@id": "https://www.summitxstudio.com/#organization",
-      "name": "Summit Studios",
-      "url": "https://www.summitxstudio.com/",
-      "logo": { "@type": "ImageObject", "url": "https://www.summitxstudio.com/og-image.png", "width": 1396, "height": 1127 },
-      "image": "https://www.summitxstudio.com/og-image.png",
-      "email": "summitstud@gmail.com",
-      "telephone": "+91-98441-70575",
-      "priceRange": "$$",
-      "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-      "areaServed": [ { "@type": "Country", "name": "India" }, { "@type": "Place", "name": "Worldwide" } ],
-      "sameAs": ["https://wa.me/919844170575"],
-      "contactPoint": { "@type": "ContactPoint", "telephone": "+91-98441-70575", "email": "summitstud@gmail.com", "contactType": "customer service", "areaServed": "IN", "availableLanguage": ["English", "Hindi", "Kannada"] }
-    },
-    {
-      "@type": "ContactPage",
-      "@id": "https://www.summitxstudio.com/contact#webpage",
-      "url": "https://www.summitxstudio.com/contact",
-      "name": "Contact Summit Studios",
-      "isPartOf": { "@id": "https://www.summitxstudio.com/#website" },
-      "about": { "@id": "https://www.summitxstudio.com/#organization" },
-      "description": "Contact Summit Studios to start a project: websites, apps, AI receptionists, WhatsApp automation or a custom CRM.",
-      "inLanguage": "en"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.summitxstudio.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.summitxstudio.com/contact" }
-      ]
-    }
-  ]
-}
-</script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: { extend: {
-      fontFamily: { sans: ['Inter','system-ui','sans-serif'], mono: ['"JetBrains Mono"','ui-monospace','monospace'] },
-      colors: { ink: '#0a0a0a', paper: '#ffffff' },
-    } },
-  };
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  html { -webkit-text-size-adjust: 100%; }
-  body { overflow-x: hidden; font-feature-settings: "ss01","cv01"; }
-  ::selection { background: #0a0a0a; color: #fff; }
-  .text-fluid-hero    { font-size: clamp(2.25rem, 8vw, 5rem);    line-height: 1.02; }
-  .text-fluid-section { font-size: clamp(1.875rem, 6vw, 3.75rem); line-height: 1.05; }
-  .watermark { font-size: clamp(4rem, 22vw, 18rem); }
-  .logo-mark { display:inline-block; width:28px; height:28px; background-color: currentColor;
-    -webkit-mask: url("logo-mark.png") center / contain no-repeat;
-    mask: url("logo-mark.png") center / contain no-repeat; }
-  @media (prefers-reduced-motion: reduce) { canvas { opacity: 0.55; } }
-
-  #site-header .logo-link { color: #ffffff; }
-  #site-header .nav-link  { color: rgba(255,255,255,0.85); }
-  #site-header .nav-link:hover { color: #ffffff; }
-  #site-header .menu-btn  { color: #ffffff; border-color: rgba(255,255,255,0.35); }
-  #site-header.scrolled .logo-link { color: #ffffff; }
-  #site-header.scrolled .nav-link  { color: rgba(255,255,255,0.85); }
-  #site-header.scrolled .nav-link:hover { color: #ffffff; }
-  #site-header.scrolled .menu-btn  { color: #ffffff; border-color: rgba(255,255,255,0.35); }
-  #site-header .nav-link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
-
-  .field { width:100%; border-radius:0.85rem; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.04);
-    padding:0.8rem 1rem; color:#fff; font-weight:300; font-size:0.95rem; transition:border-color .2s, background .2s; }
-  .field::placeholder { color:rgba(255,255,255,0.35); }
-  .field:focus { outline:none; border-color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.07); }
-</style>
 </head>
-
-<body id="top" class="bg-transparent font-sans text-white antialiased">
-
-<!-- ===================== PAGE LOADER (dove) ===================== -->
-<style>
-  #loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#060608;opacity:1;transition:opacity .55s ease}
-  #loader.is-hiding{opacity:0}
-  #loader.is-done{display:none}
-  #loader .loader-dove{width:72px;height:72px;background-color:#fff;
-    -webkit-mask:url("logo-mark.png") center/contain no-repeat;mask:url("logo-mark.png") center/contain no-repeat;
-    opacity:0;transform-origin:50% 60%;filter:drop-shadow(0 0 18px rgba(140,120,255,.45));
-    animation:loaderIn 1s cubic-bezier(.22,1,.36,1) forwards}
-  @keyframes loaderIn{0%{opacity:0;transform:translateY(10px) rotate(0deg) scale(.82)}60%{opacity:1}100%{opacity:1;transform:translateY(0) rotate(-8deg) scale(1)}}
-  @media (prefers-reduced-motion:reduce){#loader .loader-dove{animation:none;opacity:1;transform:rotate(-8deg)}}
-</style>
-<div id="loader" aria-hidden="true"><span class="loader-dove"></span></div>
-<script>
-  (function(){
-    var l=document.getElementById('loader'); if(!l) return;
-    var de=document.documentElement; de.style.overflow='hidden';
-    var done=false;
-    function hide(){ if(done) return; done=true;
-      l.classList.add('is-hiding'); de.style.overflow='';
-      setTimeout(function(){ l.classList.add('is-done'); }, 600);
-    }
-    window.addEventListener('load', function(){ setTimeout(hide, 700); });
-    setTimeout(hide, 3000);
-  })();
-</script>
-
-<canvas id="page-shader" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none;"></canvas>
-<div id="shader-dim" aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
-
-<!-- HEADER -->
-<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
-  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 md:px-10 lg:px-16">
-    <a href="/index.html" class="logo-link group inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight" aria-label="summit studios home">
-      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0 transition-transform duration-300 group-hover:-rotate-6" aria-hidden="true" />
-      <span>summit<span class="font-light italic">studios</span></span>
-    </a>
-    <nav class="hidden items-center gap-9 lg:flex">
-      <a href="/projects.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Projects</a>
-      <a href="/about.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">About</a>
-      <a href="/services.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Services</a>
-      <a href="/contact.html" aria-current="page" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Contact</a>
-    </nav>
-    <div class="flex items-center gap-2">
-      <a href="#form" class="hidden items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.03] sm:inline-flex">Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-      <button id="menu-toggle" type="button" class="menu-btn inline-flex h-11 w-11 items-center justify-center rounded-full border lg:hidden" aria-label="Open menu" aria-expanded="false">
-        <i data-lucide="menu" class="menu-icon h-5 w-5"></i>
-        <i data-lucide="x" class="close-icon hidden h-5 w-5"></i>
-      </button>
-    </div>
-  </div>
-  <div id="mobile-menu" class="pointer-events-none fixed inset-x-0 top-16 z-40 -translate-y-2 border-b border-white/10 bg-black/95 backdrop-blur-md px-5 opacity-0 transition-all duration-300 sm:top-20 lg:hidden">
-    <nav class="flex flex-col py-4">
-      <a href="/projects.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Projects</a>
-      <a href="/about.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">About</a>
-      <a href="/services.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Services</a>
-      <a href="/contact.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Contact</a>
-      <a href="#form" class="mobile-link mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-white">Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-    </nav>
+<body class="no-index">
+<header class="hdr" data-hdr>
+  <a class="hdr__brand" href="/"><svg class="hdr__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 38 18 10l6 12 5-8 15 24z" fill="currentColor"/><path d="M4 43h40" stroke="currentColor" stroke-width="2"/></svg>Summit Studios</a>
+  <nav class="hdr__nav" id="nav" aria-label="Main"><a class="hdr__link" href="/industries">Industries</a><a class="hdr__link" href="/projects">Projects</a><a class="hdr__link" href="/studio">Studio</a></nav>
+  <div class="hdr__right">
+    <a class="pill pill--hdr pill--go" href="/contact" aria-current="page"><span class="pill__t">Contact</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    <button class="hdr__menu" type="button" data-menu aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
   </div>
 </header>
 
-<main>
-<!-- PAGE HERO -->
-<section class="px-5 pb-10 pt-32 sm:pt-40 md:px-10 lg:px-16">
-  <div class="mx-auto max-w-7xl">
-    <p class="font-mono text-xs uppercase tracking-[0.2em] text-white/45">Contact</p>
-    <h1 class="mt-5 max-w-3xl text-fluid-hero font-light tracking-tight text-white">Tell us what you're <span class="italic">building.</span></h1>
-    <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/70 sm:text-lg">
-      A website, an AI receptionist, WhatsApp automation, a custom CRM, a mobile app, or you're not sure yet and just want to talk it through. Either way, drop us a line. We usually reply within a day.
-    </p>
+<main id="main" class="main">
+
+<section class="talk" id="top" data-ink aria-labelledby="talk-t">
+  <div class="talk__frame" aria-hidden="true">
+    <img class="talk__art" src="assets/img/paint/handshake.jpg?v=c0d30eec" alt="" width="1344" height="752" fetchpriority="high">
+    <img class="talk__crest" src="assets/img/frame-crest.png?v=e455becc" alt="" width="359" height="198">
+  </div>
+  <div class="talk__inner">
+    <h1 class="talk__h" id="talk-t">Let&rsquo;s start a<br>conversation<br>about it.</h1>
+    <form class="form tf" data-send data-subject="New enquiry from summitxstudio.com" action="https://formsubmit.co/vedh.shetty@summitxstudio.com" method="post" novalidate data-reveal>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form__trap">
+      <input type="hidden" name="_subject" value="New enquiry from summitxstudio.com"><input type="hidden" name="_cc" value="team@summitxstudio.com"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+      <div class="tf__a">
+      <div class="tf__row"><input id="c-name" name="name" type="text" placeholder=" " autocomplete="name" required><label for="c-name">Full name</label></div>
+      <div class="tf__row"><input id="c-business" name="business" type="text" placeholder=" " autocomplete="organization"><label for="c-business">Business / brand</label></div>
+      <div class="tf__row"><input id="c-email" name="email" type="email" placeholder=" " autocomplete="email" required><label for="c-email">Email</label></div>
+      <div class="tf__row"><input id="c-site" name="website" type="text" placeholder=" " autocomplete="url"><label for="c-site">Current website, if you have one</label></div>
+      <div class="tf__row tf__row--select"><label class="sr" for="c-kind">What kind of business?</label><select id="c-kind" name="business_type"><option value="" selected>What kind of business?</option><option>Clinic or healthcare</option><option>Engineering or industrial</option><option>Trades or construction</option><option>Property or interiors</option><option>Technology</option><option>Food or hospitality</option><option>Something else</option></select><svg class="tf__chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="tf__b">
+      <fieldset class="tf__chips"><legend>How can we help?</legend><div class="tf__chipset"><label class="tf__chip"><input type="checkbox" name="help" value="Website design &amp; build"><span>Website design &amp; build</span></label><label class="tf__chip"><input type="checkbox" name="help" value="Growth marketing"><span>Growth marketing</span></label><label class="tf__chip"><input type="checkbox" name="help" value="AI receptionist"><span>AI receptionist</span></label><label class="tf__chip"><input type="checkbox" name="help" value="WhatsApp automation"><span>WhatsApp automation</span></label><label class="tf__chip"><input type="checkbox" name="help" value="Custom software or CRM"><span>Custom software or CRM</span></label><label class="tf__chip"><input type="checkbox" name="help" value="Web app or dashboard"><span>Web app or dashboard</span></label><label class="tf__chip"><input type="checkbox" name="help" value="Maintenance &amp; support"><span>Maintenance &amp; support</span></label><label class="tf__chip"><input type="checkbox" name="help" value="Not sure yet"><span>Not sure yet</span></label></div></fieldset>
+      <div class="tf__row tf__row--area"><textarea id="c-msg" name="message" rows="4" placeholder=" "></textarea><label for="c-msg">Your message</label></div>
+      </div>
+      <button class="tf__send" type="submit"><span data-label>Send message</span><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="form__ok" role="status"><p class="fg__t">Sent</p><p class="fg__p">Thanks. We will reply within one working day. If it is urgent, email <a class="mail" href="mailto:team@summitxstudio.com">team@summitxstudio.com</a>.</p></div>
+      <div class="form__err" role="alert"><p class="fg__t">Not sent</p><p class="fg__p">Something went wrong on our side. Please email <a class="mail" href="mailto:vedh.shetty@summitxstudio.com">vedh.shetty@summitxstudio.com</a> and we will reply within one working day.</p></div>
+    </form>
+    <div class="talk__alt">
+      <p class="talk__or">Prefer email?</p>
+      <p class="talk__mail">Write to <a class="mail" href="mailto:team@summitxstudio.com">team@summitxstudio.com</a>, or to Vedh directly at <a class="mail" href="mailto:vedh.shetty@summitxstudio.com">vedh.shetty@summitxstudio.com</a>. We reply within one working day.</p>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT BODY -->
-<section class="py-12 sm:py-16">
-  <div class="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-[1fr_1.1fr] md:px-10 lg:gap-20 lg:px-16">
-
-    <!-- left: details -->
-    <div>
-      <h2 class="text-2xl font-light tracking-tight text-white sm:text-3xl">Reach us directly</h2>
-      <a href="mailto:summitstud@gmail.com" class="group mt-6 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:bg-white/[0.07]">
-        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white"><i data-lucide="mail" class="h-5 w-5"></i></span>
-        <span class="min-w-0">
-          <span class="block font-mono text-[11px] uppercase tracking-wider text-white/45">Email</span>
-          <span class="flex items-center gap-1.5 text-lg font-light tracking-tight text-white">summitstud@gmail.com <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-transform duration-300 group-hover:translate-x-0.5"></i></span>
-        </span>
-      </a>
-      <a href="https://wa.me/919844170575?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="group mt-4 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:bg-white/[0.07]">
-        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white"><i data-lucide="message-circle" class="h-5 w-5"></i></span>
-        <span class="min-w-0">
-          <span class="block font-mono text-[11px] uppercase tracking-wider text-white/45">WhatsApp</span>
-          <span class="flex items-center gap-1.5 text-lg font-light tracking-tight text-white">+91 98441 70575 <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-transform duration-300 group-hover:translate-x-0.5"></i></span>
-        </span>
-      </a>
-
-      <h3 class="mt-12 text-sm font-semibold tracking-tight text-white">What happens next</h3>
-      <ol class="mt-5 space-y-5">
-        <li class="flex gap-4"><span class="font-mono text-sm text-white/40">01</span><p class="text-[15px] font-light leading-relaxed text-white/65">You send us a few lines about what you need. Rough is fine, even a one-liner.</p></li>
-        <li class="flex gap-4"><span class="font-mono text-sm text-white/40">02</span><p class="text-[15px] font-light leading-relaxed text-white/65">We reply within a day, usually with a couple of questions and a sense of how we'd approach it.</p></li>
-        <li class="flex gap-4"><span class="font-mono text-sm text-white/40">03</span><p class="text-[15px] font-light leading-relaxed text-white/65">If it's a fit, we scope it properly and get started. No pressure, no hard sell.</p></li>
-      </ol>
-
-      <h3 class="mt-12 text-sm font-semibold tracking-tight text-white">We can help with</h3>
-      <ul class="mt-5 flex flex-wrap gap-2">
-        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">Websites</li>
-        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">AI receptionists</li>
-        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">WhatsApp automation</li>
-        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">Custom CRMs &amp; software</li>
-        <li class="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-light text-white/65">iOS &amp; Android apps</li>
-      </ul>
-      <a href="/services.html" class="mt-6 inline-flex items-center gap-2 text-sm font-light text-white/60 transition-colors hover:text-white">See everything we do <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-    </div>
-
-    <!-- right: form -->
-    <div id="form" class="rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm sm:p-8">
-      <h2 class="text-2xl font-light tracking-tight text-white sm:text-3xl">Send a message</h2>
-      <p class="mt-2 text-sm font-light leading-relaxed text-white/55">Fill this in and it'll open your email ready to send, or just write to us directly.</p>
-      <form id="contact-form" class="mt-7 space-y-4">
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label for="cf-name" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">Name</label>
-            <input id="cf-name" name="name" type="text" required placeholder="Your name" class="field" />
-          </div>
-          <div>
-            <label for="cf-email" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">Email</label>
-            <input id="cf-email" name="email" type="email" required placeholder="you@email.com" class="field" />
-          </div>
-        </div>
-        <div>
-          <label for="cf-topic" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">What's it about?</label>
-          <select id="cf-topic" name="topic" class="field">
-            <option>A website</option>
-            <option>An AI receptionist</option>
-            <option>WhatsApp automation</option>
-            <option>A custom CRM / software</option>
-            <option>A mobile app (iOS / Android)</option>
-            <option>Not sure yet, let's talk</option>
-          </select>
-        </div>
-        <div>
-          <label for="cf-message" class="mb-1.5 block font-mono text-[11px] uppercase tracking-wider text-white/45">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required placeholder="A few lines about what you're working on…" class="field resize-y"></textarea>
-        </div>
-        <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-300 hover:scale-[1.01]">
-          Send message <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-        </button>
-        <p id="cf-note" class="text-center text-xs font-light text-white/40">This opens your email app with everything filled in.</p>
-      </form>
-    </div>
-
-  </div>
-</section>
-
-<div class="h-10 sm:h-16"></div>
 </main>
-
-<!-- Blend: aurora -> footer (black) -->
-<div aria-hidden="true" class="relative h-40 w-full bg-gradient-to-b from-transparent via-black/70 to-black sm:h-56"></div>
-
-<!-- FOOTER (with shader) -->
-<footer id="site-footer" class="relative overflow-hidden bg-black pt-20 text-white sm:pt-28">
-  <canvas id="footer-flow" class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
-  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85"></div>
-
-  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <a href="/index.html" class="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-white">
-      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0" aria-hidden="true" />
-      <span>summit<span class="font-light italic">studios</span></span>
-    </a>
-    <div class="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Use cases</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI receptionists</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp automation</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Custom CRMs</a></li>
-          <li><a href="/projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Websites</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Services</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Development</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">App Development</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">UI/UX Design</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Automation &amp; AI</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Company</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
-          <li><a href="/projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Our work</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Contact</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="mailto:summitstud@gmail.com" class="text-sm font-light text-white/55 transition-colors hover:text-white">summitstud@gmail.com</a></li>
-          <li><a href="https://wa.me/919844170575?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp</a></li>
-        </ul>
-      </div>
-    </div>
+<footer class="ftr" data-ftr data-above="wall">
+  <div class="ftr__tear" aria-hidden="true"><svg class="tear" viewBox="0 0 2400 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <defs><filter id="fray-ftr" x="-2%" y="-20%" width="104%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1 .55" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="9" result="torn"/><feDropShadow in="torn" dx="0" dy="-2" stdDeviation="3" flood-color="#14140A" flood-opacity=".32"/></filter></defs>
+      <path class="tear__fibre" filter="url(#fray-ftr)" d="M0,220 L0,159.1 L0.0,160.6 L8.0,149.7 L11.1,155.3 L16.2,148.7 L27.2,150.0 L36.8,146.2 L45.0,144.5 L53.0,142.3 L60.2,145.6 L68.6,134.9 L77.7,134.1 L83.1,129.9 L93.0,136.8 L101.7,137.5 L110.5,131.9 L116.6,132.8 L123.2,131.7 L133.2,126.3 L137.3,131.3 L148.0,129.8 L156.0,131.3 L163.1,136.4 L168.9,138.3 L176.6,144.3 L185.0,142.7 L194.9,139.3 L203.2,142.0 L213.1,144.3 L223.4,146.1 L232.1,144.0 L241.7,141.3 L247.0,141.1 L256.8,148.7 L260.5,146.1 L266.8,136.6 L272.2,140.9 L282.2,139.8 L290.1,136.8 L298.8,131.1 L308.9,141.2 L315.9,137.5 L321.4,131.9 L329.2,127.8 L333.8,131.7 L341.7,128.1 L345.0,135.3 L350.5,139.1 L360.7,135.4 L367.4,137.7 L375.5,132.2 L383.0,139.6 L393.5,141.0 L400.0,134.9 L404.9,139.6 L415.7,136.6 L423.1,141.3 L429.4,142.8 L432.6,145.6 L440.6,137.2 L448.6,142.7 L457.1,142.1 L465.7,143.9 L468.9,138.1 L477.3,148.8 L482.3,142.5 L490.1,142.1 L496.0,144.2 L501.9,138.5 L507.3,138.0 L516.5,131.3 L524.1,139.6 L529.5,131.4 L539.0,129.1 L543.5,126.5 L552.1,127.0 L557.6,124.2 L567.3,120.2 L577.1,118.5 L582.8,115.6 L592.9,109.3 L597.7,108.4 L605.0,104.8 L614.4,107.3 L618.9,105.8 L628.3,105.2 L637.8,95.7 L641.8,100.7 L651.2,98.4 L656.9,101.9 L663.3,100.0 L673.7,97.8 L676.7,96.2 L686.7,97.5 L693.2,95.3 L703.6,88.2 L712.6,94.8 L720.9,88.6 L726.2,90.1 L731.0,88.4 L738.7,83.7 L748.2,80.3 L758.5,81.9 L768.8,84.7 L779.0,76.8 L782.2,80.4 L786.5,70.6 L794.8,70.3 L801.1,76.9 L809.0,64.5 L814.1,73.5 L820.9,71.8 L826.7,60.6 L834.0,67.1 L838.3,64.0 L848.7,61.3 L858.3,59.9 L866.3,59.0 L869.7,59.0 L874.9,59.3 L881.3,59.8 L890.5,53.6 L893.9,54.8 L897.9,59.0 L908.7,67.8 L912.4,64.3 L917.9,63.1 L923.7,69.7 L931.4,68.9 L936.0,64.3 L939.9,67.5 L948.7,66.1 L952.3,65.6 L958.3,71.1 L967.6,76.4 L977.0,82.2 L983.4,80.5 L990.4,82.8 L996.8,83.3 L1003.4,81.1 L1010.7,86.9 L1014.3,80.9 L1020.7,89.9 L1031.2,85.5 L1041.4,85.1 L1046.5,83.7 L1050.5,90.8 L1058.8,92.0 L1068.1,85.5 L1077.0,92.1 L1080.8,91.3 L1083.8,84.7 L1093.0,84.3 L1096.8,88.3 L1106.8,90.6 L1110.0,94.2 L1114.0,89.5 L1122.4,93.3 L1133.0,88.6 L1142.4,88.4 L1151.5,92.1 L1160.2,100.0 L1169.2,106.8 L1172.7,105.1 L1180.2,107.0 L1185.2,104.7 L1190.2,111.8 L1199.2,108.3 L1205.1,114.0 L1210.9,113.6 L1214.6,115.7 L1225.4,112.4 L1234.4,115.7 L1242.9,122.5 L1251.3,123.6 L1258.1,121.4 L1268.3,116.3 L1272.1,120.0 L1282.4,115.7 L1289.0,117.4 L1293.5,118.8 L1298.0,121.5 L1303.6,112.6 L1312.1,116.0 L1317.5,115.9 L1323.8,112.9 L1331.4,109.9 L1336.2,109.9 L1343.0,112.2 L1347.4,112.7 L1353.0,109.1 L1357.1,107.8 L1364.0,104.1 L1370.7,109.0 L1380.3,104.7 L1387.1,103.2 L1397.0,102.0 L1405.8,108.2 L1412.6,105.2 L1417.5,108.1 L1425.9,113.9 L1435.7,110.1 L1440.2,106.4 L1444.7,107.5 L1454.6,114.5 L1459.6,116.4 L1465.1,114.7 L1474.0,112.9 L1477.7,115.6 L1483.0,116.2 L1490.7,114.9 L1493.7,120.1 L1500.2,120.4 L1504.9,119.7 L1515.5,120.1 L1522.9,114.6 L1528.1,118.7 L1532.0,119.4 L1542.3,116.6 L1552.8,123.5 L1562.0,120.9 L1567.3,120.3 L1575.6,121.4 L1580.7,122.7 L1591.4,117.9 L1598.7,112.1 L1605.6,121.2 L1614.4,118.7 L1621.9,118.4 L1630.1,121.1 L1634.5,120.1 L1642.8,115.6 L1653.2,120.8 L1658.9,130.3 L1666.6,124.8 L1674.8,133.4 L1680.3,131.4 L1683.9,132.5 L1692.9,139.2 L1701.8,141.7 L1706.9,137.8 L1716.9,139.4 L1724.0,149.1 L1733.1,152.6 L1738.8,155.9 L1746.1,162.3 L1751.9,163.5 L1755.8,154.0 L1759.6,162.1 L1768.9,167.2 L1773.3,164.7 L1779.7,170.8 L1789.2,168.1 L1796.9,162.8 L1803.1,162.7 L1810.3,167.5 L1815.0,163.7 L1824.2,169.4 L1833.6,172.7 L1844.2,162.6 L1851.7,171.7 L1859.7,172.3 L1868.2,165.2 L1878.1,168.1 L1885.9,167.2 L1888.9,172.0 L1897.2,168.4 L1904.4,161.9 L1909.0,169.9 L1912.3,163.0 L1920.4,169.7 L1927.9,166.6 L1938.1,164.6 L1947.4,169.3 L1950.8,172.3 L1955.7,171.6 L1963.0,171.9 L1968.6,177.3 L1977.1,172.6 L1987.0,170.7 L1997.4,171.1 L2006.3,175.7 L2015.8,170.9 L2025.7,170.1 L2034.7,170.2 L2038.6,168.8 L2042.2,166.5 L2046.5,162.1 L2055.1,166.4 L2061.5,166.5 L2066.9,163.3 L2076.0,159.8 L2080.4,159.6 L2089.2,147.4 L2095.2,153.8 L2102.9,147.5 L2106.0,139.5 L2115.2,134.9 L2121.9,133.0 L2126.6,137.7 L2132.8,134.6 L2136.0,127.8 L2140.4,133.3 L2143.9,127.0 L2150.4,131.4 L2159.1,129.5 L2165.3,127.7 L2168.5,127.4 L2173.3,120.2 L2180.1,121.7 L2188.0,123.0 L2192.0,119.9 L2200.8,121.7 L2210.1,121.9 L2220.6,117.8 L2225.6,123.2 L2235.1,122.2 L2240.9,115.4 L2249.3,122.2 L2257.1,121.3 L2260.3,114.8 L2264.7,115.4 L2268.1,125.6 L2278.3,120.9 L2289.1,122.4 L2298.5,125.6 L2309.1,109.5 L2314.5,117.7 L2325.1,107.9 L2330.4,119.0 L2334.3,115.9 L2340.0,109.0 L2350.4,104.0 L2359.4,104.4 L2369.0,104.1 L2379.4,102.5 L2385.7,98.6 L2395.0,105.5 L2400,220 Z"/>
+      <path class="tear__paper" d="M0,220 L0,171.1 L0.0,173.8 L8.0,167.4 L11.1,170.5 L16.2,167.1 L27.2,164.1 L36.8,162.1 L45.0,156.8 L53.0,159.2 L60.2,156.6 L68.6,151.1 L77.7,154.8 L83.1,149.7 L93.0,151.0 L101.7,152.9 L110.5,149.9 L116.6,152.4 L123.2,149.9 L133.2,143.8 L137.3,146.8 L148.0,150.6 L156.0,148.6 L163.1,151.7 L168.9,152.0 L176.6,158.8 L185.0,157.5 L194.9,159.3 L203.2,154.6 L213.1,162.7 L223.4,161.0 L232.1,156.4 L241.7,158.3 L247.0,155.4 L256.8,158.5 L260.5,158.6 L266.8,155.6 L272.2,159.0 L282.2,149.2 L290.1,152.2 L298.8,150.7 L308.9,157.1 L315.9,153.4 L321.4,145.7 L329.2,146.5 L333.8,150.6 L341.7,146.3 L345.0,153.4 L350.5,153.3 L360.7,147.8 L367.4,148.9 L375.5,151.2 L383.0,151.6 L393.5,152.0 L400.0,155.9 L404.9,154.8 L415.7,156.5 L423.1,151.8 L429.4,157.1 L432.6,158.5 L440.6,156.7 L448.6,157.9 L457.1,157.3 L465.7,161.3 L468.9,156.3 L477.3,161.0 L482.3,159.6 L490.1,159.7 L496.0,156.8 L501.9,158.7 L507.3,156.5 L516.5,151.9 L524.1,155.1 L529.5,147.4 L539.0,145.6 L543.5,142.7 L552.1,141.1 L557.6,138.2 L567.3,135.9 L577.1,132.6 L582.8,131.0 L592.9,125.9 L597.7,125.3 L605.0,122.6 L614.4,122.1 L618.9,116.9 L628.3,119.1 L637.8,113.7 L641.8,116.9 L651.2,112.2 L656.9,113.1 L663.3,112.9 L673.7,110.8 L676.7,115.7 L686.7,116.2 L693.2,115.5 L703.6,108.3 L712.6,109.8 L720.9,110.9 L726.2,107.4 L731.0,101.6 L738.7,103.4 L748.2,101.2 L758.5,104.4 L768.8,98.4 L779.0,92.8 L782.2,95.4 L786.5,90.7 L794.8,92.0 L801.1,92.6 L809.0,83.6 L814.1,86.2 L820.9,84.6 L826.7,80.5 L834.0,79.8 L838.3,79.7 L848.7,76.5 L858.3,72.5 L866.3,74.8 L869.7,75.1 L874.9,74.8 L881.3,74.8 L890.5,69.7 L893.9,71.6 L897.9,72.9 L908.7,82.0 L912.4,78.7 L917.9,77.2 L923.7,84.3 L931.4,82.6 L936.0,82.8 L939.9,83.8 L948.7,85.3 L952.3,87.9 L958.3,88.6 L967.6,91.4 L977.0,95.8 L983.4,94.1 L990.4,99.8 L996.8,101.6 L1003.4,99.3 L1010.7,102.8 L1014.3,98.6 L1020.7,101.7 L1031.2,100.8 L1041.4,103.6 L1046.5,100.9 L1050.5,106.8 L1058.8,104.2 L1068.1,105.9 L1077.0,105.9 L1080.8,102.1 L1083.8,103.0 L1093.0,100.1 L1096.8,99.8 L1106.8,101.0 L1110.0,105.2 L1114.0,108.0 L1122.4,108.4 L1133.0,110.7 L1142.4,108.7 L1151.5,110.2 L1160.2,111.3 L1169.2,119.5 L1172.7,115.1 L1180.2,121.1 L1185.2,118.1 L1190.2,124.7 L1199.2,123.9 L1205.1,124.4 L1210.9,126.6 L1214.6,129.1 L1225.4,131.5 L1234.4,129.7 L1242.9,137.3 L1251.3,134.1 L1258.1,137.6 L1268.3,134.0 L1272.1,135.9 L1282.4,136.7 L1289.0,135.7 L1293.5,132.8 L1298.0,134.7 L1303.6,131.6 L1312.1,134.3 L1317.5,129.8 L1323.8,133.3 L1331.4,128.2 L1336.2,123.8 L1343.0,125.6 L1347.4,123.2 L1353.0,128.4 L1357.1,128.3 L1364.0,122.4 L1370.7,126.3 L1380.3,124.6 L1387.1,122.3 L1397.0,123.3 L1405.8,125.0 L1412.6,118.8 L1417.5,125.4 L1425.9,126.1 L1435.7,124.4 L1440.2,124.5 L1444.7,126.0 L1454.6,131.1 L1459.6,133.3 L1465.1,129.3 L1474.0,128.7 L1477.7,136.1 L1483.0,131.5 L1490.7,135.0 L1493.7,133.4 L1500.2,136.4 L1504.9,134.4 L1515.5,133.3 L1522.9,135.0 L1528.1,137.9 L1532.0,138.3 L1542.3,135.6 L1552.8,137.2 L1562.0,137.8 L1567.3,139.2 L1575.6,139.0 L1580.7,138.0 L1591.4,134.8 L1598.7,129.4 L1605.6,134.5 L1614.4,137.4 L1621.9,132.5 L1630.1,137.2 L1634.5,140.0 L1642.8,134.5 L1653.2,139.1 L1658.9,143.9 L1666.6,144.0 L1674.8,144.5 L1680.3,146.7 L1683.9,150.5 L1692.9,154.7 L1701.8,154.0 L1706.9,157.3 L1716.9,157.8 L1724.0,163.0 L1733.1,168.0 L1738.8,168.0 L1746.1,172.7 L1751.9,177.2 L1755.8,172.9 L1759.6,174.3 L1768.9,179.1 L1773.3,176.0 L1779.7,183.2 L1789.2,186.5 L1796.9,182.8 L1803.1,181.8 L1810.3,184.1 L1815.0,180.3 L1824.2,179.8 L1833.6,185.8 L1844.2,185.0 L1851.7,181.9 L1859.7,188.4 L1868.2,181.0 L1878.1,181.7 L1885.9,182.5 L1888.9,186.3 L1897.2,180.5 L1904.4,182.4 L1909.0,182.8 L1912.3,181.2 L1920.4,181.4 L1927.9,189.5 L1938.1,183.7 L1947.4,187.7 L1950.8,187.1 L1955.7,181.6 L1963.0,191.3 L1968.6,191.6 L1977.1,184.5 L1987.0,189.4 L1997.4,192.9 L2006.3,186.8 L2015.8,192.4 L2025.7,184.7 L2034.7,186.0 L2038.6,180.1 L2042.2,181.5 L2046.5,181.9 L2055.1,182.3 L2061.5,180.4 L2066.9,176.1 L2076.0,173.4 L2080.4,173.9 L2089.2,168.7 L2095.2,164.7 L2102.9,161.0 L2106.0,159.9 L2115.2,154.9 L2121.9,151.0 L2126.6,149.8 L2132.8,150.0 L2136.0,146.4 L2140.4,150.5 L2143.9,144.9 L2150.4,148.0 L2159.1,142.9 L2165.3,143.4 L2168.5,145.0 L2173.3,136.5 L2180.1,138.6 L2188.0,139.9 L2192.0,138.3 L2200.8,135.7 L2210.1,136.5 L2220.6,139.2 L2225.6,137.7 L2235.1,139.0 L2240.9,136.5 L2249.3,139.6 L2257.1,134.7 L2260.3,135.8 L2264.7,134.9 L2268.1,136.9 L2278.3,132.9 L2289.1,136.3 L2298.5,139.5 L2309.1,128.0 L2314.5,130.4 L2325.1,125.2 L2330.4,133.0 L2334.3,127.0 L2340.0,128.1 L2350.4,125.1 L2359.4,125.3 L2369.0,120.6 L2379.4,119.8 L2385.7,114.5 L2395.0,116.7 L2400,220 Z"/>
+    </svg></div>
+  <div class="ftr__cta">
+    <h2 class="ftr__h"><span class="swash">L</span>et&rsquo;s build something worth finding.</h2>
+    <div class="ftr__btns"><a class="ihb ihb--auto ihb--big" href="/contact"><span class="ihb__t">Start a conversation</span><span class="ihb__in" aria-hidden="true"><span>Start a conversation</span><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ihb__dot" aria-hidden="true"></span></a><a class="chip" href="/get-started#review">Get a free website review<span class="chip__ar">&nearr;</span></a></div>
   </div>
-
-  <div aria-hidden="true" class="pointer-events-none relative z-10 mt-16 select-none overflow-hidden">
-    <div class="watermark whitespace-nowrap text-center font-semibold leading-none tracking-tighter text-white/[0.06]">summit</div>
-  </div>
-  <div class="relative z-10 border-t border-white/10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-10 lg:px-16">
-      
-      <p>© 2026 summit studios. All rights reserved.</p>
-    </div>
+  <nav class="ftr__cols" aria-label="Footer">
+    <div><p class="ftr__t">Services</p><a href="/#websites">Websites</a><a href="/#growth">Growth Marketing</a><a href="/#receptionists">AI Concierge</a><a href="/#more">WhatsApp Automation</a><a href="/#more">Custom Software</a></div>
+    <div><p class="ftr__t">Studio</p><a href="/industries">Industries</a><a href="/projects">Projects</a><a href="/studio">About</a><a href="/contact">Get a quote</a></div>
+    <div><p class="ftr__t">Talk to us</p><a href="/get-started">Get started</a><a href="/contact">Contact</a><a href="mailto:team@summitxstudio.com">team@summitxstudio.com</a></div>
+    <div><p class="ftr__t">Worldwide</p><p class="ftr__note">Working with clients across time zones. Local time <span data-clock>--:--</span>.</p></div>
+  </nav>
+  <div class="ftr__base">
+    <div class="ftr__mark" data-halftone><p class="ftr__word" aria-hidden="true">Summit Studios</p><canvas class="ftr__dots" aria-hidden="true"></canvas></div>
+    <div class="ftr__legal"><span>&copy; 2026 Summit Studios</span><a href="#top">Back to top &uarr;</a></div>
   </div>
 </footer>
-
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="shaders.js"></script>
-<script>
-  (function () {
-    var form = document.getElementById('contact-form');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = (document.getElementById('cf-name').value || '').trim();
-      var email = (document.getElementById('cf-email').value || '').trim();
-      var topic = document.getElementById('cf-topic').value || '';
-      var message = (document.getElementById('cf-message').value || '').trim();
-      var subject = 'New enquiry: ' + topic + (name ? ' - ' + name : '');
-      var body = 'Name: ' + name + '\n' + 'Email: ' + email + '\n' + 'About: ' + topic + '\n\n' + message;
-      window.location.href = 'mailto:summitstud@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  })();
-</script>
+<svg class="sr" width="0" height="0" aria-hidden="true" focusable="false"><filter id="bar-rough" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="3" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter><defs><image id="pt-m" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0042' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .29 0 0 0 0 .14 .9 0 0 0 -.38'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E" width="720" height="720" preserveAspectRatio="none"/><image id="pt-g2" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='1' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 0 0.28'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E" width="180" height="180" preserveAspectRatio="none"/><image id="pt-g1" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .25' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 0 0.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E" width="240" height="240" preserveAspectRatio="none"/></defs><pattern id="grain-bg" patternUnits="userSpaceOnUse" width="720" height="720"><rect width="720" height="720" fill="#DCDCD0"/><use href="#pt-m"/><use href="#pt-g2" x="0" y="0"/><use href="#pt-g2" x="180" y="0"/><use href="#pt-g2" x="360" y="0"/><use href="#pt-g2" x="540" y="0"/><use href="#pt-g2" x="0" y="180"/><use href="#pt-g2" x="180" y="180"/><use href="#pt-g2" x="360" y="180"/><use href="#pt-g2" x="540" y="180"/><use href="#pt-g2" x="0" y="360"/><use href="#pt-g2" x="180" y="360"/><use href="#pt-g2" x="360" y="360"/><use href="#pt-g2" x="540" y="360"/><use href="#pt-g2" x="0" y="540"/><use href="#pt-g2" x="180" y="540"/><use href="#pt-g2" x="360" y="540"/><use href="#pt-g2" x="540" y="540"/><use href="#pt-g1" x="0" y="0"/><use href="#pt-g1" x="240" y="0"/><use href="#pt-g1" x="480" y="0"/><use href="#pt-g1" x="0" y="240"/><use href="#pt-g1" x="240" y="240"/><use href="#pt-g1" x="480" y="240"/><use href="#pt-g1" x="0" y="480"/><use href="#pt-g1" x="240" y="480"/><use href="#pt-g1" x="480" y="480"/></pattern><pattern id="grain-parch" patternUnits="userSpaceOnUse" width="720" height="720"><rect width="720" height="720" fill="#ECE3CD"/><use href="#pt-m"/><use href="#pt-g2" x="0" y="0"/><use href="#pt-g2" x="180" y="0"/><use href="#pt-g2" x="360" y="0"/><use href="#pt-g2" x="540" y="0"/><use href="#pt-g2" x="0" y="180"/><use href="#pt-g2" x="180" y="180"/><use href="#pt-g2" x="360" y="180"/><use href="#pt-g2" x="540" y="180"/><use href="#pt-g2" x="0" y="360"/><use href="#pt-g2" x="180" y="360"/><use href="#pt-g2" x="360" y="360"/><use href="#pt-g2" x="540" y="360"/><use href="#pt-g2" x="0" y="540"/><use href="#pt-g2" x="180" y="540"/><use href="#pt-g2" x="360" y="540"/><use href="#pt-g2" x="540" y="540"/><use href="#pt-g1" x="0" y="0"/><use href="#pt-g1" x="240" y="0"/><use href="#pt-g1" x="480" y="0"/><use href="#pt-g1" x="0" y="240"/><use href="#pt-g1" x="240" y="240"/><use href="#pt-g1" x="480" y="240"/><use href="#pt-g1" x="0" y="480"/><use href="#pt-g1" x="240" y="480"/><use href="#pt-g1" x="480" y="480"/></pattern><pattern id="grain-wall" patternUnits="userSpaceOnUse" width="720" height="720"><rect width="720" height="720" fill="#F1EFE9"/></pattern></svg>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="assets/js/main.js?v=35855681" defer></script>
+<script src="assets/js/motion.js?v=d2e0f827" defer></script>
 </body>
 </html>

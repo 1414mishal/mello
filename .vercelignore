@@ -1,0 +1,14 @@
+# Keep working files and private material off the live site.
+# The brief contains internal pricing and target-market notes.
+*.pdf
+!brochures/*.pdf
+Moodboard*.png
+Screenshot*.png
+Sitemap*.png
+*.md
+!brochures/source/*.md
+_build
+.claude
+.DS_Store
+_archive
+design-files

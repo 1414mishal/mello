@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Summit Studios v3 motion styles. The "Why Summit" fly-through block below is
+   kept from the earlier site and mapped onto the Editions-style tokens.
+   ========================================================================== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+.line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+.line__in { display: block; }
+
+/* Tokens the fly-through expects, mapped to the page */
+.dive {
+  --paper: var(--bg); --paper-2: #CFCFC2; --ink: #292919; --ink-2: #5C5C4E; --ink-3: #909083;
+  --line: rgba(41, 41, 25, .18); --line-strong: rgba(41, 41, 25, .45);
+  --serif: 'Instrument Serif', Georgia, serif; --mono: 'Inter', system-ui, sans-serif; --gutter: 12px; --header-h: 60px; --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --warm: #292919; --signal: #292919; --accent: #292919; --accent-ink: #F7F7EE;
+  --mint: #C9C9BC; --mint-ink: #292919; --mint-lite: #E6E6DA; --orange: #909083; --rust: #5C5C4E; --teal: #7A7A6C; --cream: #F7F7EE; --on-warm: #F7F7EE;
+  max-width: none !important; border-bottom: 0;
+}
+.dive .sec__eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--ink-2); display: flex; gap: 10px; align-items: center; }
+.dive .sec__eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--ink-2); }
+.dive .mono { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: none; }
+.dive .dv-serif { font-style: italic; font-weight: 400; }
+.dive__title, .dive__t, .dv-type__h, .dv-after__h { font-family: var(--grotesk); font-weight: 700; letter-spacing: -.03em; }
+.dive__panel { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+@media (prefers-reduced-motion: reduce) { .line__in { transform: none !important; } }
+
+/* ---------- "Why Summit": a fly-through of the layers a Summit site is made of ----------
+   Pinned section. Eight sheets (grid, structure, type, design, build, direct line, live,
+   after launch) sit one behind the other in 3D. Scrolling moves the camera through them
+   while the four reasons enter from alternate sides. Everything is drawn with the site's
+   own tokens: paper, ink hairlines, mono labels, one racing-green and one red accent. */
+.dive { position: relative; border-bottom: 1px solid var(--line); background: var(--paper); }
+.dive__pin { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
+.dive__cam { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 50% 50%; }
+.dive__world { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+.dive__layer {
+  position: absolute; inset: 15vh 8vw 11vh; opacity: 0; visibility: hidden; pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  background: color-mix(in srgb, var(--paper) 62%, transparent);
+  backface-visibility: hidden; will-change: opacity;
+}
+.dive__lab { position: absolute; left: 1.4vw; top: 2vh; display: flex; gap: 10px; color: var(--ink-2); font-size: 11px; }
+.dive__lab span { color: var(--ink); }
+
+/* HUD: title top-left, depth readout top-right, reasons bottom-left */
+.dive__hud { position: absolute; z-index: 4; left: var(--gutter); top: calc(var(--header-h) + 14px); }
+.dive__title { font-size: clamp(18px, 1.5vw, 22px); font-weight: 500; letter-spacing: -.02em; line-height: 1.15; margin-top: 6px; }
+.dive__depth { position: absolute; z-index: 4; right: var(--gutter); top: calc(var(--header-h) + 26px); color: var(--ink-2); }
+.dive__dots { position: absolute; z-index: 4; left: var(--gutter); bottom: 26px; display: flex; flex-wrap: wrap; gap: 0 26px; }
+.dive__dot {
+  display: flex; align-items: center; gap: 10px; padding: 8px 0; background: none; border: 0; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); transition: color .3s;
+}
+.dive__dot span { font-size: 10px; }
+.dive__dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--signal); transform: scale(0); transition: transform .35s var(--ease-out); }
+.dive__dot:hover { color: var(--ink-2); }
+.dive__dot.is-active { color: var(--ink); }
+.dive__dot.is-active::before { transform: scale(1); }
+
+/* Reason panels: one per quarter, entering from the side they sit on */
+.dive__panels { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.dive__panel {
+  position: absolute; top: 0; bottom: 0; margin: auto 0; height: fit-content; left: var(--gutter);
+  width: min(460px, 36vw); padding: clamp(22px, 2.4vw, 34px); opacity: 0; pointer-events: none;
+  background: color-mix(in srgb, var(--paper) 94%, transparent); border: 1px solid var(--line-strong);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.dive__panel[data-side="right"] { left: auto; right: var(--gutter); }
+.dive__panel.is-active { opacity: 1; pointer-events: auto; }
+.dive__num { color: var(--ink-2); display: inline-block; padding-bottom: 6px; border-bottom: 1px solid var(--ink); }
+.dive__t { font-size: clamp(26px, 2.4vw, 40px); font-weight: 500; letter-spacing: -.03em; line-height: 1.04; margin-top: 18px; text-wrap: balance; }
+.dive__p { color: var(--ink-2); font-size: 16px; max-width: 38ch; margin-top: 14px; }
+
+/* 01 Grid */
+.dv-grid__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dv-grid__svg line { stroke: var(--ink); stroke-opacity: .22; stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.dv-grid__note { position: absolute; left: 1.4vw; bottom: 2vh; color: var(--ink-2); }
+
+/* 02 Structure */
+.dv-wire__grid { position: absolute; inset: 8vh 4vw 5vh; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(10, 1fr); gap: 1.4vh 1vw; }
+.dv-wf { border: 1px dashed var(--line-strong); background: color-mix(in srgb, var(--ink) 4%, transparent); position: relative; }
+.dv-wf .mono { position: absolute; left: 10px; top: 8px; font-size: 10px; color: var(--ink-2); }
+.dv-wf--nav { grid-column: 1 / -1; grid-row: 1; }
+.dv-wf--hero { grid-column: 1 / 8; grid-row: 2 / 6; }
+.dv-wf--side { grid-column: 8 / -1; grid-row: 2 / 6; }
+.dv-wf--card { grid-column: span 4; grid-row: 6 / 10; }
+.dv-wf--foot { grid-column: 1 / -1; grid-row: 10; }
+
+/* 03 Type (shared with 08) */
+.dv-type__h { position: absolute; left: 5vw; top: 24vh; margin: 0; font-size: min(7.6vw, 14vh); font-weight: 500; letter-spacing: -.045em; line-height: .96; }
+.dv-line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+.dv-line > span { display: block; }
+.dv-serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.02em; }
+.dv-type__spec { position: absolute; left: 5vw; bottom: 8vh; color: var(--ink-2); }
+
+/* 04 Design (the reason panel sits on the right, so the page keeps to the left) */
+.dv-page { position: absolute; inset: 9vh 36vw 7vh 5vw; display: flex; flex-direction: column; gap: 2.4vh; }
+.dv-page__nav { display: flex; align-items: center; gap: 2vw; padding-bottom: 1.6vh; border-bottom: 1px solid var(--line-strong); }
+.dv-page__mark { font-weight: 600; letter-spacing: -.03em; font-size: 1.2vw; }
+.dv-page__links { display: flex; gap: 1vw; margin-left: auto; }
+.dv-page__links i { display: block; width: 3.4vw; height: 6px; background: var(--line-strong); opacity: .5; }
+.dv-page__btn { display: inline-block; padding: .6vw 1.2vw; border: 1px solid var(--ink); border-radius: 999px; font-size: .9vw; font-weight: 500; white-space: nowrap; }
+.dv-page__btn--mint { background: var(--mint); border-color: var(--mint); color: var(--mint-ink); font-size: 1.05vw; padding: .8vw 1.5vw; }
+.dv-page__hero { display: grid; grid-template-columns: 7fr 5fr; gap: 2vw; flex: 1; min-height: 0; }
+.dv-page__copy { display: flex; flex-direction: column; justify-content: center; }
+.dv-page__h { font-size: 2.2vw; font-weight: 500; letter-spacing: -.035em; line-height: 1.02; max-width: 16ch; margin: 0; }
+.dv-page__cta { margin: 2.4vh 0 0; }
+.dv-page__img { position: relative; border: 1px solid var(--line-strong); overflow: hidden; background: color-mix(in srgb, var(--paper-2) 70%, transparent); }
+.dv-page__img svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dv-page__img path { fill: none; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.dv-page__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1vw; height: 13vh; }
+.dv-page__card { border: 1px solid var(--line-strong); padding: 1.2vw; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; }
+.dv-page__card i { display: block; height: 6px; background: var(--line-strong); opacity: .5; }
+.dv-page__card i:first-child { width: 40%; opacity: .9; }
+.dv-design__tag { position: absolute; right: 1.4vw; top: 2vh; color: var(--ink-2); }
+
+/* 05 Build (reason panel on the left, so the markup sits right) */
+.dv-code__pre { position: absolute; left: 38vw; top: 10vh; margin: 0; font-size: clamp(11px, 1.05vw, 17px); line-height: 1.75; color: var(--ink); text-transform: none; letter-spacing: 0; }
+.dv-code__l { display: block; white-space: pre; clip-path: inset(0 100% 0 0); }
+.dv-code__l .hl { background: var(--mint); color: var(--mint-ink); padding: 0 .3em; }
+.dv-ruler { position: absolute; left: 5vw; right: 5vw; bottom: 12vh; height: 1px; background: var(--line-strong); }
+.dv-ruler__fill { position: absolute; left: 0; top: -1px; height: 3px; width: 100%; background: var(--ink); transform: scaleX(0); transform-origin: 0 50%; }
+.dv-ruler__tick { position: absolute; top: 14px; font-size: 11px; color: var(--ink-3); white-space: nowrap; transition: color .3s; }
+.dv-ruler__tick::before { content: ''; position: absolute; left: 0; top: -14px; width: 1px; height: 8px; background: var(--line-strong); }
+.dv-ruler__tick--end { text-align: right; }
+.dv-ruler__tick--end::before { left: auto; right: 0; }
+.dv-ruler__tick[data-on="1"] { color: var(--ink); }
+.dv-ruler__tick small { display: block; font-size: 10px; color: var(--ink-3); margin-top: 4px; text-transform: none; letter-spacing: .02em; }
+.dv-live { display: inline-block; padding: 5px 9px; background: var(--mint); color: var(--mint-ink); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.dv-ruler__tick .dv-live { transform: scale(0); }
+
+/* 06 Direct line (reason panel on the left, so the diagram sits right) */
+.dv-team__box { position: absolute; left: 38vw; right: 8vw; top: 22vh; bottom: 24vh; }
+.dv-team__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+/* Scaled stroke on purpose: Chrome drops the middle of a dashed, non-scaling-stroke curve when the box is stretched this much. The viewBox is close to the box's aspect, so the stroke stays about 1px. */
+.dv-team__svg path { fill: none; stroke: var(--ink); stroke-width: .42; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.dv-team__pos { position: absolute; width: 0; height: 0; display: flex; align-items: center; justify-content: center; }
+.dv-node {
+  position: relative; display: inline-block; padding: .8vw 1.4vw; border: 1px solid var(--ink); border-radius: 999px; background: var(--paper);
+  font-family: var(--mono); font-size: clamp(11px, .95vw, 15px); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; transform: scale(0);
+}
+.dv-node--you { background: var(--ink); color: var(--paper); }
+.dv-node--am { border-style: dashed; color: var(--ink-2); }
+.dv-node__strike { position: absolute; left: -5%; top: 50%; width: 110%; height: 2px; margin-top: -1px; background: var(--signal); transform: scaleX(0) rotate(-6deg); transform-origin: 0 50%; }
+.dv-team__note { position: absolute; left: 1.4vw; bottom: 2vh; color: var(--ink-2); }
+
+/* 07 Live (reason panel on the right, so the frame sits left) */
+.dv-frame { position: absolute; left: 6vw; right: 40vw; top: 14vh; bottom: 12vh; border: 1px solid var(--line-strong); background: var(--paper); display: flex; flex-direction: column; }
+.dv-frame__bar { display: flex; align-items: center; gap: 12px; height: 40px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.dv-frame__lights { display: flex; gap: 6px; }
+.dv-frame__lights i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); opacity: .5; }
+.dv-frame__url { flex: 1; padding: 5px 12px; border: 1px solid var(--line); color: var(--ink-2); font-size: 11px; text-transform: none; letter-spacing: .02em; }
+.dv-pulse { display: block; width: 84%; margin: auto; height: 22%; }
+.dv-pulse path { fill: none; stroke: var(--signal); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.dv-stats { list-style: none; margin: 0; padding: 0 1.6vw; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.dv-stats li { padding: 2.2vh 0; font-size: 11px; color: var(--ink-3); }
+.dv-stats b { display: block; margin-top: 6px; font-size: clamp(14px, 1.3vw, 20px); font-weight: 500; letter-spacing: -.02em; text-transform: none; color: var(--ink); }
+
+/* 08 After launch */
+.dv-after__h { top: 18vh; }
+.dv-ruler--after { bottom: 18vh; }
+
+/* Colour: the site's warm secondary palette (orange, rust, cream, teal) joins mint and ink.
+   Each sheet has its own tint, each reason its own accent. */
+.dive__panel { border-top: 3px solid var(--acc, var(--ink)); }
+.dive__panel:nth-of-type(1), .dive__dot:nth-child(1), .dive__row:nth-of-type(1) { --acc: var(--mint); }
+.dive__panel:nth-of-type(2), .dive__dot:nth-child(2), .dive__row:nth-of-type(2) { --acc: var(--orange); }
+.dive__panel:nth-of-type(3), .dive__dot:nth-child(3), .dive__row:nth-of-type(3) { --acc: var(--teal); }
+.dive__panel:nth-of-type(4), .dive__dot:nth-child(4), .dive__row:nth-of-type(4) { --acc: var(--rust); }
+.dv-grid { background: color-mix(in srgb, var(--cream) 55%, transparent); }
+.dv-grid__cell { fill: color-mix(in srgb, var(--mint) 28%, transparent); opacity: 0; }
+.dv-wf--nav { background: color-mix(in srgb, var(--paper) 80%, transparent); }
+.dv-wf--hero { background: color-mix(in srgb, var(--mint) 20%, transparent); }
+.dv-wf--side { background: color-mix(in srgb, var(--orange) 26%, transparent); }
+.dv-wf--card { background: color-mix(in srgb, var(--teal) 16%, transparent); }
+.dv-wf--foot { background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.dv-type { background: color-mix(in srgb, var(--mint) 13%, var(--paper)); }
+.dv-type__h .dv-serif { color: var(--rust); }
+.dv-palette { position: absolute; right: 5vw; bottom: 8vh; margin: 0; padding: 0; list-style: none; display: flex; gap: 1.1vw; }
+.dv-palette li { display: flex; flex-direction: column; gap: 7px; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); transform: scale(0); }
+.dv-palette li::before { content: ''; display: block; width: 3.1vw; height: 3.1vw; background: var(--c); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.dv-page__mark::before { content: ''; display: inline-block; width: .9vw; height: .9vw; margin-right: .5vw; background: var(--teal); vertical-align: -.05em; }
+.dv-page__img { background: color-mix(in srgb, var(--orange) 24%, transparent); }
+.dv-page__img path { stroke: var(--rust); }
+.dv-page__card::before { content: ''; display: block; width: 1.3vw; height: 1.3vw; margin-bottom: auto; background: var(--teal); }
+.dv-page__card:nth-child(2)::before { background: var(--orange); }
+.dv-page__card:nth-child(3)::before { background: var(--rust); }
+.dv-code { --pale: #F1EFE8; background: color-mix(in srgb, var(--coal) 94%, transparent); border-color: color-mix(in srgb, var(--pale) 22%, transparent); }
+.dv-code .dive__lab { color: color-mix(in srgb, var(--pale) 60%, transparent); }
+.dv-code .dive__lab span { color: var(--pale); }
+.dv-code__pre { color: var(--pale); }
+.dv-code__pre b { font-weight: 500; color: var(--mint-lite); }
+.dv-code__pre i { font-style: normal; color: color-mix(in srgb, var(--pale) 62%, transparent); }
+.dv-code__pre u { text-decoration: none; color: var(--orange); }
+.dv-code .dv-ruler { background: color-mix(in srgb, var(--pale) 30%, transparent); }
+.dv-code .dv-ruler__fill { background: var(--mint-lite); }
+.dv-code .dv-ruler__tick { color: color-mix(in srgb, var(--pale) 45%, transparent); }
+.dv-code .dv-ruler__tick::before { background: color-mix(in srgb, var(--pale) 40%, transparent); }
+.dv-code .dv-ruler__tick[data-on="1"] { color: var(--pale); }
+.dv-team { background: color-mix(in srgb, var(--teal) 9%, transparent); }
+.dv-node--des { background: var(--mint); border-color: var(--mint); color: var(--mint-ink); }
+.dv-node--dev { background: var(--teal); border-color: var(--teal); color: #F1EFE8; }
+.dv-frame__lights i:nth-child(1) { background: var(--signal); opacity: .85; }
+.dv-frame__lights i:nth-child(2) { background: var(--orange); opacity: .85; }
+.dv-frame__lights i:nth-child(3) { background: var(--mint); opacity: 1; }
+.dv-stats li::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--mint); vertical-align: 1px; }
+.dv-after { background: color-mix(in srgb, var(--cream) 65%, transparent); }
+.dv-after__h .dv-serif { color: var(--rust); }
+.dv-ruler--after .dv-ruler__tick::before { width: 9px; height: 9px; top: -18px; background: var(--c, var(--ink)); }
+.dive__row { border-top: 3px solid var(--acc, var(--line)); }
+/* Dark mode: lighter tints, warmer serif */
+
+/* Stacked version for phones and reduced motion */
+.dive__stack { display: none; }
+.dive__steps { list-style: none; margin: 20px 0 8px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.dive__steps li { display: flex; gap: 8px; align-items: baseline; padding: 6px 10px; border: 1px solid var(--line-strong); color: var(--ink); }
+.dive__steps li span { font-size: 10px; color: var(--ink-3); }
+.dive__row { padding: 24px 0; border-top: 1px solid var(--line); }
+.dive__row + .dive__row { border-top: 1px solid var(--line); }
+@media (max-width: 899px) {
+  .dive__pin { display: none; }
+  .dive__stack { display: block; padding: 48px var(--gutter) 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dive__pin { display: none; }
+  .dive__stack { display: block; padding: 48px var(--gutter) 56px; }
+}
+
+/* Header items never wrap */
+.hdr__brand, .hdr__cta, .hdr__nav > a { white-space: nowrap; }
+
+/* Reason panels in the fly-through: firmer title weight */
+.dive__t { font-weight: 600; }

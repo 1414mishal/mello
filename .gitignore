@@ -1,14 +1,33 @@
+# Private working material: never commit
+*.pdf
+Moodboard*.png
+Screenshot*.png
+Sitemap*.png
+content.md
+reference-sites.md
+sitemap.md
+_archive/
+design-files/
+.claude/
+
+# Build and system clutter
+__pycache__/
+*.pyc
+.DS_Store
+.vercel
+*.sb-*
+
+# Carried over from the previous site setup
 /node_modules
 /.next
 /out
 /build
-.DS_Store
 *.pem
 npm-debug.log*
 .env*.local
 next-env.d.ts
-.vercel
 *.tsbuildinfo
-Screenshot*.png
 *.xlsx
-doctor-site-reference.html
+
+# The brochures are a deliberate exception to the *.pdf rule above
+!brochures/*.pdf

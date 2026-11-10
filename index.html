@@ -1,925 +1,358 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-black">
+<!doctype html>
+<html lang="en" data-ui="dark">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Summit Studios | Web, App & AI Development Studio</title>
-<meta name="description" content="Summit Studios builds fast, reliable websites, web and mobile apps, AI receptionists, WhatsApp automation and custom CRMs for founders and teams." />
-<link rel="icon" type="image/png" href="favicon.png" />
-<link rel="apple-touch-icon" href="logo-mark.png" />
-
-<!-- ===================== SEO META ===================== -->
-<link rel="canonical" href="https://www.summitxstudio.com/" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="author" content="Summit Studios" />
-<meta name="publisher" content="Summit Studios" />
-<meta name="keywords" content="Summit Studios, web development company, mobile app development, AI receptionist, WhatsApp automation, custom CRM development, software studio India, web app development" />
-<meta name="theme-color" content="#0a0a0a" />
-
-
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Summit Studios" />
-<meta property="og:title" content="Summit Studios | Web, App & AI Development Studio" />
-<meta property="og:description" content="Summit Studios builds fast, reliable websites, web and mobile apps, AI receptionists, WhatsApp automation and custom CRMs for founders and teams." />
-<meta property="og:url" content="https://www.summitxstudio.com/" />
-<meta property="og:image" content="https://www.summitxstudio.com/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Summit Studios logo" />
-<meta property="og:locale" content="en_IN" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Summit Studios | Web, App & AI Development Studio" />
-<meta name="twitter:description" content="Fast, reliable websites, web & mobile apps, AI receptionists, WhatsApp automation and custom CRMs, built end to end." />
-<meta name="twitter:image" content="https://www.summitxstudio.com/og-image.png" />
-<meta name="twitter:image:alt" content="Summit Studios logo" />
-
-<!-- ===================== STRUCTURED DATA ===================== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["Organization", "ProfessionalService"],
-      "@id": "https://www.summitxstudio.com/#organization",
-      "name": "Summit Studios",
-      "alternateName": "summitstudios",
-      "url": "https://www.summitxstudio.com/",
-      "logo": { "@type": "ImageObject", "url": "https://www.summitxstudio.com/og-image.png", "width": 1396, "height": 1127 },
-      "image": "https://www.summitxstudio.com/og-image.png",
-      "description": "Digital studio building websites, web and mobile apps, AI receptionists, WhatsApp automation and custom CRMs for founders and teams.",
-      "email": "summitstud@gmail.com",
-      "telephone": "+91-98441-70575",
-      "priceRange": "$$",
-      "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-      "areaServed": [ { "@type": "Country", "name": "India" }, { "@type": "Place", "name": "Worldwide" } ],
-      "knowsAbout": ["Web design", "Web development", "Mobile app development", "AI receptionists", "WhatsApp automation", "Custom CRM development", "UI/UX design"],
-      "sameAs": ["https://wa.me/919844170575"],
-      "contactPoint": { "@type": "ContactPoint", "telephone": "+91-98441-70575", "email": "summitstud@gmail.com", "contactType": "customer service", "areaServed": "IN", "availableLanguage": ["English", "Hindi", "Kannada"] }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.summitxstudio.com/#website",
-      "url": "https://www.summitxstudio.com/",
-      "name": "Summit Studios",
-      "description": "Web, app and AI development studio building fast, reliable software for founders and teams.",
-      "publisher": { "@id": "https://www.summitxstudio.com/#organization" },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.summitxstudio.com/#webpage",
-      "url": "https://www.summitxstudio.com/",
-      "name": "Summit Studios | Web, App & AI Development Studio ",
-      "isPartOf": { "@id": "https://www.summitxstudio.com/#website" },
-      "about": { "@id": "https://www.summitxstudio.com/#organization" },
-      "description": "Summit Studios builds fast, reliable websites, web and mobile apps, AI receptionists, WhatsApp automation and custom CRMs for founders and teams.",
-      "inLanguage": "en"
-    }
-  ]
-}
-</script>
-
-<!-- Tailwind (CDN) -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['Inter', 'system-ui', 'sans-serif'],
-          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-        },
-        colors: { ink: '#0a0a0a', paper: '#ffffff' },
-      },
-    },
-  };
-</script>
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-<style>
-  html { -webkit-text-size-adjust: 100%; }
-  body { overflow-x: hidden; font-feature-settings: "ss01", "cv01"; }
-  ::selection { background: #0a0a0a; color: #fff; }
-
-  /* Fluid type */
-  .text-fluid-hero    { font-size: clamp(2.25rem, 8vw, 5rem);    line-height: 1.02; }
-  .text-fluid-section { font-size: clamp(1.875rem, 6vw, 3.75rem); line-height: 1.05; }
-
-  /* Footer watermark */
-  .watermark { font-size: clamp(3rem, 19.5vw, 18rem); }
-  .logo-mark { display:inline-block; width:28px; height:28px; background-color: currentColor;
-    -webkit-mask: url("logo-mark.png") center / contain no-repeat;
-    mask: url("logo-mark.png") center / contain no-repeat; }
-
-  /* Header adapts to what's behind it: light over the dark hero, dark once scrolled onto white */
-  #site-header .logo-link { color: #ffffff; }
-  #site-header .nav-link  { color: rgba(255, 255, 255, 0.85); }
-  #site-header .nav-link:hover { color: #ffffff; }
-  #site-header .menu-btn  { color: #ffffff; border-color: rgba(255, 255, 255, 0.35); }
-
-  #site-header.scrolled .logo-link { color: #ffffff; }
-  #site-header.scrolled .nav-link  { color: rgba(255, 255, 255, 0.85); }
-  #site-header.scrolled .nav-link:hover { color: #ffffff; }
-  #site-header.scrolled .menu-btn  { color: #ffffff; border-color: rgba(255, 255, 255, 0.35); }
-
-  @media (prefers-reduced-motion: reduce) {
-    canvas { opacity: 0.55; }
-  }
-
-  /* Testimonials: infinite vertical scroll columns */
-  @keyframes testi-scroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-  .testi-track { animation: testi-scroll linear infinite; will-change: transform; }
-  @media (prefers-reduced-motion: reduce) { .testi-track { animation: none; } }
-
-  /* Draggable, self-scrolling rail (client logos, project cards) */
-  .rail { overflow-x: auto; overflow-y: hidden; cursor: grab; touch-action: pan-x;
-    scrollbar-width: none; -ms-overflow-style: none;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .rail::-webkit-scrollbar { display: none; }
-  .rail.is-dragging { cursor: grabbing; }
-  .rail.is-dragging a { pointer-events: none; }
-  .rail-track { display: flex; width: max-content; align-items: center; }
-  .rail-item { display: inline-flex; align-items: center; gap: 12px; padding: 0 28px;
-    white-space: nowrap; text-decoration: none; color: rgba(255,255,255,0.45);
-    transition: color .3s; }
-  .rail-item:hover { color: #fff; }
-  .rail-item img { width: 26px; height: 26px; border-radius: 6px; flex: none; }
-  .rail-item span { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 0.12em; }
-  @media (max-width: 640px) {
-    .rail-item { padding: 0 18px; gap: 9px; }
-    .rail-item span { font-size: 11px; }
-    .rail-item img { width: 22px; height: 22px; }
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summit Studios | Premium web design for engineering firms, clinics and trades</title>
+<meta name="description" content="Summit Studios designs and builds premium websites, AI receptionists, WhatsApp automation and custom software for engineering firms, clinics and trades worldwide. 30+ sites shipped.">
+<link rel="canonical" href="https://www.summitxstudio.com/">
+<meta property="og:title" content="Summit Studios | Premium web design for engineering firms, clinics and trades">
+<meta property="og:description" content="Summit Studios designs and builds premium websites, AI receptionists, WhatsApp automation and custom software for engineering firms, clinics and trades worldwide. 30+ sites shipped.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.summitxstudio.com/">
+<meta property="og:image" content="https://www.summitxstudio.com/assets/img/paint/hero.jpg?v=cb08df92">
+<link rel="icon" href="assets/img/favicon.svg?v=85599a95" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=a4fcf3a6">
+<link rel="stylesheet" href="assets/css/motion.css?v=246abe92">
+<script>try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Summit Studios","url":"https://www.summitxstudio.com/","email":"team@summitxstudio.com","description":"Premium web design, AI receptionists, WhatsApp automation and custom software for engineering firms, clinics and trades worldwide.","areaServed":"Worldwide"}</script>
 </head>
-
-<body id="top" class="bg-transparent font-sans text-white antialiased">
-
-<!-- ===================== PAGE LOADER (dove) ===================== -->
-<style>
-  #loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#060608;opacity:1;transition:opacity .55s ease}
-  #loader.is-hiding{opacity:0}
-  #loader.is-done{display:none}
-  #loader .loader-dove{width:72px;height:72px;background-color:#fff;
-    -webkit-mask:url("logo-mark.png") center/contain no-repeat;mask:url("logo-mark.png") center/contain no-repeat;
-    opacity:0;transform-origin:50% 60%;filter:drop-shadow(0 0 18px rgba(140,120,255,.45));
-    animation:loaderIn 1s cubic-bezier(.22,1,.36,1) forwards}
-  @keyframes loaderIn{0%{opacity:0;transform:translateY(10px) rotate(0deg) scale(.82)}60%{opacity:1}100%{opacity:1;transform:translateY(0) rotate(-8deg) scale(1)}}
-  @media (prefers-reduced-motion:reduce){#loader .loader-dove{animation:none;opacity:1;transform:rotate(-8deg)}}
-</style>
-<div id="loader" aria-hidden="true"><span class="loader-dove"></span></div>
-<script>
-  (function(){
-    var l=document.getElementById('loader'); if(!l) return;
-    var de=document.documentElement; de.style.overflow='hidden';
-    var done=false;
-    function hide(){ if(done) return; done=true;
-      l.classList.add('is-hiding'); de.style.overflow='';
-      setTimeout(function(){ l.classList.add('is-done'); }, 600);
-    }
-    window.addEventListener('load', function(){ setTimeout(hide, 700); });
-    setTimeout(hide, 3000);
-  })();
-</script>
-
-<!-- ===================== PAGE-WIDE AURORA SHADER (one continuous motion) ===================== -->
-<canvas id="page-shader" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none;"></canvas>
-<div id="shader-dim" aria-hidden="true" style="position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(2,4,12,0.45);"></div>
-<script>
-/* Scroll dim: shader fades to black as you scroll, so lower sections read on dark */
-(function () {
-  var dim = document.getElementById('shader-dim');
-  if (!dim) return;
-  var base = 0.45, max = 0.97;
-  var ticking = false;
-  function apply() {
-    ticking = false;
-    var vh = Math.max(window.innerHeight, 1);
-    var t = Math.min(window.scrollY / (vh * 1.5), 1);
-    var a = base + (max - base) * t;
-    dim.style.background = 'rgba(2,4,12,' + a.toFixed(3) + ')';
-  }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; requestAnimationFrame(apply); }
-  }, { passive: true });
-  apply();
-})();
-</script>
-
-<!-- ===================== HEADER ===================== -->
-<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
-  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 md:px-10 lg:px-16">
-    <a href="#top" class="logo-link group inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight" aria-label="summit studios home">
-      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0 transition-transform duration-300 group-hover:-rotate-6" aria-hidden="true" />
-      <span>summit<span class="font-light italic">studios</span></span>
-    </a>
-
-    <nav class="hidden items-center gap-9 lg:flex">
-      <a href="/projects.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Projects</a>
-      <a href="/about.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">About</a>
-      <a href="/services.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Services</a>
-      <a href="/contact.html" class="nav-link text-sm font-medium uppercase tracking-wide transition-colors">Contact</a>
-    </nav>
-
-    <div class="flex items-center gap-2">
-      <a href="#contact" class="hidden items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.03] sm:inline-flex">
-        Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-      </a>
-      <button id="menu-toggle" type="button" class="menu-btn inline-flex h-11 w-11 items-center justify-center rounded-full border lg:hidden" aria-label="Open menu" aria-expanded="false">
-        <i data-lucide="menu" class="menu-icon h-5 w-5"></i>
-        <i data-lucide="x" class="close-icon hidden h-5 w-5"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="pointer-events-none fixed inset-x-0 top-16 z-40 -translate-y-2 border-b border-white/10 bg-black/95 px-5 opacity-0 backdrop-blur-md transition-all duration-300 sm:top-20 lg:hidden">
-    <nav class="flex flex-col py-4">
-      <a href="/projects.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Projects</a>
-      <a href="/about.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">About</a>
-      <a href="/services.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Services</a>
-      <a href="/contact.html" class="mobile-link border-b border-white/10 py-4 text-base font-medium text-white/80">Contact</a>
-      <a href="#contact" class="mobile-link mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-white">
-        Get Started <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-      </a>
-    </nav>
+<body>
+<header class="hdr" data-hdr>
+  <a class="hdr__brand" href="/"><svg class="hdr__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 38 18 10l6 12 5-8 15 24z" fill="currentColor"/><path d="M4 43h40" stroke="currentColor" stroke-width="2"/></svg>Summit Studios</a>
+  <nav class="hdr__nav" id="nav" aria-label="Main"><a class="hdr__link" href="/industries">Industries</a><a class="hdr__link" href="/projects">Projects</a><a class="hdr__link" href="/studio">Studio</a></nav>
+  <div class="hdr__right">
+    <a class="pill pill--hdr pill--go" href="/contact"><span class="pill__t">Contact</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    <button class="hdr__menu" type="button" data-menu aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
   </div>
 </header>
+<aside class="sb" id="chapters-index" data-sb>
+  <nav class="sb__box" data-sb-box aria-label="Chapters">
+    <svg class="dv" viewBox="0 0 340 464" aria-hidden="true">
+  <circle cx="170" cy="232" r="150" pathLength="1"/><circle cx="170" cy="232" r="100" pathLength="1"/><circle cx="170" cy="232" r="46" pathLength="1"/>
+  <line x1="170" y1="4" x2="170" y2="460" pathLength="1"/><line x1="4" y1="232" x2="336" y2="232" pathLength="1"/>
+  <line x1="4" y1="4" x2="336" y2="460" pathLength="1"/><line x1="336" y1="4" x2="4" y2="460" pathLength="1"/>
+  <rect x="20" y="82" width="300" height="300" pathLength="1"/>
+  <path d="M20 232 A150 150 0 0 1 320 232" pathLength="1"/><path d="M64 126 A150 150 0 0 0 64 338" pathLength="1"/>
+  <circle cx="170" cy="232" r="2" pathLength="1"/>
+</svg>
+    <a class="sb__mark h4" href="#top">The<br>Sum<em>mit</em><br>Edition</a>
+    <p class="sb__sub n3">Websites that win work. 30+ sites shipped, every one custom.</p>
+    <ol class="sb__list"><li><a href="#websites" data-ch-link="websites"><span class="sb__name">Websites</span><span class="sb__lead"></span><span class="sb__num">I</span></a></li><li><a href="#growth" data-ch-link="growth"><span class="sb__name">Growth Marketing</span><span class="sb__lead"></span><span class="sb__num">II</span></a></li><li><a href="#receptionists" data-ch-link="receptionists"><span class="sb__name">AI Concierge</span><span class="sb__lead"></span><span class="sb__num">III</span></a></li><li><a href="#more" data-ch-link="more"><span class="sb__name">WhatsApp &amp; Software</span><span class="sb__lead"></span><span class="sb__num">IV</span></a></li><li><a href="#why" data-ch-link="why"><span class="sb__name">Why us</span><span class="sb__lead"></span><span class="sb__num">V</span></a></li><li><a href="#voices" data-ch-link="voices"><span class="sb__name">Client voices</span><span class="sb__lead"></span><span class="sb__num">VI</span></a></li><li><a href="#faq" data-ch-link="faq"><span class="sb__name">FAQ</span><span class="sb__lead"></span><span class="sb__num">VII</span></a></li></ol>
+  </nav>
+  <div class="sb__legal">
+    <p class="sb__copy">&copy; Summit Studios</p>
+    <p class="sb__tiny"><a href="/contact">Contact</a></p>
+    <p class="sb__tiny"><span data-clock>--:--</span> local time</p>
+  </div>
+</aside>
+<button class="sb__toggle" type="button" data-sb-toggle aria-expanded="false" aria-controls="chapters-index">
+  <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="sr">Show the chapter index</span>
+</button>
+<main id="main" class="main">
 
-<main>
-<!-- ===================== HERO ===================== -->
-<section class="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
-  <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline poster=""
-    style="-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);">
-    <source src="hero-bg.mp4" type="video/mp4">
-  </video>
-  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-transparent"></div>
-
-  <div class="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-16 sm:pb-20 md:px-10 md:pb-24 lg:px-16">
-    <h1 class="max-w-4xl text-fluid-hero font-light tracking-tight text-white">
-      We build fast, sharp software that holds up when it actually <span class="italic">matters.</span>
-    </h1>
-    <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
-      Websites, AI receptionists, WhatsApp automation, custom CRMs, and mobile apps. We handle it end to end so you can focus on running your business.
-    </p>
-    <div class="mt-8 flex flex-wrap items-center gap-3">
-      <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-300 hover:scale-[1.03]">
-        Start a project <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-      </a>
-      <a href="#projects" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-white/10">View our work</a>
+<section class="hero hero--portal" id="top" aria-labelledby="hero-t" data-hero data-portal=".6146,.1955">
+  <div class="hero__pin">
+    <div class="hero__bg"><img class="paint" src="assets/img/paint/hero.jpg?v=cb08df92" alt="A Renaissance painting of craftspeople on a terrace unrolling a scroll that shows a modern website, a mountain summit beyond" width="1344" height="752" fetchpriority="high"></div>
+    <canvas class="portal" data-portal-canvas aria-hidden="true"></canvas>
+    <span class="hero__shade" aria-hidden="true"></span>
+    <div class="hero__copy" data-portal-copy>
+      <h1 class="hero__h" id="hero-t">The Internet Has Enough Boring Websites.</h1>
+      <p class="n2 hero__p">We design and develop digital experiences that break conventions, capture attention, and refuse to blend in.</p>
     </div>
   </div>
 </section>
-
-
-<!-- ===================== STATS ===================== -->
-<section id="about" class="relative py-20 sm:py-28 md:py-32">
-  <div class="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:px-10 lg:gap-16 lg:px-16">
-    <div>
-      <h2 class="text-fluid-section font-light tracking-tight text-white">A team of builders &amp; <span class="italic">innovators</span></h2>
-      <p class="mt-6 max-w-md text-base font-light leading-relaxed text-white/70">
-        Whether you're a brand new startup or a company that's been around for years, we help turn messy, complicated problems into things that just work.
-      </p>
-    </div>
-    <dl class="grid grid-cols-2 gap-x-8 gap-y-12 self-center">
-      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">1:1</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Senior team, no juniors</dd></div>
-      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">&lt;24h</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Average reply time</dd></div>
-      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">100%</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Custom build, no templates</dd></div>
-      <div><dt class="text-4xl font-light tracking-tight text-white sm:text-5xl">A&rarr;Z</dt><dd class="mt-2 font-mono text-xs uppercase tracking-wider text-white/55">Idea to launch, in-house</dd></div>
-    </dl>
+<section class="ch ch--paper" id="websites" data-ch aria-labelledby="websites-t">
+  <div class="ch__bg" data-ch-bg><img class="paint" src="assets/img/paint/websites.jpg?v=15ab0325" alt="A Renaissance painter at an easel painting a modern website layout" width="1344" height="752" loading="lazy" decoding="async"></div>
+  <div class="ch__open">
+    <h2 class="h1 ch__word ch__word--line" id="websites-t" data-word>Ordinary Isn&rsquo;t Our Thing.</h2>
+    <p class="n1 ch__lead ch__lead--wide" data-reveal><span class="swash">W</span>e turn ambitious ideas into extraordinary digital experiences.</p>
+  </div>
+  
+  
+  <div class="ch__body" data-ch-body>
+    <svg class="tear" viewBox="0 0 2400 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <defs><filter id="fray-websites" x="-2%" y="-20%" width="104%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1 .55" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="9" result="torn"/><feDropShadow in="torn" dx="0" dy="-2" stdDeviation="3" flood-color="#14140A" flood-opacity=".32"/></filter></defs>
+      <path class="tear__fibre" filter="url(#fray-websites)" d="M0,220 L0,159.1 L0.0,160.1 L7.3,161.7 L10.8,157.7 L14.1,161.3 L17.6,152.8 L24.0,162.0 L28.0,160.5 L36.0,165.3 L43.6,159.9 L54.4,155.7 L64.3,155.5 L68.5,161.8 L73.9,164.8 L78.4,165.1 L86.5,157.3 L93.9,163.1 L97.3,165.1 L105.8,166.8 L111.3,165.0 L117.9,158.4 L127.3,160.9 L132.2,161.0 L139.4,159.9 L148.3,155.1 L159.1,157.1 L165.5,161.3 L169.7,151.5 L173.0,153.5 L182.1,156.3 L192.1,145.1 L200.7,146.3 L208.3,142.2 L218.0,141.8 L224.8,138.4 L228.3,138.6 L236.5,134.7 L246.1,125.1 L252.1,119.9 L255.3,124.7 L259.7,113.1 L263.1,123.2 L267.2,116.9 L273.3,115.1 L277.0,111.0 L284.3,115.5 L293.9,116.5 L299.1,108.4 L305.0,111.5 L315.7,99.9 L320.1,106.5 L324.9,106.2 L332.7,99.2 L335.7,107.8 L341.6,105.0 L352.3,101.7 L359.4,101.3 L367.8,103.5 L378.0,108.1 L388.0,107.3 L394.1,96.2 L398.0,103.5 L401.5,94.7 L406.1,93.5 L411.8,97.0 L414.8,97.9 L418.7,92.6 L421.9,98.7 L429.8,95.4 L434.8,91.8 L440.7,92.6 L450.5,96.9 L457.2,94.3 L460.9,84.0 L466.7,82.4 L476.3,82.1 L479.5,84.2 L486.7,85.3 L494.0,81.2 L501.3,84.5 L511.2,76.8 L516.3,74.0 L520.6,81.6 L527.9,82.5 L533.5,76.9 L543.0,81.8 L552.8,77.3 L562.4,84.6 L567.2,78.2 L573.0,76.3 L576.2,77.9 L581.3,82.3 L592.0,84.4 L602.5,93.1 L613.1,91.4 L617.9,91.2 L622.4,88.4 L630.4,101.4 L640.2,99.3 L648.4,98.0 L652.1,102.2 L662.3,105.9 L671.3,104.8 L675.8,102.6 L681.4,104.9 L692.2,96.1 L698.4,100.5 L707.2,93.6 L711.2,99.6 L721.5,104.7 L725.6,104.2 L736.5,97.9 L742.3,94.4 L746.3,92.4 L757.1,97.3 L764.3,96.7 L770.8,93.7 L780.4,87.7 L785.4,87.2 L790.3,88.1 L795.4,88.3 L799.4,96.5 L805.3,86.8 L812.9,94.9 L819.3,92.8 L826.3,92.2 L833.5,85.7 L840.0,92.3 L843.1,96.4 L847.4,94.5 L856.2,96.8 L861.8,90.5 L869.3,95.8 L873.1,96.8 L878.1,94.6 L887.3,91.5 L894.8,97.9 L905.1,98.3 L913.0,93.4 L920.1,95.8 L926.7,91.1 L933.5,101.2 L942.1,96.3 L952.7,87.0 L960.1,90.1 L969.9,81.7 L973.8,90.7 L977.4,86.2 L981.0,89.9 L990.3,88.6 L994.5,79.3 L1002.8,76.9 L1012.9,77.4 L1017.6,81.4 L1023.8,72.6 L1034.7,77.3 L1039.0,75.7 L1046.1,69.9 L1050.7,68.0 L1059.5,73.4 L1066.9,72.2 L1070.1,71.4 L1078.0,77.1 L1081.6,79.5 L1090.9,82.8 L1094.7,78.0 L1098.0,81.8 L1103.2,75.3 L1109.6,81.7 L1119.1,83.6 L1123.3,91.0 L1130.9,88.7 L1134.6,82.0 L1143.1,91.4 L1146.7,94.8 L1154.8,96.9 L1158.4,92.9 L1162.0,96.0 L1168.6,98.3 L1176.0,103.7 L1181.2,96.5 L1188.4,97.2 L1192.2,96.5 L1195.6,102.3 L1201.1,103.2 L1210.2,99.4 L1217.2,102.0 L1223.0,102.6 L1228.0,102.8 L1236.9,101.5 L1241.4,107.1 L1251.9,103.0 L1261.4,108.1 L1268.4,111.1 L1274.5,105.5 L1283.0,108.9 L1288.8,114.5 L1297.4,116.2 L1303.6,110.8 L1307.1,114.9 L1310.7,121.8 L1315.7,111.1 L1319.4,121.2 L1329.3,119.6 L1334.6,122.2 L1339.9,121.4 L1344.2,126.7 L1349.3,135.0 L1360.1,137.8 L1365.0,137.9 L1370.5,135.2 L1373.5,134.2 L1380.3,145.2 L1384.9,142.3 L1388.0,144.2 L1391.7,145.4 L1395.0,147.3 L1400.5,149.6 L1408.1,152.2 L1417.1,152.4 L1425.9,163.7 L1432.0,157.9 L1442.9,156.0 L1451.7,159.3 L1455.0,167.9 L1465.1,167.8 L1474.0,162.0 L1478.1,159.6 L1485.2,166.0 L1494.6,169.3 L1502.3,161.2 L1510.7,163.8 L1515.6,154.0 L1519.6,158.4 L1523.5,159.5 L1530.9,163.1 L1539.0,157.0 L1545.9,156.7 L1555.3,159.5 L1562.3,153.6 L1570.6,150.1 L1579.4,157.0 L1583.0,156.8 L1591.9,154.9 L1600.8,159.6 L1607.7,157.0 L1614.6,161.9 L1623.7,161.0 L1631.9,153.5 L1636.0,153.5 L1645.0,162.1 L1652.5,155.8 L1656.0,156.0 L1664.4,165.6 L1672.8,155.6 L1679.9,163.1 L1686.7,156.0 L1696.8,156.1 L1707.6,159.1 L1710.8,158.2 L1720.3,158.9 L1726.9,151.1 L1731.6,156.2 L1736.3,150.4 L1740.4,150.8 L1751.0,145.3 L1760.6,149.0 L1770.7,142.3 L1775.6,143.5 L1782.4,137.9 L1785.5,135.7 L1792.1,132.6 L1796.2,135.0 L1801.7,139.9 L1804.7,136.0 L1814.5,133.5 L1824.9,136.3 L1835.1,130.1 L1841.1,133.9 L1852.0,132.4 L1857.9,131.1 L1863.1,133.1 L1866.9,133.7 L1872.2,140.0 L1877.2,130.2 L1884.3,130.3 L1890.3,139.1 L1900.4,144.0 L1908.4,142.0 L1918.9,142.4 L1927.7,135.1 L1936.6,146.4 L1945.6,142.1 L1950.9,137.1 L1961.3,140.6 L1968.1,141.5 L1973.4,149.8 L1984.3,139.0 L1992.5,143.2 L2000.0,139.0 L2004.3,137.3 L2009.0,148.8 L2015.9,137.6 L2026.2,140.5 L2032.8,141.5 L2037.3,138.0 L2043.1,133.8 L2048.0,139.8 L2055.5,136.9 L2064.5,138.5 L2070.8,134.1 L2076.9,138.7 L2080.4,135.0 L2091.1,130.3 L2098.1,140.5 L2108.0,137.8 L2113.2,136.2 L2119.4,139.9 L2130.0,146.4 L2140.0,140.5 L2143.3,145.9 L2153.4,138.4 L2161.1,138.2 L2167.3,143.2 L2176.9,149.9 L2187.6,140.3 L2191.5,145.6 L2198.7,145.3 L2209.2,143.7 L2217.4,145.4 L2224.1,138.1 L2227.4,141.9 L2232.2,141.6 L2240.4,132.4 L2244.4,137.9 L2252.5,130.5 L2256.4,128.1 L2263.6,131.3 L2269.7,122.9 L2277.5,123.2 L2282.9,117.7 L2293.6,118.5 L2303.7,115.3 L2308.6,108.2 L2319.2,110.5 L2324.7,106.2 L2331.7,103.5 L2338.1,104.9 L2346.4,100.4 L2351.2,98.1 L2356.9,96.1 L2365.4,89.8 L2374.7,95.7 L2381.8,90.3 L2392.5,93.1 L2400,220 Z"/>
+      <path class="tear__paper" d="M0,220 L0,171.1 L0.0,171.1 L7.3,172.9 L10.8,174.3 L14.1,176.0 L17.6,172.6 L24.0,178.0 L28.0,175.6 L36.0,177.0 L43.6,173.8 L54.4,174.0 L64.3,173.1 L68.5,172.1 L73.9,179.1 L78.4,176.6 L86.5,176.9 L93.9,174.5 L97.3,177.4 L105.8,179.3 L111.3,178.5 L117.9,178.6 L127.3,180.2 L132.2,177.2 L139.4,182.6 L148.3,173.7 L159.1,169.8 L165.5,172.4 L169.7,172.1 L173.0,173.5 L182.1,169.5 L192.1,162.1 L200.7,160.0 L208.3,154.6 L218.0,157.1 L224.8,151.7 L228.3,149.4 L236.5,149.4 L246.1,139.5 L252.1,142.2 L255.3,138.5 L259.7,132.0 L263.1,138.6 L267.2,129.3 L273.3,134.1 L277.0,129.4 L284.3,129.6 L293.9,126.2 L299.1,125.6 L305.0,124.0 L315.7,119.9 L320.1,121.9 L324.9,119.2 L332.7,117.2 L335.7,120.1 L341.6,120.3 L352.3,121.3 L359.4,121.3 L367.8,113.7 L378.0,119.0 L388.0,118.3 L394.1,113.8 L398.0,119.2 L401.5,114.4 L406.1,114.1 L411.8,109.1 L414.8,113.5 L418.7,113.9 L421.9,115.6 L429.8,110.5 L434.8,109.5 L440.7,105.6 L450.5,109.0 L457.2,104.5 L460.9,100.0 L466.7,101.4 L476.3,100.6 L479.5,105.1 L486.7,98.8 L494.0,95.9 L501.3,99.1 L511.2,97.2 L516.3,93.8 L520.6,98.1 L527.9,96.4 L533.5,91.1 L543.0,98.5 L552.8,99.5 L562.4,96.4 L567.2,98.8 L573.0,92.1 L576.2,95.6 L581.3,99.4 L592.0,102.5 L602.5,109.8 L613.1,107.1 L617.9,105.1 L622.4,108.8 L630.4,112.7 L640.2,111.3 L648.4,118.3 L652.1,116.5 L662.3,119.0 L671.3,117.5 L675.8,121.5 L681.4,119.2 L692.2,118.1 L698.4,121.0 L707.2,115.7 L711.2,113.1 L721.5,118.0 L725.6,116.9 L736.5,112.9 L742.3,110.8 L746.3,108.6 L757.1,108.8 L764.3,114.0 L770.8,109.0 L780.4,102.9 L785.4,103.5 L790.3,109.4 L795.4,105.0 L799.4,107.3 L805.3,103.5 L812.9,106.8 L819.3,110.3 L826.3,107.7 L833.5,104.9 L840.0,106.7 L843.1,108.0 L847.4,108.7 L856.2,109.0 L861.8,111.5 L869.3,114.1 L873.1,113.2 L878.1,107.5 L887.3,113.7 L894.8,116.1 L905.1,114.1 L913.0,110.2 L920.1,111.7 L926.7,109.6 L933.5,111.3 L942.1,113.8 L952.7,107.5 L960.1,109.9 L969.9,103.0 L973.8,103.3 L977.4,99.3 L981.0,100.5 L990.3,99.8 L994.5,100.8 L1002.8,92.1 L1012.9,96.3 L1017.6,95.8 L1023.8,89.5 L1034.7,91.6 L1039.0,88.5 L1046.1,89.5 L1050.7,87.4 L1059.5,85.0 L1066.9,91.4 L1070.1,88.5 L1078.0,92.3 L1081.6,94.9 L1090.9,93.3 L1094.7,90.9 L1098.0,95.3 L1103.2,93.5 L1109.6,98.3 L1119.1,97.9 L1123.3,102.8 L1130.9,101.7 L1134.6,101.5 L1143.1,102.5 L1146.7,110.7 L1154.8,108.6 L1158.4,109.1 L1162.0,111.0 L1168.6,111.7 L1176.0,118.5 L1181.2,109.1 L1188.4,113.6 L1192.2,113.7 L1195.6,116.1 L1201.1,114.6 L1210.2,117.2 L1217.2,116.4 L1223.0,118.3 L1228.0,115.9 L1236.9,123.8 L1241.4,120.3 L1251.9,118.2 L1261.4,123.8 L1268.4,126.3 L1274.5,122.8 L1283.0,130.0 L1288.8,127.1 L1297.4,131.0 L1303.6,129.9 L1307.1,129.6 L1310.7,134.0 L1315.7,130.0 L1319.4,136.0 L1329.3,138.0 L1334.6,139.3 L1339.9,138.7 L1344.2,144.3 L1349.3,145.5 L1360.1,147.9 L1365.0,153.2 L1370.5,154.4 L1373.5,153.9 L1380.3,156.9 L1384.9,161.4 L1388.0,157.7 L1391.7,161.2 L1395.0,160.2 L1400.5,164.9 L1408.1,169.7 L1417.1,172.9 L1425.9,175.5 L1432.0,173.0 L1442.9,173.0 L1451.7,181.2 L1455.0,182.0 L1465.1,181.7 L1474.0,180.3 L1478.1,179.6 L1485.2,183.2 L1494.6,181.6 L1502.3,179.2 L1510.7,178.6 L1515.6,175.6 L1519.6,174.2 L1523.5,176.8 L1530.9,175.1 L1539.0,176.6 L1545.9,171.9 L1555.3,172.9 L1562.3,171.0 L1570.6,167.8 L1579.4,169.3 L1583.0,170.4 L1591.9,168.3 L1600.8,174.9 L1607.7,170.4 L1614.6,176.9 L1623.7,175.8 L1631.9,169.5 L1636.0,175.4 L1645.0,172.0 L1652.5,171.8 L1656.0,176.7 L1664.4,179.0 L1672.8,175.9 L1679.9,175.4 L1686.7,171.4 L1696.8,173.3 L1707.6,174.3 L1710.8,171.0 L1720.3,173.6 L1726.9,165.6 L1731.6,171.0 L1736.3,169.3 L1740.4,167.3 L1751.0,160.8 L1760.6,161.4 L1770.7,159.1 L1775.6,157.6 L1782.4,152.0 L1785.5,153.5 L1792.1,152.4 L1796.2,152.6 L1801.7,152.6 L1804.7,152.2 L1814.5,147.2 L1824.9,148.6 L1835.1,144.2 L1841.1,147.3 L1852.0,149.8 L1857.9,148.5 L1863.1,146.0 L1866.9,152.7 L1872.2,153.2 L1877.2,149.0 L1884.3,148.6 L1890.3,154.3 L1900.4,156.6 L1908.4,156.1 L1918.9,156.9 L1927.7,156.5 L1936.6,160.1 L1945.6,162.0 L1950.9,156.4 L1961.3,158.3 L1968.1,160.1 L1973.4,163.7 L1984.3,158.9 L1992.5,160.0 L2000.0,161.3 L2004.3,155.5 L2009.0,162.5 L2015.9,157.6 L2026.2,159.8 L2032.8,153.5 L2037.3,155.1 L2043.1,149.8 L2048.0,153.0 L2055.5,154.8 L2064.5,153.9 L2070.8,155.2 L2076.9,151.6 L2080.4,149.0 L2091.1,150.5 L2098.1,154.1 L2108.0,152.7 L2113.2,152.3 L2119.4,155.0 L2130.0,159.9 L2140.0,153.7 L2143.3,158.4 L2153.4,160.6 L2161.1,154.3 L2167.3,163.7 L2176.9,162.3 L2187.6,160.2 L2191.5,156.3 L2198.7,164.0 L2209.2,160.2 L2217.4,157.9 L2224.1,156.3 L2227.4,157.9 L2232.2,155.9 L2240.4,151.5 L2244.4,150.0 L2252.5,152.0 L2256.4,144.5 L2263.6,145.2 L2269.7,140.2 L2277.5,138.3 L2282.9,140.3 L2293.6,135.3 L2303.7,128.7 L2308.6,128.1 L2319.2,125.4 L2324.7,117.9 L2331.7,119.8 L2338.1,118.3 L2346.4,120.9 L2351.2,112.6 L2356.9,113.2 L2365.4,110.5 L2374.7,111.1 L2381.8,110.1 L2392.5,106.6 L2400,220 Z"/>
+    </svg>
+    
+    <nav class="idx" aria-label="Chapters" data-idx>
+      <svg class="dv" viewBox="0 0 340 464" aria-hidden="true">
+  <circle cx="170" cy="232" r="150" pathLength="1"/><circle cx="170" cy="232" r="100" pathLength="1"/><circle cx="170" cy="232" r="46" pathLength="1"/>
+  <line x1="170" y1="4" x2="170" y2="460" pathLength="1"/><line x1="4" y1="232" x2="336" y2="232" pathLength="1"/>
+  <line x1="4" y1="4" x2="336" y2="460" pathLength="1"/><line x1="336" y1="4" x2="4" y2="460" pathLength="1"/>
+  <rect x="20" y="82" width="300" height="300" pathLength="1"/>
+  <path d="M20 232 A150 150 0 0 1 320 232" pathLength="1"/><path d="M64 126 A150 150 0 0 0 64 338" pathLength="1"/>
+  <circle cx="170" cy="232" r="2" pathLength="1"/>
+</svg>
+      <p class="idx__mark h4">The<br>Sum<em>mit</em><br>Edition</p>
+      <p class="idx__sub n3">Websites that win work. 30+ sites shipped, every one custom.</p>
+      <ol class="idx__list"><li><a href="#websites"><span class="idx__name">Websites</span><span class="idx__lead"></span><span class="idx__num">I</span></a></li><li><a href="#growth"><span class="idx__name">Growth Marketing</span><span class="idx__lead"></span><span class="idx__num">II</span></a></li><li><a href="#receptionists"><span class="idx__name">AI Concierge</span><span class="idx__lead"></span><span class="idx__num">III</span></a></li><li><a href="#more"><span class="idx__name">WhatsApp &amp; Software</span><span class="idx__lead"></span><span class="idx__num">IV</span></a></li><li><a href="#why"><span class="idx__name">Why us</span><span class="idx__lead"></span><span class="idx__num">V</span></a></li><li><a href="#voices"><span class="idx__name">Client voices</span><span class="idx__lead"></span><span class="idx__num">VI</span></a></li><li><a href="#faq"><span class="idx__name">FAQ</span><span class="idx__lead"></span><span class="idx__num">VII</span></a></li></ol>
+    </nav>
+    <h3 class="n1 sub" data-reveal><span class="swash">D</span>esigns, refined</h3>
+    <div class="spot" data-reveal><p class="spot__t">Fast, clean, mobile-first</p><p class="n2">We build sites that turn a visitor into a booked appointment or a paying customer, and that actually show up when people search on Google.</p><a class="chip" href="/projects">See the work<span class="chip__ar">&nearr;</span></a></div>
+    <div class="fg " data-reveal><div class="fg__item"><h4 class="fg__t">Clinic & practice sites</h4><p class="fg__p">Trust, speed and a booking button on every screen.</p></div><div class="fg__item"><h4 class="fg__t">Business & brand sites</h4><p class="fg__p">The premium end of your market, built for your buyers.</p></div><div class="fg__item"><h4 class="fg__t">E-commerce stores</h4><p class="fg__p">Catalogue, checkout and fulfilment wired up end to end.</p></div><div class="fg__item"><h4 class="fg__t">SEO & Google setup</h4><p class="fg__p">Found for the searches that bring work, not vanity terms.</p></div></div>
+    <h3 class="n1 sub" data-reveal><span class="swash">S</span>hown on real screens</h3>
+    <div class="fan" data-fan><a class="fan__card" href="https://eagle-electricals.vercel.app/" target="_blank" rel="noopener" style="--r:-7deg;--x:0%;--y:6%" aria-label="Open the Eagle Electricals website"><span class="browser"><span class="browser__bar"><i></i><i></i><i></i></span><img src="assets/img/work/eagle-hero.jpg?v=2e32ce5b" alt="Eagle Electricals website" width="1920" height="1200" loading="lazy" decoding="async"></span></a><a class="fan__card" href="https://www.drmaheshent.in/" target="_blank" rel="noopener" style="--r:1deg;--x:26%;--y:0%" aria-label="Open the Dr. Mahesh Santhraya G website"><span class="browser"><span class="browser__bar"><i></i><i></i><i></i></span><img src="assets/img/work/doctor-hero.jpg?v=fa7b2042" alt="Dr. Mahesh Santhraya G website" width="1920" height="1200" loading="lazy" decoding="async"></span></a><a class="fan__card" href="https://www.pranavabuilders.in/" target="_blank" rel="noopener" style="--r:6deg;--x:52%;--y:5%" aria-label="Open the Pranava Builders website"><span class="browser"><span class="browser__bar"><i></i><i></i><i></i></span><img src="assets/img/work/pranava-hero.jpg?v=18933374" alt="Pranava Builders website" width="1920" height="1200" loading="lazy" decoding="async"></span></a></div>
+    <div class="ch__end"><span class="rule"></span><a class="back" href="#top">Back to navigation</a></div>
   </div>
 </section>
-
-<!-- ===================== WHY PARTNER ===================== -->
-<section class="relative py-20 sm:py-28 md:py-32">
-  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <h2 class="text-fluid-section font-light tracking-tight text-white">Why partner <span class="italic">with us</span></h2>
-    <div class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-      <div>
-        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="boxes" class="h-6 w-6"></i></div>
-        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">100% custom</h3>
-        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">Every site and every product is built from scratch around your business. We don't reskin templates.</p>
+<section class="proc" id="process" aria-labelledby="process-t" data-process>
+  <div class="proc__stage">
+    <video class="proc__video" src="assets/video/brush-spin.mp4?v=36f3e9e6" poster="assets/video/brush-spin-poster.jpg?v=247bece3" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
+    <span class="proc__shade" aria-hidden="true"></span>
+    <div class="proc__head">
+      <p class="label proc__eyebrow">How we build it</p>
+      <h2 class="n1 proc__h" id="process-t"><span class="swash">F</span>rom a blank page to a site that wins work.</h2>
+    </div>
+    <div class="proc__rail">
+      <div class="proc__clip"><ol class="proc__track" data-process-track><li class="proc__step"><span class="proc__n">1</span><h3 class="proc__t">The brief</h3><p class="proc__p">You fill in a short document about your business: what you do, who you serve, the pages you need and the sites you admire.</p></li><li class="proc__step"><span class="proc__n">2</span><h3 class="proc__t">The moodboard</h3><p class="proc__p">We set the visual direction together: colour, type, imagery and references, agreed before a single screen is drawn.</p></li><li class="proc__step"><span class="proc__n">3</span><h3 class="proc__t">UI &amp; UX</h3><p class="proc__p">Sitemap, user journeys and wireframes, so every page has a job and a clear path to a call or a booking.</p></li><li class="proc__step"><span class="proc__n">4</span><h3 class="proc__t">Visual design</h3><p class="proc__p">Finished designs for desktop and phone, refined with you until they feel exactly right.</p></li><li class="proc__step"><span class="proc__n">5</span><h3 class="proc__t">Development</h3><p class="proc__p">Hand-built, fast and mobile-first, with motion, accessibility and search baked in from the start.</p></li><li class="proc__step"><span class="proc__n">6</span><h3 class="proc__t">Testing</h3><p class="proc__p">Every page checked on phones, tablets and browsers, with speed, forms and bookings tested end to end.</p></li><li class="proc__step"><span class="proc__n">7</span><h3 class="proc__t">Launch &amp; care</h3><p class="proc__p">We go live, connect Google and analytics, and stay on for updates and new pages.</p></li></ol></div>
+      <p class="label proc__count" aria-hidden="true"><span data-process-now>1</span> / 7</p>
+    </div>
+  </div>
+</section>
+<section class="ch ch--plain" id="growth" data-ch aria-labelledby="growth-t">
+  <svg class="tear" viewBox="0 0 2400 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <defs><filter id="fray-growth-top" x="-2%" y="-20%" width="104%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1 .55" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="9" result="torn"/><feDropShadow in="torn" dx="0" dy="-2" stdDeviation="3" flood-color="#14140A" flood-opacity=".32"/></filter></defs>
+      <path class="tear__fibre" filter="url(#fray-growth-top)" d="M0,220 L0,121.6 L0.0,121.0 L7.1,116.3 L11.5,115.7 L19.6,122.8 L23.3,118.1 L27.1,121.3 L35.6,115.3 L46.5,120.5 L54.7,117.2 L59.0,114.3 L66.2,110.3 L70.7,108.8 L73.9,112.2 L80.5,111.0 L87.6,110.7 L94.6,112.8 L101.3,103.4 L112.3,104.5 L122.0,105.2 L127.5,102.7 L132.8,95.6 L141.9,95.0 L151.7,92.0 L162.4,88.8 L165.4,86.5 L175.7,84.6 L186.5,88.8 L190.1,85.6 L199.3,79.8 L203.0,86.3 L213.7,88.8 L217.7,79.3 L221.5,76.6 L230.9,85.2 L238.3,82.8 L242.9,89.7 L246.9,84.3 L250.8,84.2 L255.5,87.5 L266.3,93.5 L271.7,90.2 L276.4,89.9 L286.3,91.6 L290.1,98.2 L294.8,94.5 L304.0,91.2 L309.3,93.0 L313.0,98.8 L318.0,99.4 L324.0,97.5 L334.6,99.0 L342.2,100.4 L346.7,100.2 L357.0,101.3 L362.0,98.3 L370.9,101.5 L375.4,101.7 L385.5,98.1 L391.9,93.5 L395.2,98.5 L400.1,98.9 L405.2,100.1 L412.9,93.7 L417.3,95.3 L420.9,94.8 L428.4,98.3 L436.3,95.8 L446.6,88.9 L449.7,86.9 L456.3,90.5 L460.7,94.3 L468.3,92.1 L474.2,95.4 L485.0,95.1 L493.6,88.9 L497.7,93.5 L500.8,97.6 L509.4,100.5 L512.6,93.7 L519.5,93.9 L525.0,101.7 L528.6,100.0 L537.5,99.8 L546.4,98.1 L555.8,97.4 L561.6,103.9 L571.8,104.9 L578.1,103.6 L588.0,101.5 L596.0,99.4 L603.7,95.8 L607.3,96.6 L618.3,99.8 L627.1,94.9 L636.0,93.3 L642.5,94.4 L646.2,87.6 L649.4,89.7 L656.3,83.0 L664.8,80.1 L672.8,83.9 L677.8,78.2 L683.2,75.8 L687.8,70.9 L698.1,77.2 L704.6,75.7 L710.2,69.5 L714.8,71.5 L724.3,76.3 L734.3,73.5 L742.0,64.9 L746.1,67.5 L755.8,74.3 L764.5,74.5 L769.7,69.8 L776.3,73.7 L781.0,69.0 L789.0,73.9 L794.5,81.2 L805.4,82.7 L809.0,76.3 L818.9,79.3 L827.6,80.8 L833.1,84.1 L836.2,81.0 L842.9,85.4 L852.5,88.3 L856.6,86.0 L864.7,90.2 L872.7,86.9 L882.2,92.9 L890.7,86.9 L897.5,83.9 L900.5,92.6 L909.3,88.4 L914.4,93.2 L923.0,89.2 L930.9,98.2 L937.1,91.4 L947.3,87.2 L957.8,93.1 L961.8,98.5 L969.8,101.4 L975.8,96.2 L985.9,105.8 L996.4,103.2 L1004.6,104.2 L1013.4,107.3 L1021.6,113.2 L1026.3,114.0 L1037.1,124.1 L1044.4,121.7 L1050.0,128.3 L1059.8,124.2 L1063.5,133.9 L1070.9,132.7 L1077.8,135.8 L1087.2,136.6 L1096.6,140.7 L1102.3,150.0 L1106.4,140.6 L1113.6,151.1 L1123.3,152.9 L1133.9,155.2 L1144.5,151.4 L1149.2,153.3 L1154.6,152.7 L1162.7,154.6 L1172.4,151.9 L1177.9,155.7 L1187.7,156.4 L1192.3,155.3 L1203.1,148.0 L1210.7,146.7 L1218.0,150.2 L1225.8,152.6 L1236.5,152.8 L1242.8,152.0 L1250.3,154.5 L1258.8,149.2 L1266.1,153.2 L1276.7,161.9 L1281.9,150.6 L1285.9,152.5 L1295.4,162.4 L1302.3,155.5 L1306.8,161.1 L1317.2,158.2 L1326.4,156.9 L1331.0,160.9 L1339.5,161.7 L1345.3,163.5 L1349.2,161.9 L1353.1,164.0 L1358.1,162.2 L1365.4,158.8 L1371.4,161.7 L1378.6,153.6 L1383.3,159.7 L1391.4,156.2 L1401.2,158.4 L1411.0,149.0 L1420.0,157.4 L1430.2,150.8 L1435.7,153.9 L1440.4,147.9 L1450.5,138.9 L1455.5,146.6 L1460.5,138.9 L1470.2,135.1 L1479.5,133.5 L1485.7,141.0 L1488.9,136.0 L1497.3,140.7 L1508.1,134.8 L1515.1,136.6 L1522.2,139.2 L1526.7,127.5 L1530.5,131.9 L1537.9,135.1 L1545.5,132.1 L1550.0,132.0 L1559.7,138.4 L1570.1,137.7 L1573.6,144.8 L1580.3,143.8 L1585.9,146.2 L1593.0,143.6 L1600.8,139.0 L1609.4,143.3 L1613.9,142.8 L1622.8,144.3 L1627.4,143.3 L1634.5,147.9 L1644.6,150.6 L1653.2,150.7 L1661.3,144.3 L1669.1,149.4 L1679.9,148.1 L1685.0,147.1 L1694.0,142.8 L1703.5,138.9 L1713.6,143.2 L1722.2,145.8 L1731.3,137.3 L1740.1,133.5 L1745.8,139.4 L1748.9,140.4 L1757.0,141.2 L1761.9,147.0 L1770.2,138.2 L1778.5,138.3 L1785.8,142.2 L1796.8,143.8 L1805.4,145.0 L1816.2,147.4 L1824.1,147.0 L1829.2,148.3 L1832.6,151.2 L1838.6,152.5 L1843.6,157.3 L1851.0,152.3 L1861.7,152.4 L1872.7,156.4 L1882.2,146.7 L1890.0,155.9 L1893.3,155.8 L1897.6,155.1 L1902.0,146.9 L1909.8,149.9 L1920.4,143.0 L1927.6,145.5 L1933.5,141.4 L1941.8,140.6 L1947.1,142.6 L1952.4,130.0 L1957.4,127.7 L1961.6,132.7 L1967.8,133.5 L1976.7,128.7 L1987.7,124.9 L1991.2,128.3 L1997.7,117.8 L2008.5,118.9 L2015.6,118.9 L2024.4,111.3 L2035.3,117.3 L2043.1,107.8 L2051.1,113.3 L2055.7,110.3 L2062.9,108.6 L2069.5,104.4 L2076.1,101.3 L2083.8,104.2 L2093.0,107.2 L2104.0,105.7 L2112.9,98.9 L2116.8,106.1 L2126.0,100.9 L2131.9,95.4 L2140.4,102.7 L2148.1,99.7 L2157.2,91.8 L2162.2,98.9 L2172.5,92.8 L2175.8,84.4 L2181.0,88.8 L2188.9,80.8 L2196.3,80.4 L2200.0,80.6 L2207.4,79.9 L2213.4,74.0 L2218.0,77.0 L2227.0,72.1 L2230.6,70.8 L2240.1,64.5 L2249.2,62.9 L2255.6,63.2 L2265.1,63.3 L2273.3,65.0 L2278.9,61.1 L2287.9,63.1 L2294.3,59.5 L2298.1,65.7 L2301.7,55.9 L2309.2,61.0 L2317.7,60.8 L2326.9,64.9 L2331.6,69.7 L2335.3,66.8 L2344.1,68.4 L2349.4,69.1 L2355.2,74.5 L2361.1,72.4 L2369.8,73.2 L2380.2,83.2 L2390.5,83.8 L2399.9,78.2 L2400,220 Z"/>
+      <path class="tear__paper" d="M0,220 L0,133.6 L0.0,138.1 L7.1,137.4 L11.5,135.8 L19.6,137.8 L23.3,131.9 L27.1,136.5 L35.6,127.9 L46.5,133.6 L54.7,132.0 L59.0,127.5 L66.2,126.4 L70.7,125.3 L73.9,129.5 L80.5,130.2 L87.6,126.0 L94.6,125.0 L101.3,121.2 L112.3,122.6 L122.0,117.1 L127.5,116.4 L132.8,114.1 L141.9,112.2 L151.7,110.4 L162.4,108.6 L165.4,105.4 L175.7,102.0 L186.5,102.1 L190.1,102.3 L199.3,100.4 L203.0,96.5 L213.7,102.5 L217.7,95.6 L221.5,96.4 L230.9,99.7 L238.3,97.5 L242.9,101.3 L246.9,101.5 L250.8,100.6 L255.5,99.0 L266.3,108.9 L271.7,110.2 L276.4,105.6 L286.3,109.2 L290.1,113.6 L294.8,106.8 L304.0,109.0 L309.3,112.6 L313.0,113.8 L318.0,115.7 L324.0,117.7 L334.6,119.3 L342.2,120.0 L346.7,113.9 L357.0,119.2 L362.0,117.9 L370.9,122.6 L375.4,118.9 L385.5,118.8 L391.9,112.2 L395.2,118.5 L400.1,114.5 L405.2,118.3 L412.9,114.1 L417.3,112.5 L420.9,110.8 L428.4,112.0 L436.3,110.5 L446.6,104.8 L449.7,105.3 L456.3,106.5 L460.7,106.4 L468.3,107.4 L474.2,112.5 L485.0,110.3 L493.6,107.3 L497.7,106.5 L500.8,114.1 L509.4,112.7 L512.6,108.9 L519.5,111.0 L525.0,113.8 L528.6,113.1 L537.5,113.9 L546.4,113.3 L555.8,115.7 L561.6,116.6 L571.8,118.8 L578.1,116.2 L588.0,115.7 L596.0,114.9 L603.7,114.2 L607.3,112.1 L618.3,112.3 L627.1,110.2 L636.0,108.2 L642.5,106.4 L646.2,106.6 L649.4,101.9 L656.3,101.9 L664.8,98.7 L672.8,99.9 L677.8,92.2 L683.2,93.0 L687.8,91.1 L698.1,90.7 L704.6,90.9 L710.2,91.2 L714.8,85.3 L724.3,88.7 L734.3,86.7 L742.0,83.6 L746.1,85.1 L755.8,89.5 L764.5,89.2 L769.7,87.9 L776.3,90.1 L781.0,87.0 L789.0,91.2 L794.5,96.1 L805.4,93.7 L809.0,94.2 L818.9,94.1 L827.6,97.9 L833.1,102.3 L836.2,98.7 L842.9,97.6 L852.5,102.0 L856.6,101.8 L864.7,104.1 L872.7,106.3 L882.2,110.8 L890.7,105.1 L897.5,104.4 L900.5,108.7 L909.3,103.1 L914.4,107.5 L923.0,106.0 L930.9,110.2 L937.1,109.0 L947.3,106.0 L957.8,113.3 L961.8,112.1 L969.8,116.8 L975.8,112.8 L985.9,118.2 L996.4,117.6 L1004.6,120.3 L1013.4,127.4 L1021.6,127.6 L1026.3,133.7 L1037.1,139.4 L1044.4,140.7 L1050.0,145.5 L1059.8,142.4 L1063.5,144.5 L1070.9,149.2 L1077.8,149.2 L1087.2,152.7 L1096.6,156.6 L1102.3,161.8 L1106.4,161.1 L1113.6,163.3 L1123.3,169.2 L1133.9,167.8 L1144.5,165.8 L1149.2,170.5 L1154.6,169.4 L1162.7,167.6 L1172.4,168.6 L1177.9,165.9 L1187.7,170.6 L1192.3,171.5 L1203.1,168.3 L1210.7,164.5 L1218.0,168.1 L1225.8,162.1 L1236.5,169.3 L1242.8,168.3 L1250.3,166.9 L1258.8,164.0 L1266.1,169.8 L1276.7,175.2 L1281.9,172.4 L1285.9,169.0 L1295.4,175.3 L1302.3,171.9 L1306.8,173.8 L1317.2,175.4 L1326.4,171.0 L1331.0,175.0 L1339.5,177.5 L1345.3,181.0 L1349.2,177.6 L1353.1,177.6 L1358.1,176.7 L1365.4,174.5 L1371.4,174.9 L1378.6,175.6 L1383.3,174.5 L1391.4,173.7 L1401.2,171.9 L1411.0,167.6 L1420.0,167.6 L1430.2,161.2 L1435.7,168.8 L1440.4,166.8 L1450.5,157.9 L1455.5,158.3 L1460.5,152.8 L1470.2,154.4 L1479.5,149.1 L1485.7,153.1 L1488.9,151.7 L1497.3,152.9 L1508.1,146.6 L1515.1,154.2 L1522.2,151.9 L1526.7,145.0 L1530.5,146.8 L1537.9,152.0 L1545.5,147.3 L1550.0,149.7 L1559.7,158.3 L1570.1,154.5 L1573.6,159.7 L1580.3,161.0 L1585.9,157.7 L1593.0,158.1 L1600.8,158.5 L1609.4,163.1 L1613.9,162.8 L1622.8,160.3 L1627.4,159.6 L1634.5,157.9 L1644.6,165.3 L1653.2,163.6 L1661.3,160.2 L1669.1,160.4 L1679.9,162.8 L1685.0,162.3 L1694.0,161.1 L1703.5,160.3 L1713.6,161.1 L1722.2,160.5 L1731.3,154.2 L1740.1,152.5 L1745.8,153.7 L1748.9,156.1 L1757.0,156.6 L1761.9,158.6 L1770.2,153.8 L1778.5,157.1 L1785.8,157.1 L1796.8,161.2 L1805.4,166.1 L1816.2,161.7 L1824.1,165.9 L1829.2,164.8 L1832.6,162.8 L1838.6,166.9 L1843.6,170.3 L1851.0,170.3 L1861.7,171.3 L1872.7,172.9 L1882.2,164.1 L1890.0,169.8 L1893.3,170.9 L1897.6,165.6 L1902.0,169.1 L1909.8,161.7 L1920.4,164.0 L1927.6,162.0 L1933.5,155.7 L1941.8,156.6 L1947.1,155.2 L1952.4,147.4 L1957.4,146.4 L1961.6,152.1 L1967.8,148.1 L1976.7,140.3 L1987.7,143.4 L1991.2,142.6 L1997.7,135.5 L2008.5,133.6 L2015.6,134.4 L2024.4,131.4 L2035.3,131.4 L2043.1,122.5 L2051.1,124.0 L2055.7,121.0 L2062.9,122.8 L2069.5,124.3 L2076.1,120.7 L2083.8,123.5 L2093.0,120.1 L2104.0,122.2 L2112.9,116.3 L2116.8,119.6 L2126.0,115.4 L2131.9,111.7 L2140.4,115.0 L2148.1,113.4 L2157.2,109.1 L2162.2,114.0 L2172.5,106.8 L2175.8,101.9 L2181.0,104.0 L2188.9,95.5 L2196.3,95.2 L2200.0,98.0 L2207.4,96.6 L2213.4,93.2 L2218.0,87.6 L2227.0,90.3 L2230.6,81.5 L2240.1,84.3 L2249.2,79.3 L2255.6,76.8 L2265.1,77.9 L2273.3,81.3 L2278.9,78.8 L2287.9,80.3 L2294.3,76.1 L2298.1,81.1 L2301.7,76.2 L2309.2,78.4 L2317.7,80.8 L2326.9,78.8 L2331.6,83.1 L2335.3,82.6 L2344.1,87.6 L2349.4,83.6 L2355.2,91.2 L2361.1,88.8 L2369.8,93.1 L2380.2,98.5 L2390.5,93.4 L2399.9,95.7 L2400,220 Z"/>
+    </svg>
+  <div class="ch__open">
+    <h2 class="h1 ch__word" id="growth-t" data-word>Growth Marketing</h2>
+    <p class="n1 ch__lead" data-reveal><span class="swash">S</span>EO and AI search that put you in front of the people already looking for what you do.</p>
+  </div>
+  
+  <div class="flock" aria-hidden="true"><span class="bird" style="left:66%;top:8%;width:168px;--fd:0s" data-bird="1.0"><img class="bird__up" src="assets/img/birds/swallow-up.png?v=240c85b9" alt="" width="420" height="420" loading="lazy" decoding="async"><img class="bird__down" src="assets/img/birds/swallow-down.png?v=91aaacf5" alt="" width="420" height="420" loading="lazy" decoding="async"></span><span class="bird" style="left:60%;top:11.5%;width:114px;--fd:0.18s" data-bird="1.0"><img class="bird__up" src="assets/img/birds/swallow-up.png?v=240c85b9" alt="" width="420" height="420" loading="lazy" decoding="async"><img class="bird__down" src="assets/img/birds/swallow-down.png?v=91aaacf5" alt="" width="420" height="420" loading="lazy" decoding="async"></span></div>
+  <div class="ch__body" data-ch-body>
+    
+    
+    <h3 class="n1 sub" data-reveal><span class="swash">F</span>ound, first</h3>
+    <div class="split" data-reveal>
+      <div class="spot" data-reveal><p class="spot__t">Seen where people look</p><p class="n2">The right customers find you at the top of Google, in Maps, and in the answers AI assistants give when someone asks who to call.</p><a class="chip" href="/get-started">Talk to us about growth<span class="chip__ar">&nearr;</span></a></div>
+      <figure class="srp" data-grow aria-label="Example: an AI search overview recommending your practice">
+      <img class="srp__bg" src="assets/img/paint/clinics.jpg?v=b44b2645" alt="" width="1344" height="752" loading="lazy" decoding="async">
+      <div class="srp__glass">
+        <div class="srp__bar"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="srp__q" style="--n:27">best family dentist near me</span></div>
+        <div class="srp__tabs" aria-hidden="true"><span class="srp__tab">All</span><span class="srp__tab is-on">AI Overview</span><span class="srp__tab">Maps</span><span class="srp__tab">Images</span><span class="srp__tab">Reviews</span></div>
+        <div class="srp__ov">
+          <div class="srp__ovtext">
+            <p class="srp__ovh"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M10 1c.7 5.2 2.6 7.6 8 9-5.4 1.4-7.3 3.8-8 9-.7-5.2-2.6-7.6-8-9 5.4-1.4 7.3-3.8 8-9Z"/></svg>AI Overview</p>
+            <p class="srp__ovp">A well-reviewed option is <strong>your practice</strong>, known for open Saturday morning appointments, online booking and a patient-first approach, making it a convenient choice for families.</p>
+          </div>
+          <img class="srp__thumb" src="assets/img/paint/clinics.jpg?v=b44b2645" alt="" width="1344" height="752" loading="lazy" decoding="async">
+        </div>
       </div>
-      <div>
-        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="headset" class="h-6 w-6"></i></div>
-        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">We don't ghost</h3>
-        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">After launch we stick around: fixes, updates, new features. You won't need to chase us.</p>
+      <figcaption class="sr">Example only: how an AI search answer can recommend your business.</figcaption>
+    </figure>
+    </div>
+    <h3 class="n1 sub" data-reveal><span class="swash">W</span>hat we work on</h3>
+    <div class="fg fg--bento" data-reveal><div class="fg__item"><h4 class="fg__t">SEO foundations</h4><p class="fg__p">Fast pages, clean structure and the markup search engines read first.</p></div><div class="fg__item"><h4 class="fg__t">Local search &amp; Maps</h4><p class="fg__p">Your Google Business profile, reviews and map listing working for searches near you.</p></div><div class="fg__item fg__item--art" data-grow><svg class="fg__art" viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+  <defs><filter id="ink-rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="3" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.2" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
+  <g class="art__lines" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M190 58 L242 79 L262 130 L242 181 L190 202 L138 181 L118 130 L138 79 Z"/>
+    <path pathLength="1" d="M242 181 L284 223 L322 262"/>
+    <path pathLength="1" class="art__faint" d="M262 130 L318 92 L352 104 M138 79 L96 52"/>
+  </g>
+  <g class="art__stars" fill="currentColor"><circle class="tw" cx="190" cy="58" r="2.6" style="--d:0.00s"/><circle class="tw" cx="242" cy="79" r="2.2" style="--d:0.37s"/><circle class="tw" cx="262" cy="130" r="2.8" style="--d:0.74s"/><circle class="tw" cx="242" cy="181" r="2.4" style="--d:1.11s"/><circle class="tw" cx="190" cy="202" r="2.2" style="--d:1.48s"/><circle class="tw" cx="138" cy="181" r="2.6" style="--d:1.85s"/><circle class="tw" cx="118" cy="130" r="2.2" style="--d:2.22s"/><circle class="tw" cx="138" cy="79" r="2.4" style="--d:2.59s"/><circle class="tw" cx="284" cy="223" r="2.4" style="--d:2.96s"/><circle class="tw" cx="322" cy="262" r="3" style="--d:3.33s"/><circle class="tw" cx="318" cy="92" r="1.8" style="--d:3.70s"/><circle class="tw" cx="352" cy="104" r="2.2" style="--d:4.07s"/><circle class="tw" cx="96" cy="52" r="1.8" style="--d:4.44s"/><circle class="tw" cx="60" cy="120" r="1.2" style="--d:0.20s"/><circle class="tw" cx="82" cy="236" r="1.4" style="--d:0.57s"/><circle class="tw" cx="300" cy="34" r="1.3" style="--d:0.94s"/><circle class="tw" cx="366" cy="186" r="1.2" style="--d:1.31s"/><circle class="tw" cx="214" cy="262" r="1.1" style="--d:1.68s"/><circle class="tw" cx="30" cy="40" r="1" style="--d:2.05s"/><circle class="tw" cx="380" cy="60" r="1.1" style="--d:2.42s"/><circle class="tw" cx="150" cy="250" r="1" style="--d:2.79s"/></g>
+  <path class="art__spark" fill="currentColor" d="M190 98 C192 121 198 128 222 130 C198 132 192 139 190 162 C188 139 182 132 158 130 C182 128 188 121 190 98 Z"/>
+  <path class="art__spark art__spark--sm" fill="currentColor" d="M300 160 C301 169 303 171 312 172 C303 173 301 175 300 184 C299 175 297 173 288 172 C297 171 299 169 300 160 Z"/>
+</svg><h4 class="fg__t">AI search visibility</h4><p class="fg__p">Clear, quotable answers so ChatGPT, Gemini, Perplexity and Google&rsquo;s AI Overviews mention you.</p></div><div class="fg__item"><h4 class="fg__t">Content that ranks</h4><p class="fg__p">Pages and articles written around what your customers actually search for.</p></div><div class="fg__item"><h4 class="fg__t">Reviews &amp; reputation</h4><p class="fg__p">A steady flow of genuine reviews, each one answered properly.</p></div><div class="fg__item"><h4 class="fg__t">Tracking &amp; reporting</h4><p class="fg__p">Calls, forms and bookings traced back to where they came from, every month.</p></div></div>
+    <div class="chart-wrap" data-chart-wrap><h3 class="n1 sub" data-reveal><span class="swash">H</span>ow it grows</h3><ol class="chart" data-chart><li class="bar"><div class="bar__col"><span class="bar__n">1</span><span class="bar__fill" data-bar></span></div><div class="bar__x"><h4 class="step__t">We see where you stand</h4><p class="step__p">Where you show up today on Google, in Maps and in AI answers, and who is showing up instead.</p></div></li><li class="bar"><div class="bar__col"><span class="bar__n">2</span><span class="bar__fill" data-bar></span></div><div class="bar__x"><h4 class="step__t">We fix and build</h4><p class="step__p">Technical fixes, local listings, structured answers and the pages that are missing.</p></div></li><li class="bar"><div class="bar__col"><span class="bar__n">3</span><span class="bar__fill" data-bar></span></div><div class="bar__x"><h4 class="step__t">We measure and compound</h4><p class="step__p">A plain monthly report on calls, bookings and rankings, and the next moves.</p></div></li></ol></div>
+    <div class="ch__end"><span class="rule"></span><a class="back" href="#top">Back to navigation</a></div>
+  </div>
+</section>
+<section class="ch ch--cut" id="receptionists" data-ch aria-labelledby="receptionists-t">
+  <div class="ch__bg" data-ch-bg><img class="paint" src="assets/img/paint/reception-cut.jpg?v=d98ff19e" alt="A Renaissance angel at a marble desk answering a modern telephone" width="1344" height="752" loading="lazy" decoding="async"></div>
+  <div class="ch__open">
+    <h2 class="h1 ch__word" id="receptionists-t" data-word>AI Concierge</h2>
+    <p class="n1 ch__lead"><span class="swash">A</span> smart assistant that answers your phone and chats around the clock, books appointments and captures every lead.</p>
+  </div>
+  
+  
+  <div class="ch__body" data-ch-body>
+    
+    
+    <div class="calls" data-calls>
+      <figure class="calls__hand" aria-hidden="true">
+        <img src="assets/img/paint/hand-phone.jpg?v=17eb4d6a" alt="" width="800" height="1200" loading="lazy" decoding="async">
+
+      </figure>
+      <div class="calls__text">
+        <h3 class="calls__h"><span class="swash">C</span>alls, answered</h3>
+        <div class="spot"><p class="spot__t">Never on hold</p><p class="n2">It books appointments, answers the questions you get asked a hundred times a day, captures every lead, and hands off to a real person when it matters.</p>
+          <a class="btn-line" href="/contact">Ask about AI Concierge <span aria-hidden="true">&#8599;</span></a></div>
       </div>
-      <div>
-        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="bot" class="h-6 w-6"></i></div>
-        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">Beyond websites</h3>
-        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">AI receptionists, WhatsApp automation, CRMs, mobile apps. Not just a web agency.</p>
+      <div class="calls__card" data-reveal><figure class="call" aria-label="An example call answered by the AI concierge">
+      <figcaption class="call__head"><span class="call__dot" aria-hidden="true"></span><span class="label">Example call, 21:47</span><span class="call__tag label">Answered by your AI concierge</span></figcaption>
+      <ol class="call__lines"><li class="call__l call__l--in" data-call-line><span class="call__who label">Caller</span><p class="call__say">Hi, are you open on Saturday? I&rsquo;d like to book a check-up.</p></li><li class="call__l" data-call-line><span class="call__who label">Concierge</span><p class="call__say">We are, from 9 until 1. I have 10:30 or 11:15 free. Which suits you?</p></li><li class="call__l call__l--in" data-call-line><span class="call__who label">Caller</span><p class="call__say">10:30, please. It&rsquo;s my first visit.</p></li><li class="call__l" data-call-line><span class="call__who label">Concierge</span><p class="call__say">Lovely. You&rsquo;re booked for Saturday at 10:30, and I&rsquo;ve sent the details and directions to your phone.</p></li></ol>
+      <p class="call__done label" data-call-line><span class="call__ok">Booked</span>Saturday 10:30 &middot; Lead saved &middot; Summary sent to you</p>
+    </figure></div>
+      <svg class="calls__cord" aria-hidden="true" focusable="false"><path data-cord d=""/></svg>
+    </div>
+    
+    <div class="ch__end"><span class="rule"></span><a class="back" href="#top">Back to navigation</a></div>
+  </div>
+</section>
+<section class="duo" id="more" aria-label="WhatsApp automation and custom software" data-ink>
+  <article class="duo__card" data-reveal>
+      <div class="duo__art">
+        <img class="duo__bg" src="assets/img/paint/whatsapp.jpg?v=627a8c8f" alt="" width="1344" height="752" loading="lazy" decoding="async">
+        <div class="duo__win" aria-hidden="true">
+          <div class="duo__bar"><span class="duo__crumb"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M4 2h5l3 3v9H4z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> &rsaquo; Automations</span></div>
+          <div class="duo__chips"><span class="duo__chip">Reminders</span><span class="duo__chip">Replies</span><span class="duo__chip">Broadcasts</span></div>
+          <div class="duo__body"></div>
+          <div class="duo__prompt"><span class="duo__mark"><svg viewBox="0 0 20 20" width="16" height="16"><path fill="currentColor" d="M10 1c.7 5.2 2.6 7.6 8 9-5.4 1.4-7.3 3.8-8 9-.7-5.2-2.6-7.6-8-9 5.4-1.4 7.3-3.8 8-9Z"/></svg></span><span class="duo__q">Remind tomorrow&rsquo;s patients and ask them to confirm</span><span class="duo__send"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M10 16V4M5 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+        </div>
       </div>
-      <div>
-        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm"><i data-lucide="zap" class="h-6 w-6"></i></div>
-        <h3 class="mt-6 text-xl font-medium tracking-tight text-white">Reply in under 24h</h3>
-        <p class="mt-3 text-[15px] font-light leading-relaxed text-white/60">Small team, no layers. You talk directly to the people doing the work, and we move fast.</p>
+      <h3 class="duo__t">WhatsApp automation</h3>
+      <p class="duo__p">Reminders that cut no-shows, instant replies and chatbots that qualify leads, on the app your customers already use.</p>
+      <a class="chip" href="/contact">Ask about WhatsApp automation<span class="chip__ar">&nearr;</span></a>
+    </article>
+  <article class="duo__card" data-reveal>
+      <div class="duo__art">
+        <img class="duo__bg" src="assets/img/paint/software.jpg?v=48a84ab7" alt="" width="1344" height="752" loading="lazy" decoding="async">
+        <div class="duo__win" aria-hidden="true">
+          <div class="duo__bar"><span class="duo__crumb"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M4 2h5l3 3v9H4z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> &rsaquo; New report</span></div>
+          <div class="duo__chips"><span class="duo__chip">Last 30 days</span><span class="duo__chip">All sources</span><span class="duo__chip">Leads</span></div>
+          <div class="duo__body"></div>
+          <div class="duo__prompt"><span class="duo__mark"><svg viewBox="0 0 20 20" width="16" height="16"><path fill="currentColor" d="M10 1c.7 5.2 2.6 7.6 8 9-5.4 1.4-7.3 3.8-8 9-.7-5.2-2.6-7.6-8-9 5.4-1.4 7.3-3.8 8-9Z"/></svg></span><span class="duo__q">Show me last month&rsquo;s leads by source, and which ones booked</span><span class="duo__send"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M10 16V4M5 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+        </div>
       </div>
+      <h3 class="duo__t">Custom software</h3>
+      <p class="duo__p">CRMs, dashboards and web apps shaped around how you work, connected to the tools you already use.</p>
+      <a class="chip" href="/contact">Ask about custom software<span class="chip__ar">&nearr;</span></a>
+    </article>
+</section>
+<section class="ch ch--rip" id="why" data-ch aria-labelledby="why-t">
+  <div class="ch__bg" data-ch-bg><div class="ch__pic"><img class="paint" src="assets/img/paint/why-orbit-poster.jpg?v=4a75dc68" alt="A sunlit Renaissance loggia with a long marble table, a modern laptop open on it a few steps ahead and Tuscan hills beyond the arches" width="1344" height="752" loading="lazy" decoding="async"><video class="paint paint--orbit" data-orbit-video data-src="assets/video/why-orbit.mp4?v=4041ac29" poster="assets/img/paint/why-orbit-poster.jpg?v=4a75dc68" muted playsinline preload="none"></video><div class="screen__quad" data-screen-quad><div class="screen__face"><article class="screen__panel" data-panel>
+          <p class="screen__num label">01 &nbsp;/&nbsp; 04</p>
+          <h3 class="screen__t">Custom, never a template.</h3>
+          <p class="screen__p">No generic themes or one-size-fits-all builds. Every site is designed around your brand, your buyers and what you need it to do.</p>
+        </article><article class="screen__panel" data-panel>
+          <p class="screen__num label">02 &nbsp;/&nbsp; 04</p>
+          <h3 class="screen__t">Premium quality, delivered faster.</h3>
+          <p class="screen__p">We combine a high design bar with an efficient development process, so you get a premium site in significantly less time, without cutting corners.</p>
+        </article><article class="screen__panel" data-panel>
+          <p class="screen__num label">03 &nbsp;/&nbsp; 04</p>
+          <h3 class="screen__t">A direct line to the people building it.</h3>
+          <p class="screen__p">You talk to the designers and developers doing the work. Faster answers, fewer misunderstandings, and your ideas survive the journey.</p>
+        </article><article class="screen__panel" data-panel>
+          <p class="screen__num label">04 &nbsp;/&nbsp; 04</p>
+          <h3 class="screen__t">We don't vanish at launch.</h3>
+          <p class="screen__p">Launch is the start. We keep sites secure, fast and growing with ongoing support and care plans.</p>
+        </article><article class="screen__panel screen__panel--end" data-panel>
+          <div class="screen__cta"><a class="ihb ihb--auto ihb--screen" href="/contact"><span class="ihb__t">Start a conversation</span><span class="ihb__in" aria-hidden="true"><span>Start a conversation</span><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ihb__dot" aria-hidden="true"></span></a></div>
+        </article></div></div></div><img class="frame-crest" src="assets/img/frame-crest.png?v=e455becc" alt="" width="359" height="198"></div>
+  <div class="ch__open">
+    <h2 class="h1 ch__word" id="why-t" data-word>Why us</h2>
+    <p class="n1 ch__lead" data-reveal><span class="swash">N</span>o templates, no account managers, no vanishing at launch. Premium work from the people who actually build it.</p>
+  </div>
+  
+  
+  <div class="ch__body" data-ch-body>
+    
+    
+    <div class="orbit" data-orbit data-length="315" aria-hidden="true">
+      <div class="orbit__pin"></div>
     </div>
+    <div class="screen" data-screen data-length="170" aria-hidden="true"><div class="screen__pin"></div></div>
+    <div class="why-fallback">
+    <h3 class="n1 sub" data-reveal><span class="swash">F</span>our reasons, one studio</h3>
+    <div class="fg " data-reveal><div class="fg__item"><h4 class="fg__t">Custom, never a template.</h4><p class="fg__p">No generic themes or one-size-fits-all builds. Every site is designed around your brand, your buyers and what you need it to do.</p></div><div class="fg__item"><h4 class="fg__t">Premium quality, delivered faster.</h4><p class="fg__p">We combine a high design bar with an efficient development process, so you get a premium site in significantly less time, without cutting corners.</p></div><div class="fg__item"><h4 class="fg__t">A direct line to the people building it.</h4><p class="fg__p">You talk to the designers and developers doing the work. Faster answers, fewer misunderstandings, and your ideas survive the journey.</p></div><div class="fg__item"><h4 class="fg__t">We don't vanish at launch.</h4><p class="fg__p">Launch is the start. We keep sites secure, fast and growing with ongoing support and care plans.</p></div></div>
+    </div>
+    <div class="ch__end"><span class="rule"></span><a class="back" href="#top">Back to navigation</a></div>
   </div>
 </section>
-
-<!-- ===================== SERVICES ===================== -->
-<section id="services" class="relative py-20 sm:py-28 md:py-32">
-  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <h2 class="text-fluid-section font-light tracking-tight text-white">Our <span class="italic">services</span></h2>
-    <div class="mt-12 divide-y divide-white/10 border-y border-white/10">
-      <a href="/services.html" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
-        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#01</span>
-        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">Websites that bring in customers <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">Fast, clean, mobile-first sites that turn visitors into booked appointments and paying customers, and actually rank on Google.</p>
-      </a>
-      <a href="/services.html" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
-        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#02</span>
-        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">AI Receptionists <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">A 24/7 assistant that answers calls and chats, books appointments and captures every lead, so you never miss a customer.</p>
-      </a>
-      <a href="/services.html" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
-        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#03</span>
-        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">WhatsApp Automation <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">Reminders that cut no-shows, instant replies, broadcasts and chatbots, all on the app your customers already use.</p>
-      </a>
-      <a href="/services.html" class="group grid grid-cols-1 gap-3 py-8 transition-colors hover:bg-white/[0.03] sm:grid-cols-[auto_1fr_1.2fr] sm:items-start sm:gap-8 md:py-10">
-        <span class="font-mono text-sm text-white/40 sm:pt-1.5">#04</span>
-        <h3 class="flex items-center gap-2 text-2xl font-normal tracking-tight text-white sm:text-3xl">Custom CRMs, Software &amp; Apps <i data-lucide="arrow-up-right" class="h-5 w-5 text-white/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="max-w-md text-[15px] font-light leading-relaxed text-white/60">Software shaped around how you work, plus iOS and Android apps, built to save you hours every week.</p>
-      </a>
-    </div>
+<section class="voices" id="voices" aria-labelledby="voices-t" data-ink data-voices>
+  <div class="voices__pin">
+    <p class="label voices__eyebrow">Client voices</p>
+    <h2 class="voices__h" id="voices-t"><span class="swash">I</span>n their words.</h2>
+    <div class="voices__track" data-voices-track><div class="voices__row"><article class="voice" data-reveal>
+      <div class="voice__cover"><img src="assets/img/voices/rivelin.jpg?v=c683127c" alt="The home page of rivelinaligners.com" width="1200" height="750" loading="lazy" decoding="async"></div>
+      <div class="voice__body">
+        <p class="voice__by"><span class="voice__name">Dr. Dheeraj</span><span class="voice__role">Founder, Rivelin Aligners</span></p>
+        <blockquote class="voice__q">&ldquo;They understood what we needed without much back and forth. Clean, professional, and our patients find it easy to use.&rdquo;</blockquote>
+        <a class="pill pill--go voice__site" href="https://www.rivelinaligners.com/" target="_blank" rel="noopener" aria-label="View Dr. Dheeraj&rsquo;s website, rivelinaligners.com (opens in a new tab)"><span class="pill__t">View site</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </article><article class="voice" data-reveal>
+      <div class="voice__cover"><img src="assets/img/voices/maria.jpg?v=eb1805dc" alt="The home page of drmariamanjumifthikar.com" width="1200" height="750" loading="lazy" decoding="async"></div>
+      <div class="voice__body">
+        <p class="voice__by"><span class="voice__name">Dr. Mariam Anjum Iftikhar</span><span class="voice__role">Gynaec-Oncologist &amp; Robotic Surgeon</span></p>
+        <blockquote class="voice__q">&ldquo;Quick, reliable, and they didn’t make me chase them for updates. The final result looked better than I expected.&rdquo;</blockquote>
+        <a class="pill pill--go voice__site" href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" aria-label="View Dr. Mariam Anjum Iftikhar&rsquo;s website, drmariamanjumifthikar.com (opens in a new tab)"><span class="pill__t">View site</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </article><article class="voice" data-reveal>
+      <div class="voice__cover"><img src="assets/img/voices/prasanna.jpg?v=37f7ea2c" alt="The home page of prasannatechnologies.com" width="1200" height="750" loading="lazy" decoding="async"></div>
+      <div class="voice__body">
+        <p class="voice__by"><span class="voice__name">Prasanna Technologies</span><span class="voice__role">Software firm</span></p>
+        <blockquote class="voice__q">&ldquo;We needed a team that could keep up with our pace and actually deliver. They did, no drama.&rdquo;</blockquote>
+        <a class="pill pill--go voice__site" href="https://www.prasannatechnologies.com/index.html" target="_blank" rel="noopener" aria-label="View Prasanna Technologies&rsquo;s website, prasannatechnologies.com (opens in a new tab)"><span class="pill__t">View site</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </article><article class="voice" data-reveal>
+      <div class="voice__cover"><img src="assets/img/voices/shravan.jpg?v=2b145131" alt="The home page of drshravanshetty.com" width="1200" height="750" loading="lazy" decoding="async"></div>
+      <div class="voice__body">
+        <p class="voice__by"><span class="voice__name">Dr. Shravan Shetty</span><span class="voice__role">Orthodontist</span></p>
+        <blockquote class="voice__q">&ldquo;Really appreciate the effort and patience your team showed, especially with all the revisions. Professional throughout.&rdquo;</blockquote>
+        <a class="pill pill--go voice__site" href="https://www.drshravanshetty.com/" target="_blank" rel="noopener" aria-label="View Dr. Shravan Shetty&rsquo;s website, drshravanshetty.com (opens in a new tab)"><span class="pill__t">View site</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </article><article class="voice" data-reveal>
+      <div class="voice__cover"><img src="assets/img/voices/joylene.jpg?v=746d2952" alt="The home page of drjoylenegynaec.com" width="1200" height="750" loading="lazy" decoding="async"></div>
+      <div class="voice__body">
+        <p class="voice__by"><span class="voice__name">Dr. Joylene D’Almeida</span><span class="voice__role">Obstetrician &amp; Gynaecologist</span></p>
+        <blockquote class="voice__q">&ldquo;Got exactly what I asked for, no unnecessary complications. Easy to work with and delivered on time.&rdquo;</blockquote>
+        <a class="pill pill--go voice__site" href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" aria-label="View Dr. Joylene D’Almeida&rsquo;s website, drjoylenegynaec.com (opens in a new tab)"><span class="pill__t">View site</span><span class="pill__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </article><article class="voice" data-reveal>
+      <div class="voice__cover"><span class="voice__mono" aria-hidden="true">VR</span></div>
+      <div class="voice__body">
+        <p class="voice__by"><span class="voice__name">Dr. Vivian R D’Almeida</span><span class="voice__role">Orthopaedic Surgeon</span></p>
+        <blockquote class="voice__q">&ldquo;Clean work, fast turnaround. They kept things simple and the end result speaks for itself.&rdquo;</blockquote>
+        
+      </div>
+    </article></div></div>
   </div>
 </section>
-
-<!-- ===================== CLIENT RAIL ===================== -->
-<section class="relative border-y border-white/10 py-10 sm:py-12">
-  <p class="relative z-10 px-5 text-center font-mono text-xs uppercase tracking-[0.25em] text-white/40">Trusted by clinics, founders &amp; teams</p>
-  <div class="rail relative z-10 mt-8" data-rail data-speed="0.45">
-    <div class="rail-track">
-      <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/prasannatechnologies.png" alt="" width="26" height="26" loading="lazy" /><span>Prasanna Technologies</span></a>
-      <a href="https://semnoxrevamp.vercel.app/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/semnox.png" alt="" width="26" height="26" loading="lazy" /><span>Semnox</span></a>
-      <a href="https://www.pranavabuilders.in/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/pranavabuilders.png" alt="" width="26" height="26" loading="lazy" /><span>Pranava Builders</span></a>
-      <a href="https://www.deepatradersmlr.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/deepatradersmlr.png" alt="" width="26" height="26" loading="lazy" /><span>Deepa Traders</span></a>
-      <a href="https://www.drmaheshent.in/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drmaheshent.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Mahesh Santhraya G</span></a>
-      <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drvivekamin.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Vivek Amin</span></a>
-      <a href="https://www.drmariamanjumifthikar.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drmariamanjumifthikar.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Mariam Anjum Ifthikar</span></a>
-      <a href="https://www.drvivianortho.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drvivianortho.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Vivian R D'Almeida</span></a>
-      <a href="https://www.drjoylenegynaec.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drjoylenegynaec.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Joylene D'Almeida</span></a>
-      <a href="https://www.drkarthikaithal.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drkarthikaithal.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Karthik Aithal</span></a>
-      <a href="https://www.drmaneeshrai.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drmaneeshrai.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Maneesh Rai</span></a>
-      <a href="http://drmayurraiortho.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drmayurraiortho.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Mayur Rai</span></a>
-      <a href="https://www.drrohanshetty.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drrohanshetty.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Rohan Shetty</span></a>
-      <a href="https://www.drachuthnayak.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drachuthnayak.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Achuth Nayak</span></a>
-      <a href="https://www.drswathirao.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drswathirao.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Swathi Rao</span></a>
-      <a href="https://drshravanshetty.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drshravanshetty.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Shravan Shetty</span></a>
-      <a href="https://www.drshannonfernandes.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drshannonfernandes.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Shannon Fernandes</span></a>
-      <a href="https://drkarthikks.com" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/drkarthikks.png" alt="" width="26" height="26" loading="lazy" /><span>Dr. Karthik K S</span></a>
-      <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/creativeconcepts.png" alt="" width="26" height="26" loading="lazy" /><span>Creative Concepts</span></a>
-      <a href="https://www.ahanaher.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/ahanaher.png" alt="" width="26" height="26" loading="lazy" /><span>Ahana Her</span></a>
-      <a href="https://niksmasala.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/niksmasala.png" alt="" width="26" height="26" loading="lazy" /><span>Nik's Masala</span></a>
-      <a href="https://rivelinaligners.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/rivelinaligners.png" alt="" width="26" height="26" loading="lazy" /><span>Rivelin Aligners</span></a>
-      <a href="https://hjcshirva.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/jnanachetana.png" alt="" width="26" height="26" loading="lazy" /><span>Hindu PU College, Shirva</span></a>
-      <a href="https://aikyaaspeciality.com/" target="_blank" rel="noopener" class="rail-item">
-        <img src="images/favicons/aikyaaspeciality.png" alt="" width="26" height="26" loading="lazy" /><span>Aikyaa Speciality</span></a>
-    </div>
+<section class="faq" id="faq" aria-labelledby="faq-t" data-ink>
+  <div class="faq__head">
+    <p class="label voices__eyebrow">FAQ</p>
+    <h2 class="voices__h" id="faq-t"><span class="swash">Q</span>uestions, answered.</h2>
+    <p class="faq__more">Something else on your mind? <a href="/contact">Ask us directly</a>.</p>
   </div>
+  <div class="faq__list" data-reveal><details class="faq__item"><summary class="faq__q"><span>What does Summit Studios do?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">We design and build premium websites, then make them work harder: AI receptionists that answer calls and chats, WhatsApp automation for reminders and enquiries, and custom CRMs, web apps and dashboards. One team, end to end.</p></details><details class="faq__item"><summary class="faq__q"><span>Who do you work with?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">Established businesses worldwide: industrial and engineering firms, healthcare clinics, and trades, property and professional services.</p></details><details class="faq__item"><summary class="faq__q"><span>How much does a website cost?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">It depends on what the site has to do. Pricing guidance is on the way for each type of project. In the meantime, send us a message and we'll give you a straight answer and a clear quote.</p></details><details class="faq__item"><summary class="faq__q"><span>How long does it take?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">Faster than most agencies, because we design and build in-house with no hand-offs. You'll get a delivery date in the proposal, and we keep to it.</p></details><details class="faq__item"><summary class="faq__q"><span>Can I update the site myself after launch?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">Yes. We either set you up to edit content yourself, or handle updates for you under a care plan. Either way, you're never stuck waiting on a developer to change a line of text.</p></details><details class="faq__item"><summary class="faq__q"><span>Do you only build websites?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">No. Websites are where most clients start, but the biggest gains often come after: an AI receptionist that stops missed calls, WhatsApp reminders that cut no-shows, or a CRM built around how you actually work.</p></details><details class="faq__item"><summary class="faq__q"><span>Can you work with us remotely?</span><span class="faq__plus" aria-hidden="true"></span></summary><p class="faq__a">Yes. We work with clients worldwide and run every project remotely: calls at a time that suits you, clear written updates, and reviews at every stage.</p></details></div>
 </section>
 
-<!-- ===================== PROJECTS ===================== -->
-<section id="projects" class="relative py-20 sm:py-28 md:py-32">
-  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-      <h2 class="text-fluid-section font-light tracking-tight text-white">summit <span class="italic">projects</span></h2>
-      <a href="/projects.html" class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10">Explore all projects <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-    </div>
-    <div class="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2">
-      <a href="https://www.prasannatechnologies.com/" target="_blank" rel="noopener" class="group block">
-        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/prasannatechnologies.jpg" alt="Prasanna Technologies website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-        </div>
-        <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/prasannatechnologies.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">prasannatechnologies.com &middot; Enterprise Software</span>
-        </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Prasanna Technologies <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">Corporate site for an enterprise software firm building for the utility sector worldwide. Built to read serious and established at scale.</p>
-      </a>
-      <a href="https://drvivekamin.com/" target="_blank" rel="noopener" class="group block">
-        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/drvivekamin.jpg" alt="Studio Dental website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-        </div>
-        <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/drvivekamin.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">drvivekamin.com &middot; Orthodontics &amp; Dental</span>
-        </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Studio Dental <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">Dr Vivek Amin's orthodontic and dental speciality clinic, led by full-bleed photography of the practice itself. Calm and considered rather than clinical.</p>
-      </a>
-      <a href="https://www.pranavabuilders.in/" target="_blank" rel="noopener" class="group block">
-        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/pranavabuilders.jpg" alt="Pranava Builders &amp; Developers website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-        </div>
-        <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/pranavabuilders.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">pranavabuilders.in &middot; Real Estate &amp; Development</span>
-        </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Pranava Builders &amp; Developers <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">A Mangaluru developer’s apartments and commercial space, shown the way the buildings deserve. Every project carries its full brochure and floor plans on the page.</p>
-      </a>
-      <a href="https://www.drmaheshent.in/" target="_blank" rel="noopener" class="group block">
-        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/drmaheshent.jpg" alt="Dr. Mahesh Santhraya G website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-        </div>
-        <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/drmaheshent.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">drmaheshent.in &middot; ENT &amp; Head and Neck</span>
-        </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Dr. Mahesh Santhraya G <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">A professor and head of department’s ENT practice, organised by symptom rather than terminology so a patient finds their own problem first.</p>
-      </a>
-      <a href="https://www.deepatradersmlr.com/" target="_blank" rel="noopener" class="group block">
-        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/deepatradersmlr.jpg" alt="Deepa Traders website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-        </div>
-        <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/deepatradersmlr.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">deepatradersmlr.com &middot; Industrial Supply</span>
-        </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Deepa Traders <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">Lubricants, spares, batteries and tyres for the fleets of coastal Karnataka. Bold and fast, with an enquiry one tap away from anywhere on the page.</p>
-      </a>
-      <a href="https://1414mishal.github.io/creative-concepts/index.html" target="_blank" rel="noopener" class="group block">
-        <div class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
-          <img src="images/portfolio/creativeconcepts.jpg" alt="Creative Concepts website" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-        </div>
-        <div class="mt-4 flex items-center gap-2.5">
-          <img src="images/favicons/creativeconcepts.png" alt="" width="20" height="20" loading="lazy" class="h-5 w-5 shrink-0 rounded" />
-          <span class="font-mono text-[11px] uppercase tracking-wider text-white/45">Interior &amp; Exterior Design &middot; Mumbai</span>
-        </div>
-        <h3 class="mt-2 flex items-center gap-2 text-lg font-normal tracking-tight text-white">Creative Concepts <i data-lucide="arrow-up-right" class="h-4 w-4 text-white/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"></i></h3>
-        <p class="mt-1.5 max-w-md text-sm font-light leading-relaxed text-white/55">A design studio site led by full-bleed project imagery and editorial type. Built to make premium interior &amp; exterior work feel aspirational on first load.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TESTIMONIALS (scrolling columns) ===================== -->
-<section class="relative py-20 sm:py-28 md:py-32">
-  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <div class="mx-auto flex max-w-[540px] flex-col items-center justify-center text-center">
-      <div class="rounded-lg border border-white/15 px-4 py-1 text-sm tracking-tight text-white/70">Testimonials</div>
-      <h2 class="mt-5 text-fluid-section font-light tracking-tight text-white">What our clients <span class="italic">say</span></h2>
-      <p class="mt-5 text-base font-light leading-relaxed text-white/60">Real words from the people we've built for.</p>
-    </div>
-
-    <div class="mt-10 flex justify-center gap-6 max-h-[600px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]" aria-label="Client testimonials">
-      <div id="testi-col-1" class="w-full max-w-xs shrink-0"></div>
-      <div id="testi-col-2" class="hidden w-full max-w-xs shrink-0 md:block"></div>
-      <div id="testi-col-3" class="hidden w-full max-w-xs shrink-0 lg:block"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA (AURORA) ===================== -->
-<section id="contact" class="relative w-full overflow-hidden">
-  <div class="relative z-10 mx-auto flex min-h-[88svh] max-w-7xl flex-col items-start justify-center gap-6 px-5 py-32 sm:gap-8 md:px-10 lg:px-16">
-    <h2 class="max-w-2xl text-fluid-hero font-extralight tracking-tight text-white">Ready to build your next <span class="italic">big idea?</span></h2>
-    <p class="max-w-xl text-base font-light leading-relaxed tracking-tight text-white/70 sm:text-lg">
-      Tell us a bit about what you're working on. We'll help you figure it out, build it, and get it out into the world. We usually reply within a day.
-    </p>
-    <div class="flex flex-wrap items-center gap-3 pt-2">
-      <a href="mailto:summitstud@gmail.com" class="rounded-2xl border border-white/10 bg-white/10 px-5 py-3 text-sm font-light tracking-tight text-white backdrop-blur-sm transition-colors duration-300 hover:bg-white/10">Email us</a>
-      <a href="https://wa.me/919844170575?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight text-white/80 transition-colors duration-300 hover:bg-white/5">WhatsApp us</a>
-    </div>
-  </div>
-</section>
-
-<!-- Blend: aurora -> footer (black) -->
-<div aria-hidden="true" class="relative h-40 w-full bg-gradient-to-b from-transparent via-black/70 to-black sm:h-56"></div>
 </main>
-
-<!-- ===================== FOOTER ===================== -->
-<footer id="site-footer" class="relative overflow-hidden bg-black pt-20 text-white sm:pt-28">
-  <canvas id="footer-flow" class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
-  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85"></div>
-
-  <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-10 lg:px-16">
-    <a href="/index.html" class="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-white">
-      <img src="logo-mirrored.png" alt="" class="h-[18px] w-auto shrink-0" aria-hidden="true" />
-      <span>summit<span class="font-light italic">studios</span></span>
-    </a>
-
-    <div class="mt-14 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Use cases</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">AI Receptionists</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp Automation</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Custom CRMs</a></li>
-          <li><a href="/projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Websites</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Services</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Web Development</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">App Development</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">UI/UX Design</a></li>
-          <li><a href="/services.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Automation &amp; AI</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Company</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
-          <li><a href="/projects.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Our work</a></li>
-          <li><a href="/contact.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold tracking-tight text-white">Contact</h3>
-        <ul class="mt-5 space-y-3">
-          <li><a href="/about.html" class="text-sm font-light text-white/55 transition-colors hover:text-white">About</a></li>
-          <li><a href="mailto:summitstud@gmail.com" class="text-sm font-light text-white/55 transition-colors hover:text-white">summitstud@gmail.com</a></li>
-          <li><a href="https://wa.me/919844170575?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="text-sm font-light text-white/55 transition-colors hover:text-white">WhatsApp</a></li>
-        </ul>
-      </div>
-    </div>
+<footer class="ftr" data-ftr data-above="parchment">
+  <div class="ftr__tear" aria-hidden="true"><svg class="tear" viewBox="0 0 2400 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <defs><filter id="fray-ftr" x="-2%" y="-20%" width="104%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1 .55" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="9" result="torn"/><feDropShadow in="torn" dx="0" dy="-2" stdDeviation="3" flood-color="#14140A" flood-opacity=".32"/></filter></defs>
+      <path class="tear__fibre" filter="url(#fray-ftr)" d="M0,220 L0,159.1 L0.0,160.6 L8.0,149.7 L11.1,155.3 L16.2,148.7 L27.2,150.0 L36.8,146.2 L45.0,144.5 L53.0,142.3 L60.2,145.6 L68.6,134.9 L77.7,134.1 L83.1,129.9 L93.0,136.8 L101.7,137.5 L110.5,131.9 L116.6,132.8 L123.2,131.7 L133.2,126.3 L137.3,131.3 L148.0,129.8 L156.0,131.3 L163.1,136.4 L168.9,138.3 L176.6,144.3 L185.0,142.7 L194.9,139.3 L203.2,142.0 L213.1,144.3 L223.4,146.1 L232.1,144.0 L241.7,141.3 L247.0,141.1 L256.8,148.7 L260.5,146.1 L266.8,136.6 L272.2,140.9 L282.2,139.8 L290.1,136.8 L298.8,131.1 L308.9,141.2 L315.9,137.5 L321.4,131.9 L329.2,127.8 L333.8,131.7 L341.7,128.1 L345.0,135.3 L350.5,139.1 L360.7,135.4 L367.4,137.7 L375.5,132.2 L383.0,139.6 L393.5,141.0 L400.0,134.9 L404.9,139.6 L415.7,136.6 L423.1,141.3 L429.4,142.8 L432.6,145.6 L440.6,137.2 L448.6,142.7 L457.1,142.1 L465.7,143.9 L468.9,138.1 L477.3,148.8 L482.3,142.5 L490.1,142.1 L496.0,144.2 L501.9,138.5 L507.3,138.0 L516.5,131.3 L524.1,139.6 L529.5,131.4 L539.0,129.1 L543.5,126.5 L552.1,127.0 L557.6,124.2 L567.3,120.2 L577.1,118.5 L582.8,115.6 L592.9,109.3 L597.7,108.4 L605.0,104.8 L614.4,107.3 L618.9,105.8 L628.3,105.2 L637.8,95.7 L641.8,100.7 L651.2,98.4 L656.9,101.9 L663.3,100.0 L673.7,97.8 L676.7,96.2 L686.7,97.5 L693.2,95.3 L703.6,88.2 L712.6,94.8 L720.9,88.6 L726.2,90.1 L731.0,88.4 L738.7,83.7 L748.2,80.3 L758.5,81.9 L768.8,84.7 L779.0,76.8 L782.2,80.4 L786.5,70.6 L794.8,70.3 L801.1,76.9 L809.0,64.5 L814.1,73.5 L820.9,71.8 L826.7,60.6 L834.0,67.1 L838.3,64.0 L848.7,61.3 L858.3,59.9 L866.3,59.0 L869.7,59.0 L874.9,59.3 L881.3,59.8 L890.5,53.6 L893.9,54.8 L897.9,59.0 L908.7,67.8 L912.4,64.3 L917.9,63.1 L923.7,69.7 L931.4,68.9 L936.0,64.3 L939.9,67.5 L948.7,66.1 L952.3,65.6 L958.3,71.1 L967.6,76.4 L977.0,82.2 L983.4,80.5 L990.4,82.8 L996.8,83.3 L1003.4,81.1 L1010.7,86.9 L1014.3,80.9 L1020.7,89.9 L1031.2,85.5 L1041.4,85.1 L1046.5,83.7 L1050.5,90.8 L1058.8,92.0 L1068.1,85.5 L1077.0,92.1 L1080.8,91.3 L1083.8,84.7 L1093.0,84.3 L1096.8,88.3 L1106.8,90.6 L1110.0,94.2 L1114.0,89.5 L1122.4,93.3 L1133.0,88.6 L1142.4,88.4 L1151.5,92.1 L1160.2,100.0 L1169.2,106.8 L1172.7,105.1 L1180.2,107.0 L1185.2,104.7 L1190.2,111.8 L1199.2,108.3 L1205.1,114.0 L1210.9,113.6 L1214.6,115.7 L1225.4,112.4 L1234.4,115.7 L1242.9,122.5 L1251.3,123.6 L1258.1,121.4 L1268.3,116.3 L1272.1,120.0 L1282.4,115.7 L1289.0,117.4 L1293.5,118.8 L1298.0,121.5 L1303.6,112.6 L1312.1,116.0 L1317.5,115.9 L1323.8,112.9 L1331.4,109.9 L1336.2,109.9 L1343.0,112.2 L1347.4,112.7 L1353.0,109.1 L1357.1,107.8 L1364.0,104.1 L1370.7,109.0 L1380.3,104.7 L1387.1,103.2 L1397.0,102.0 L1405.8,108.2 L1412.6,105.2 L1417.5,108.1 L1425.9,113.9 L1435.7,110.1 L1440.2,106.4 L1444.7,107.5 L1454.6,114.5 L1459.6,116.4 L1465.1,114.7 L1474.0,112.9 L1477.7,115.6 L1483.0,116.2 L1490.7,114.9 L1493.7,120.1 L1500.2,120.4 L1504.9,119.7 L1515.5,120.1 L1522.9,114.6 L1528.1,118.7 L1532.0,119.4 L1542.3,116.6 L1552.8,123.5 L1562.0,120.9 L1567.3,120.3 L1575.6,121.4 L1580.7,122.7 L1591.4,117.9 L1598.7,112.1 L1605.6,121.2 L1614.4,118.7 L1621.9,118.4 L1630.1,121.1 L1634.5,120.1 L1642.8,115.6 L1653.2,120.8 L1658.9,130.3 L1666.6,124.8 L1674.8,133.4 L1680.3,131.4 L1683.9,132.5 L1692.9,139.2 L1701.8,141.7 L1706.9,137.8 L1716.9,139.4 L1724.0,149.1 L1733.1,152.6 L1738.8,155.9 L1746.1,162.3 L1751.9,163.5 L1755.8,154.0 L1759.6,162.1 L1768.9,167.2 L1773.3,164.7 L1779.7,170.8 L1789.2,168.1 L1796.9,162.8 L1803.1,162.7 L1810.3,167.5 L1815.0,163.7 L1824.2,169.4 L1833.6,172.7 L1844.2,162.6 L1851.7,171.7 L1859.7,172.3 L1868.2,165.2 L1878.1,168.1 L1885.9,167.2 L1888.9,172.0 L1897.2,168.4 L1904.4,161.9 L1909.0,169.9 L1912.3,163.0 L1920.4,169.7 L1927.9,166.6 L1938.1,164.6 L1947.4,169.3 L1950.8,172.3 L1955.7,171.6 L1963.0,171.9 L1968.6,177.3 L1977.1,172.6 L1987.0,170.7 L1997.4,171.1 L2006.3,175.7 L2015.8,170.9 L2025.7,170.1 L2034.7,170.2 L2038.6,168.8 L2042.2,166.5 L2046.5,162.1 L2055.1,166.4 L2061.5,166.5 L2066.9,163.3 L2076.0,159.8 L2080.4,159.6 L2089.2,147.4 L2095.2,153.8 L2102.9,147.5 L2106.0,139.5 L2115.2,134.9 L2121.9,133.0 L2126.6,137.7 L2132.8,134.6 L2136.0,127.8 L2140.4,133.3 L2143.9,127.0 L2150.4,131.4 L2159.1,129.5 L2165.3,127.7 L2168.5,127.4 L2173.3,120.2 L2180.1,121.7 L2188.0,123.0 L2192.0,119.9 L2200.8,121.7 L2210.1,121.9 L2220.6,117.8 L2225.6,123.2 L2235.1,122.2 L2240.9,115.4 L2249.3,122.2 L2257.1,121.3 L2260.3,114.8 L2264.7,115.4 L2268.1,125.6 L2278.3,120.9 L2289.1,122.4 L2298.5,125.6 L2309.1,109.5 L2314.5,117.7 L2325.1,107.9 L2330.4,119.0 L2334.3,115.9 L2340.0,109.0 L2350.4,104.0 L2359.4,104.4 L2369.0,104.1 L2379.4,102.5 L2385.7,98.6 L2395.0,105.5 L2400,220 Z"/>
+      <path class="tear__paper" d="M0,220 L0,171.1 L0.0,173.8 L8.0,167.4 L11.1,170.5 L16.2,167.1 L27.2,164.1 L36.8,162.1 L45.0,156.8 L53.0,159.2 L60.2,156.6 L68.6,151.1 L77.7,154.8 L83.1,149.7 L93.0,151.0 L101.7,152.9 L110.5,149.9 L116.6,152.4 L123.2,149.9 L133.2,143.8 L137.3,146.8 L148.0,150.6 L156.0,148.6 L163.1,151.7 L168.9,152.0 L176.6,158.8 L185.0,157.5 L194.9,159.3 L203.2,154.6 L213.1,162.7 L223.4,161.0 L232.1,156.4 L241.7,158.3 L247.0,155.4 L256.8,158.5 L260.5,158.6 L266.8,155.6 L272.2,159.0 L282.2,149.2 L290.1,152.2 L298.8,150.7 L308.9,157.1 L315.9,153.4 L321.4,145.7 L329.2,146.5 L333.8,150.6 L341.7,146.3 L345.0,153.4 L350.5,153.3 L360.7,147.8 L367.4,148.9 L375.5,151.2 L383.0,151.6 L393.5,152.0 L400.0,155.9 L404.9,154.8 L415.7,156.5 L423.1,151.8 L429.4,157.1 L432.6,158.5 L440.6,156.7 L448.6,157.9 L457.1,157.3 L465.7,161.3 L468.9,156.3 L477.3,161.0 L482.3,159.6 L490.1,159.7 L496.0,156.8 L501.9,158.7 L507.3,156.5 L516.5,151.9 L524.1,155.1 L529.5,147.4 L539.0,145.6 L543.5,142.7 L552.1,141.1 L557.6,138.2 L567.3,135.9 L577.1,132.6 L582.8,131.0 L592.9,125.9 L597.7,125.3 L605.0,122.6 L614.4,122.1 L618.9,116.9 L628.3,119.1 L637.8,113.7 L641.8,116.9 L651.2,112.2 L656.9,113.1 L663.3,112.9 L673.7,110.8 L676.7,115.7 L686.7,116.2 L693.2,115.5 L703.6,108.3 L712.6,109.8 L720.9,110.9 L726.2,107.4 L731.0,101.6 L738.7,103.4 L748.2,101.2 L758.5,104.4 L768.8,98.4 L779.0,92.8 L782.2,95.4 L786.5,90.7 L794.8,92.0 L801.1,92.6 L809.0,83.6 L814.1,86.2 L820.9,84.6 L826.7,80.5 L834.0,79.8 L838.3,79.7 L848.7,76.5 L858.3,72.5 L866.3,74.8 L869.7,75.1 L874.9,74.8 L881.3,74.8 L890.5,69.7 L893.9,71.6 L897.9,72.9 L908.7,82.0 L912.4,78.7 L917.9,77.2 L923.7,84.3 L931.4,82.6 L936.0,82.8 L939.9,83.8 L948.7,85.3 L952.3,87.9 L958.3,88.6 L967.6,91.4 L977.0,95.8 L983.4,94.1 L990.4,99.8 L996.8,101.6 L1003.4,99.3 L1010.7,102.8 L1014.3,98.6 L1020.7,101.7 L1031.2,100.8 L1041.4,103.6 L1046.5,100.9 L1050.5,106.8 L1058.8,104.2 L1068.1,105.9 L1077.0,105.9 L1080.8,102.1 L1083.8,103.0 L1093.0,100.1 L1096.8,99.8 L1106.8,101.0 L1110.0,105.2 L1114.0,108.0 L1122.4,108.4 L1133.0,110.7 L1142.4,108.7 L1151.5,110.2 L1160.2,111.3 L1169.2,119.5 L1172.7,115.1 L1180.2,121.1 L1185.2,118.1 L1190.2,124.7 L1199.2,123.9 L1205.1,124.4 L1210.9,126.6 L1214.6,129.1 L1225.4,131.5 L1234.4,129.7 L1242.9,137.3 L1251.3,134.1 L1258.1,137.6 L1268.3,134.0 L1272.1,135.9 L1282.4,136.7 L1289.0,135.7 L1293.5,132.8 L1298.0,134.7 L1303.6,131.6 L1312.1,134.3 L1317.5,129.8 L1323.8,133.3 L1331.4,128.2 L1336.2,123.8 L1343.0,125.6 L1347.4,123.2 L1353.0,128.4 L1357.1,128.3 L1364.0,122.4 L1370.7,126.3 L1380.3,124.6 L1387.1,122.3 L1397.0,123.3 L1405.8,125.0 L1412.6,118.8 L1417.5,125.4 L1425.9,126.1 L1435.7,124.4 L1440.2,124.5 L1444.7,126.0 L1454.6,131.1 L1459.6,133.3 L1465.1,129.3 L1474.0,128.7 L1477.7,136.1 L1483.0,131.5 L1490.7,135.0 L1493.7,133.4 L1500.2,136.4 L1504.9,134.4 L1515.5,133.3 L1522.9,135.0 L1528.1,137.9 L1532.0,138.3 L1542.3,135.6 L1552.8,137.2 L1562.0,137.8 L1567.3,139.2 L1575.6,139.0 L1580.7,138.0 L1591.4,134.8 L1598.7,129.4 L1605.6,134.5 L1614.4,137.4 L1621.9,132.5 L1630.1,137.2 L1634.5,140.0 L1642.8,134.5 L1653.2,139.1 L1658.9,143.9 L1666.6,144.0 L1674.8,144.5 L1680.3,146.7 L1683.9,150.5 L1692.9,154.7 L1701.8,154.0 L1706.9,157.3 L1716.9,157.8 L1724.0,163.0 L1733.1,168.0 L1738.8,168.0 L1746.1,172.7 L1751.9,177.2 L1755.8,172.9 L1759.6,174.3 L1768.9,179.1 L1773.3,176.0 L1779.7,183.2 L1789.2,186.5 L1796.9,182.8 L1803.1,181.8 L1810.3,184.1 L1815.0,180.3 L1824.2,179.8 L1833.6,185.8 L1844.2,185.0 L1851.7,181.9 L1859.7,188.4 L1868.2,181.0 L1878.1,181.7 L1885.9,182.5 L1888.9,186.3 L1897.2,180.5 L1904.4,182.4 L1909.0,182.8 L1912.3,181.2 L1920.4,181.4 L1927.9,189.5 L1938.1,183.7 L1947.4,187.7 L1950.8,187.1 L1955.7,181.6 L1963.0,191.3 L1968.6,191.6 L1977.1,184.5 L1987.0,189.4 L1997.4,192.9 L2006.3,186.8 L2015.8,192.4 L2025.7,184.7 L2034.7,186.0 L2038.6,180.1 L2042.2,181.5 L2046.5,181.9 L2055.1,182.3 L2061.5,180.4 L2066.9,176.1 L2076.0,173.4 L2080.4,173.9 L2089.2,168.7 L2095.2,164.7 L2102.9,161.0 L2106.0,159.9 L2115.2,154.9 L2121.9,151.0 L2126.6,149.8 L2132.8,150.0 L2136.0,146.4 L2140.4,150.5 L2143.9,144.9 L2150.4,148.0 L2159.1,142.9 L2165.3,143.4 L2168.5,145.0 L2173.3,136.5 L2180.1,138.6 L2188.0,139.9 L2192.0,138.3 L2200.8,135.7 L2210.1,136.5 L2220.6,139.2 L2225.6,137.7 L2235.1,139.0 L2240.9,136.5 L2249.3,139.6 L2257.1,134.7 L2260.3,135.8 L2264.7,134.9 L2268.1,136.9 L2278.3,132.9 L2289.1,136.3 L2298.5,139.5 L2309.1,128.0 L2314.5,130.4 L2325.1,125.2 L2330.4,133.0 L2334.3,127.0 L2340.0,128.1 L2350.4,125.1 L2359.4,125.3 L2369.0,120.6 L2379.4,119.8 L2385.7,114.5 L2395.0,116.7 L2400,220 Z"/>
+    </svg></div>
+  <div class="ftr__cta">
+    <h2 class="ftr__h"><span class="swash">L</span>et&rsquo;s build something worth finding.</h2>
+    <div class="ftr__btns"><a class="ihb ihb--auto ihb--big" href="/contact"><span class="ihb__t">Start a conversation</span><span class="ihb__in" aria-hidden="true"><span>Start a conversation</span><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ihb__dot" aria-hidden="true"></span></a><a class="chip" href="/get-started#review">Get a free website review<span class="chip__ar">&nearr;</span></a></div>
   </div>
-
-  <div aria-hidden="true" class="pointer-events-none relative z-10 mt-16 select-none overflow-hidden">
-    <div class="watermark whitespace-nowrap text-center font-semibold leading-none tracking-tighter text-white/[0.06]">summit</div>
-  </div>
-
-  <div class="relative z-10 border-t border-white/10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-10 lg:px-16">
-      
-      <p>© 2026 summit studios. All rights reserved.</p>
-    </div>
+  <nav class="ftr__cols" aria-label="Footer">
+    <div><p class="ftr__t">Services</p><a href="/#websites">Websites</a><a href="/#growth">Growth Marketing</a><a href="/#receptionists">AI Concierge</a><a href="/#more">WhatsApp Automation</a><a href="/#more">Custom Software</a></div>
+    <div><p class="ftr__t">Studio</p><a href="/industries">Industries</a><a href="/projects">Projects</a><a href="/studio">About</a><a href="/contact">Get a quote</a></div>
+    <div><p class="ftr__t">Talk to us</p><a href="/get-started">Get started</a><a href="/contact">Contact</a><a href="mailto:team@summitxstudio.com">team@summitxstudio.com</a></div>
+    <div><p class="ftr__t">Worldwide</p><p class="ftr__note">Working with clients across time zones. Local time <span data-clock>--:--</span>.</p></div>
+  </nav>
+  <div class="ftr__base">
+    <div class="ftr__mark" data-halftone><p class="ftr__word" aria-hidden="true">Summit Studios</p><canvas class="ftr__dots" aria-hidden="true"></canvas></div>
+    <div class="ftr__legal"><span>&copy; 2026 Summit Studios</span><a href="#top">Back to top &uarr;</a></div>
   </div>
 </footer>
-
-<!-- ===================== SCRIPTS ===================== -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>
-/* ---------- Draggable, self-scrolling rails ---------- */
-/* Any [data-rail] gets a track that scrolls on its own, pauses under the       */
-/* pointer, and can be dragged. Content is cloned once so the loop never ends.  */
-function initRail(rail) {
-  var track = rail.firstElementChild;
-  if (!track || track.dataset.railReady) return;
-  track.dataset.railReady = '1';
-
-  // Clone the set so scrolling can wrap without a visible jump.
-  var originals = Array.prototype.slice.call(track.children);
-  originals.forEach(function (node) {
-    var copy = node.cloneNode(true);
-    copy.setAttribute('aria-hidden', 'true');
-    copy.setAttribute('tabindex', '-1');
-    track.appendChild(copy);
-  });
-
-  var speed = parseFloat(rail.getAttribute('data-speed') || '0.4');
-  var paused = false, dragging = false, startX = 0, startLeft = 0, moved = 0;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function half() { return track.scrollWidth / 2; }
-  function wrap() {
-    var h = half();
-    if (!h) return;
-    if (rail.scrollLeft >= h) rail.scrollLeft -= h;
-    else if (rail.scrollLeft <= 0) rail.scrollLeft += h;
-  }
-
-  (function tick() {
-    if (!paused && !dragging && !reduce) { rail.scrollLeft += speed; wrap(); }
-    requestAnimationFrame(tick);
-  })();
-
-  rail.addEventListener('pointerenter', function () { paused = true; });
-  rail.addEventListener('pointerleave', function () { paused = false; });
-  rail.addEventListener('touchstart', function () { paused = true; }, { passive: true });
-  rail.addEventListener('touchend', function () { paused = false; }, { passive: true });
-
-  // Mouse drag. Touch keeps the browser's own momentum scrolling.
-  rail.addEventListener('pointerdown', function (e) {
-    if (e.pointerType !== 'mouse') return;
-    dragging = true; moved = 0;
-    startX = e.clientX; startLeft = rail.scrollLeft;
-    rail.classList.add('is-dragging');
-    try { rail.setPointerCapture(e.pointerId); } catch (err) {}
-  });
-  rail.addEventListener('pointermove', function (e) {
-    if (!dragging) return;
-    var dx = e.clientX - startX;
-    if (Math.abs(dx) > moved) moved = Math.abs(dx);
-    rail.scrollLeft = startLeft - dx;
-    wrap();
-  });
-  function endDrag(e) {
-    if (!dragging) return;
-    dragging = false;
-    rail.classList.remove('is-dragging');
-    try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
-  }
-  rail.addEventListener('pointerup', endDrag);
-  rail.addEventListener('pointercancel', endDrag);
-
-  // A drag that ends on a link should not open it.
-  rail.addEventListener('click', function (e) {
-    if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
-  }, true);
-}
-document.querySelectorAll('[data-rail]').forEach(initRail);
-
-/* ---------- Icons ---------- */
-if (window.lucide) lucide.createIcons();
-
-/* ---------- Sticky header bg on scroll ---------- */
-(function () {
-  var header = document.getElementById('site-header');
-  function onScroll() {
-    if (window.scrollY > 16) {
-      header.classList.add('scrolled', 'border-b', 'border-white/10', 'bg-black/80', 'backdrop-blur-md');
-    } else {
-      header.classList.remove('scrolled', 'border-b', 'border-white/10', 'bg-black/80', 'backdrop-blur-md');
-    }
-  }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-})();
-
-/* ---------- Mobile menu ---------- */
-(function () {
-  var btn = document.getElementById('menu-toggle');
-  var menu = document.getElementById('mobile-menu');
-  var menuIcon = btn.querySelector('.menu-icon');
-  var closeIcon = btn.querySelector('.close-icon');
-  var open = false;
-  function setOpen(v) {
-    open = v;
-    btn.setAttribute('aria-expanded', String(v));
-    btn.setAttribute('aria-label', v ? 'Close menu' : 'Open menu');
-    document.body.style.overflow = v ? 'hidden' : '';
-    if (menuIcon) menuIcon.classList.toggle('hidden', v);
-    if (closeIcon) closeIcon.classList.toggle('hidden', !v);
-    if (v) {
-      menu.classList.remove('pointer-events-none', '-translate-y-2', 'opacity-0');
-      menu.classList.add('translate-y-0', 'opacity-100');
-    } else {
-      menu.classList.add('pointer-events-none', '-translate-y-2', 'opacity-0');
-      menu.classList.remove('translate-y-0', 'opacity-100');
-    }
-  }
-  btn.addEventListener('click', function () { setOpen(!open); });
-  document.querySelectorAll('.mobile-link').forEach(function (a) {
-    a.addEventListener('click', function () { setOpen(false); });
-  });
-})();
-
-/* ---------- Mobile detection (for shader perf caps) ---------- */
-var IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
-var DPR_CAP = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
-
-/* ---------- FOOTER: flow-field particles (Canvas 2D) ---------- */
-(function () {
-  var canvas = document.getElementById('footer-flow');
-  var container = document.getElementById('site-footer');
-  if (!canvas || !container) return;
-  var ctx = canvas.getContext('2d');
-  if (!ctx) return;
-
-  var color = '#818cf8', trailOpacity = 0.1, speed = 0.8;
-  var particleCount = IS_MOBILE ? 300 : 600;
-  var width = container.clientWidth, height = container.clientHeight;
-  var particles = [], mouse = { x: -1000, y: -1000 }, raf;
-
-  function Particle() { this.reset(); }
-  Particle.prototype.reset = function () {
-    this.x = Math.random() * width; this.y = Math.random() * height;
-    this.vx = 0; this.vy = 0; this.age = 0; this.life = Math.random() * 200 + 100;
-  };
-  Particle.prototype.update = function () {
-    var angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
-    this.vx += Math.cos(angle) * 0.2 * speed;
-    this.vy += Math.sin(angle) * 0.2 * speed;
-    var dx = mouse.x - this.x, dy = mouse.y - this.y;
-    var dist = Math.sqrt(dx * dx + dy * dy), r = 150;
-    if (dist < r) { var f = (r - dist) / r; this.vx -= dx * f * 0.05; this.vy -= dy * f * 0.05; }
-    this.x += this.vx; this.y += this.vy; this.vx *= 0.95; this.vy *= 0.95;
-    this.age++; if (this.age > this.life) this.reset();
-    if (this.x < 0) this.x = width; if (this.x > width) this.x = 0;
-    if (this.y < 0) this.y = height; if (this.y > height) this.y = 0;
-  };
-  Particle.prototype.draw = function () {
-    ctx.fillStyle = color;
-    ctx.globalAlpha = 1 - Math.abs((this.age / this.life) - 0.5) * 2;
-    ctx.fillRect(this.x, this.y, 1.5, 1.5);
-  };
-  function init() {
-    var dpr = DPR_CAP;
-    canvas.width = width * dpr; canvas.height = height * dpr;
-    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.scale(dpr, dpr);
-    canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
-    particles = []; for (var i = 0; i < particleCount; i++) particles.push(new Particle());
-  }
-  function animate() {
-    ctx.fillStyle = 'rgba(0,0,0,' + trailOpacity + ')';
-    ctx.fillRect(0, 0, width, height);
-    for (var i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); }
-    raf = requestAnimationFrame(animate);
-  }
-  window.addEventListener('resize', function () { width = container.clientWidth; height = container.clientHeight; init(); });
-  container.addEventListener('mousemove', function (e) { var rc = canvas.getBoundingClientRect(); mouse.x = e.clientX - rc.left; mouse.y = e.clientY - rc.top; });
-  container.addEventListener('mouseleave', function () { mouse.x = -1000; mouse.y = -1000; });
-  init(); animate();
-})();
-
-/* ---------- PAGE-WIDE IRIDESCENCE: one continuous motion behind all middle sections ---------- */
-/* Cosine-palette flow shader, recolored to match the hero video's black -> indigo ->    */
-/* violet -> lavender-highlight palette. Rendered to a single fixed full-viewport canvas. */
-(function () {
-  var canvas = document.getElementById('page-shader');
-  if (!canvas) return;
-  var gl = canvas.getContext('webgl');
-  if (!gl) return;
-
-  var uAmplitude = 0.12, uSpeed = 0.55;
-  var mousePos = { x: 0.5, y: 0.5 };
-
-  var vsrc = 'attribute vec2 aPosition; varying vec2 vUv; void main(){ vUv = aPosition * 0.5 + 0.5; gl_Position = vec4(aPosition,0.0,1.0); }';
-  var fsrc = [
-    'precision highp float;',
-    'uniform float uTime; uniform vec3 uResolution; uniform vec2 uMouse;',
-    'uniform float uAmplitude; uniform float uSpeed;',
-    'varying vec2 vUv;',
-    'void main(){',
-    '  float mr = min(uResolution.x, uResolution.y);',
-    '  vec2 uv = (vUv.xy * 2.0 - 1.0) * uResolution.xy / mr;',
-    '  uv += (uMouse - vec2(0.5)) * uAmplitude;',
-    '  float d = -uTime * 0.5 * uSpeed;',
-    '  float a = 0.0;',
-    '  for (float i = 0.0; i < 8.0; ++i) {',
-    '    a += cos(i - d - a * uv.x);',
-    '    d += sin(uv.y * i + a);',
-    '  }',
-    '  d += uTime * 0.5 * uSpeed;',
-    '  float t = cos(d * 0.7 + a * 0.3) * 0.5 + 0.5;',
-    '  vec3 c0 = vec3(0.004, 0.0, 0.02);',
-    '  vec3 c1 = vec3(0.11, 0.09, 0.30);',
-    '  vec3 c2 = vec3(0.48, 0.19, 0.66);',
-    '  vec3 c3 = vec3(0.59, 0.22, 0.78);',
-    '  vec3 c4 = vec3(0.94, 0.93, 0.99);',
-    '  vec3 col = mix(c0, c1, smoothstep(0.0, 0.35, t));',
-    '  col = mix(col, c2, smoothstep(0.3, 0.65, t));',
-    '  col = mix(col, c3, smoothstep(0.6, 0.85, t));',
-    '  col = mix(col, c4, smoothstep(0.88, 1.0, t));',
-    '  gl_FragColor = vec4(col, 1.0);',
-    '}'
-  ].join('\n');
-
-  function compile(src, type) {
-    var sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh);
-    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) { console.error(gl.getShaderInfoLog(sh)); return null; }
-    return sh;
-  }
-  var vs = compile(vsrc, gl.VERTEX_SHADER), fs = compile(fsrc, gl.FRAGMENT_SHADER);
-  if (!vs || !fs) return;
-  var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.error(gl.getProgramInfoLog(prog)); return; }
-  gl.useProgram(prog);
-
-  var verts = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
-  var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
-  var aPos = gl.getAttribLocation(prog, 'aPosition'); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-  var uRes = gl.getUniformLocation(prog, 'uResolution'), uTime = gl.getUniformLocation(prog, 'uTime'), uMouse = gl.getUniformLocation(prog, 'uMouse');
-  var uAmp = gl.getUniformLocation(prog, 'uAmplitude'), uSpd = gl.getUniformLocation(prog, 'uSpeed');
-
-  var start = performance.now();
-  window.addEventListener('mousemove', function (e) {
-    mousePos = { x: e.clientX / window.innerWidth, y: 1.0 - e.clientY / window.innerHeight };
-  });
-  function resize() {
-    canvas.width = Math.floor(window.innerWidth * DPR_CAP);
-    canvas.height = Math.floor(window.innerHeight * DPR_CAP);
-    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-    gl.uniform3f(uRes, gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height);
-  }
-  window.addEventListener('resize', resize); resize();
-  gl.uniform1f(uAmp, uAmplitude);
-  gl.uniform1f(uSpd, uSpeed);
-  (function loop() {
-    if (!gl || gl.isContextLost()) return;
-    gl.uniform1f(uTime, (performance.now() - start) / 1000.0);
-    gl.uniform2f(uMouse, mousePos.x, mousePos.y);
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
-    requestAnimationFrame(loop);
-  })();
-})();
-</script>
-
-<!-- ---------- Testimonials (scrolling columns) ---------- -->
-<script>
-(function () {
-  var col1 = document.getElementById('testi-col-1');
-  var col2 = document.getElementById('testi-col-2');
-  var col3 = document.getElementById('testi-col-3');
-  if (!col1) return;
-
-  var data = [
-    { q: "Really appreciate the effort and patience your team showed, especially with all the revisions. Professional throughout.", name: "Dr. Shravan Shetty", role: "Orthodontist", img: "images/favicons/drshravanshetty.png" },
-    { q: "Thank you for your meticulous work. Genuinely nice having you do the job.", name: "Dr. Shannon Fernandes", role: "Gynaecologist", img: "images/favicons/drshannonfernandes.png" },
-    { q: "They understood what we needed without much back and forth. Clean, professional, and our patients find it easy to use.", name: "Dr. Dheeraj", role: "Founder, Rivelin Aligners", img: "images/favicons/rivelinaligners.png" },
-    { q: "Got exactly what I asked for, no unnecessary complications. Easy to work with and delivered on time.", name: "Dr. Joylene D'Almeida", role: "Obstetrician & Gynaecologist", img: "images/favicons/drjoylenegynaec.png" },
-    { q: "Quick, reliable, and they didn't make me chase them for updates. The final result looked better than I expected.", name: "Dr. Mariam Anjum Iftikhar", role: "Gynaec-Oncologist & Robotic Surgeon", img: "images/favicons/drmariumanjumiftikhar.png" },
-    { q: "Clean work, fast turnaround. They kept things simple and the end result speaks for itself.", name: "Dr. Vivian R D'Almeida", role: "Orthopaedic Surgeon", img: "images/favicons/drvivianortho.png" },
-    { q: "We needed a team that could keep up with our pace and actually deliver. They did, no drama.", name: "Prasanna Technologies", role: "Software Firm", img: "images/favicons/prasannatechnologies.png" }
-  ];
-
-  // On phones only column 1 is visible, so show every testimonial there.
-  // On larger screens, spread them across the three scrolling columns.
-  var isMobile = window.matchMedia('(max-width: 767px)').matches;
-  var columns = isMobile
-    ? [ { el: col1, items: data, duration: 36 } ]
-    : [
-        { el: col1, items: data.slice(0, 3), duration: 15 },
-        { el: col2, items: data.slice(3, 5), duration: 19 },
-        { el: col3, items: data.slice(5, 7), duration: 17 }
-      ];
-
-  function buildCard(t) {
-    var card = document.createElement('div');
-    card.className = 'w-full max-w-xs rounded-3xl border border-white/10 bg-white/[0.04] p-10 shadow-lg shadow-black/30 backdrop-blur-sm';
-
-    var quote = document.createElement('div');
-    quote.className = 'text-[15px] font-light leading-relaxed text-white/85';
-    quote.textContent = t.q;
-    card.appendChild(quote);
-
-    var foot = document.createElement('div');
-    foot.className = 'mt-5 flex items-center gap-2';
-    var img = document.createElement('img');
-    img.src = t.img; img.alt = t.name; img.width = 40; img.height = 40; img.loading = 'lazy';
-    img.className = 'h-10 w-10 rounded-full object-cover';
-    foot.appendChild(img);
-
-    var who = document.createElement('div');
-    who.className = 'flex flex-col';
-    var name = document.createElement('div');
-    name.className = 'font-medium leading-5 tracking-tight text-white';
-    name.textContent = t.name;
-    var role = document.createElement('div');
-    role.className = 'leading-5 tracking-tight text-white/60';
-    role.textContent = t.role;
-    who.appendChild(name); who.appendChild(role);
-    foot.appendChild(who);
-    card.appendChild(foot);
-    return card;
-  }
-
-  columns.forEach(function (col) {
-    if (!col.el || !col.items.length) return;
-    var track = document.createElement('div');
-    track.className = 'testi-track flex flex-col gap-6 pb-6';
-    track.style.animationDuration = col.duration + 's';
-    // Two copies so the -50% loop is seamless.
-    for (var pass = 0; pass < 2; pass++) {
-      col.items.forEach(function (t) { track.appendChild(buildCard(t)); });
-    }
-    col.el.appendChild(track);
-  });
-})();
-</script>
+<svg class="sr" width="0" height="0" aria-hidden="true" focusable="false"><filter id="bar-rough" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="3" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter><defs><image id="pt-m" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0042' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .29 0 0 0 0 .14 .9 0 0 0 -.38'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E" width="720" height="720" preserveAspectRatio="none"/><image id="pt-g2" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='1' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 0 0.28'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E" width="180" height="180" preserveAspectRatio="none"/><image id="pt-g1" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .25' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 0 0.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E" width="240" height="240" preserveAspectRatio="none"/></defs><pattern id="grain-bg" patternUnits="userSpaceOnUse" width="720" height="720"><rect width="720" height="720" fill="#DCDCD0"/><use href="#pt-m"/><use href="#pt-g2" x="0" y="0"/><use href="#pt-g2" x="180" y="0"/><use href="#pt-g2" x="360" y="0"/><use href="#pt-g2" x="540" y="0"/><use href="#pt-g2" x="0" y="180"/><use href="#pt-g2" x="180" y="180"/><use href="#pt-g2" x="360" y="180"/><use href="#pt-g2" x="540" y="180"/><use href="#pt-g2" x="0" y="360"/><use href="#pt-g2" x="180" y="360"/><use href="#pt-g2" x="360" y="360"/><use href="#pt-g2" x="540" y="360"/><use href="#pt-g2" x="0" y="540"/><use href="#pt-g2" x="180" y="540"/><use href="#pt-g2" x="360" y="540"/><use href="#pt-g2" x="540" y="540"/><use href="#pt-g1" x="0" y="0"/><use href="#pt-g1" x="240" y="0"/><use href="#pt-g1" x="480" y="0"/><use href="#pt-g1" x="0" y="240"/><use href="#pt-g1" x="240" y="240"/><use href="#pt-g1" x="480" y="240"/><use href="#pt-g1" x="0" y="480"/><use href="#pt-g1" x="240" y="480"/><use href="#pt-g1" x="480" y="480"/></pattern><pattern id="grain-parch" patternUnits="userSpaceOnUse" width="720" height="720"><rect width="720" height="720" fill="#ECE3CD"/><use href="#pt-m"/><use href="#pt-g2" x="0" y="0"/><use href="#pt-g2" x="180" y="0"/><use href="#pt-g2" x="360" y="0"/><use href="#pt-g2" x="540" y="0"/><use href="#pt-g2" x="0" y="180"/><use href="#pt-g2" x="180" y="180"/><use href="#pt-g2" x="360" y="180"/><use href="#pt-g2" x="540" y="180"/><use href="#pt-g2" x="0" y="360"/><use href="#pt-g2" x="180" y="360"/><use href="#pt-g2" x="360" y="360"/><use href="#pt-g2" x="540" y="360"/><use href="#pt-g2" x="0" y="540"/><use href="#pt-g2" x="180" y="540"/><use href="#pt-g2" x="360" y="540"/><use href="#pt-g2" x="540" y="540"/><use href="#pt-g1" x="0" y="0"/><use href="#pt-g1" x="240" y="0"/><use href="#pt-g1" x="480" y="0"/><use href="#pt-g1" x="0" y="240"/><use href="#pt-g1" x="240" y="240"/><use href="#pt-g1" x="480" y="240"/><use href="#pt-g1" x="0" y="480"/><use href="#pt-g1" x="240" y="480"/><use href="#pt-g1" x="480" y="480"/></pattern><pattern id="grain-wall" patternUnits="userSpaceOnUse" width="720" height="720"><rect width="720" height="720" fill="#F1EFE9"/></pattern></svg>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="assets/js/main.js?v=35855681" defer></script>
+<script src="assets/js/motion.js?v=d2e0f827" defer></script>
 </body>
 </html>
