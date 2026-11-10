@@ -20,12 +20,7 @@
   ],
   "redirects": [
     {
-      "source": "/for/:code",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/for",
+      "source": "/for/summitdove",
       "destination": "/",
       "permanent": false
     },
