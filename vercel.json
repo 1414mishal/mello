@@ -20,6 +20,16 @@
   ],
   "redirects": [
     {
+      "source": "/for/:code",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/for",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/services",
       "destination": "/",
       "permanent": true
